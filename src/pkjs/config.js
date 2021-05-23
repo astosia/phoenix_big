@@ -11,6 +11,25 @@ module.exports = [
         "type": "heading",
         "defaultValue": "Theme settings"
       },
+      {
+          "type": "toggle",
+          "messageKey": "HealthOff",
+          "label": "Switch off Steps",
+          "defaultValue": true,
+          "capabilities":["HEALTH"]
+        },
+        {
+          "type": "toggle",
+          "messageKey": "AddZero12h",
+          "label": "Add leading zero to 12h time",
+          "defaultValue": false
+        },
+        {
+          "type": "toggle",
+          "messageKey": "RemoveZero24h",
+          "label": "Remove leading zero from 24h time",
+          "defaultValue": false
+        },
   /*    {
         "type":"toggle",
         "messageKey":"Rotate",
@@ -83,7 +102,7 @@ module.exports = [
         "defaultValue": "0xFFFFFF",
         "label": "Steps Colour",
         "allowGray":true,
-        "capabilities":["BW"]
+        "capabilities":["HEALTH"]
       },
       {
         "type": "color",
@@ -183,10 +202,10 @@ module.exports = [
       {
         "type": "color",
         "messageKey": "Text1ColorN",
-        "defaultValue": "0xFFFFFF",
+        "defaultValue": "0x000000",
         "label": "Steps Colour",
         "allowGray":true,
-        "capabilities":["BW", "HEALTH"]
+        "capabilities":["HEALTH"]
       },
          {
            "type": "color",
@@ -216,6 +235,25 @@ module.exports = [
         "label":"Moon Colour",
         "allowGray":true
       },
+      {
+         "type": "input",
+         "messageKey": "Lat",
+         "defaultValue": "",
+         "label": "Manual Location - Latitude",
+         "attributes": {
+         "placeholder": "eg: 51.4962"
+         }
+       },
+       {
+          "type": "input",
+          "messageKey": "Long",
+          "defaultValue": "",
+          "label": "Manual Location - Longitude",
+          "description": "Leave both blank to use GPS location for sunrise & sunset times. You can use <a href =https://www.google.com/maps>Google Maps</a> or <a href =https://www.openstreetmap.org/>OpenStreetMap</a> to find latitude & longitude.",
+          "attributes": {
+            "placeholder": "eg: -0.0989"
+          }
+        },
        ]
          }
        ]

@@ -264,9 +264,20 @@ var xhrRequest = function (url, type, callback) {
 
 function suncalcinfo (pos){
     //suncalc stuff
-  var lat=pos.coords.latitude;
-  var lon= pos.coords.longitude;
+
   var settings = JSON.parse(localStorage.getItem('clay-settings')) || {};
+  var manuallat = settings.Lat;
+  var manuallong = settings.Long;
+  if(manuallat !== null && manuallat !== '' && manuallong !== null && manuallong !== '' ){
+    var lat= manuallat;
+    var lon= manuallong;
+  }
+  else {
+    var lat=pos.coords.latitude;
+    var lon= pos.coords.longitude;
+  }
+  //var lat=pos.coords.latitude;
+  //var lon= pos.coords.longitude;
         var d = new Date();
         var sunTimes = SunCalc.getTimes(d, lat, lon);
         var sunsetraw = sunTimes.sunset.toTimeString().split(' ')[0];
@@ -276,25 +287,48 @@ function suncalcinfo (pos){
         var sunsetStr = String(sunsetStrhr + ":" + sunsetStrmin);
         var sunriseStrhr = ('0'+sunTimes.sunrise.getHours()).substr(-2);
         var sunriseStrmin = ('0'+sunTimes.sunrise.getMinutes()).substr(-2);
+        var sunriseint = sunTimes.sunrise.getHours()*100+sunTimes.sunrise.getMinutes();
+        var sunsetint = sunTimes.sunset.getHours()*100+sunTimes.sunset.getMinutes();
+        //var sunsetint= String((sunsetStrhr*1) + sunsetStrmin);
+        //var sunriseint= String((sunriseStrhr*1) + sunriseStrmin);
         var sunriseStr = String(sunriseStrhr + ":" + sunriseStrmin);
-       var moonmetrics = SunCalc.getMoonIllumination(d);
-     var moonphase = Math.round(moonmetrics.phase*28);
+        var sunsetStrhr12 = parseInt(sunTimes.sunset.getHours());
+        var sunriseStrhr12 = parseInt(sunTimes.sunrise.getHours());
+        if(sunsetStrhr12 > 12 ){
+          var sunsetStr12h = String (sunsetStrhr12 - 12 + ":" + sunsetStrmin);// +"pm");
+          }
+        else{
+          var sunsetStr12h = String (sunsetStrhr12  + ":" + sunsetStrmin);// + "am");
+          }
+        if(sunriseStrhr > 12 ){
+          var sunriseStr12h = String(sunriseStrhr12 - 12 + ":" + sunriseStrmin);// +"pm");
+          }
+        else{
+          var sunriseStr12h = String(sunriseStrhr12  + ":" + sunriseStrmin);// + "am");
+          }
+
+        var moonmetrics = SunCalc.getMoonIllumination(d);
+        var moonphase = Math.round(moonmetrics.phase*28);
    localStorage.setItem("OKAPI", 1);
     console.log("OK API");
     console.log(moonphase);
+    console.log(d);
+    console.log(lat);
+    console.log(lon);
     console.log(sunsetStr);
     console.log(sunriseStr);
-    console.log(sunsetraw);
-    console.log(sunriseraw);
-
+    console.log(sunriseint);
+    console.log(sunsetint);
 //    console.log(rightlefts);
     // Assemble dictionary
     var dictionary = {
+      "HourSunrise":sunriseint,
+      "HourSunset":sunsetint,
       "WEATHER_SUNSET_KEY":sunsetStr,
       "WEATHER_SUNRISE_KEY":sunriseStr,
+      "WEATHER_SUNSET_KEY_12H":sunsetStr12h,
+      "WEATHER_SUNRISE_KEY_12H":sunriseStr12h,
       "MoonPhase": moonphase,
-      "HourSunrise":sunriseraw,
-      "HourSunset":sunsetraw,
     };
     // Send to Pebble
     Pebble.sendAppMessage(dictionary,function(e) {console.log("Suncalc stuff sent to Pebble successfully!");},
@@ -302,47 +336,60 @@ function suncalcinfo (pos){
                                     );
   }
 
-// Request for WU
-
 // Request for DarkSky
 
 // Request for OWM
 
+function locationError(err) {
+  console.log("Error requesting geolocation!");
+  //Send response null
+  var location="";
+  // Assemble dictionary using our keys
+  var dictionary = {
+    "NameLocation": location};
+  Pebble.sendAppMessage(dictionary,
+                        function(e) {
+                          console.log("Null key sent to Pebble successfully!");
+                        },
+                        function(e) {
+                          console.log("Null key error sending to Pebble!");
+                        }
+                       );
+}
 
-
+function getinfo() {
   // Get keys from pmkey
-
-  function locationError(err) {
-    console.log("Error requesting geolocation!");
-    //Send response null
-    var location="";
-    // Assemble dictionary using our keys
-    var dictionary = {
-      "NameLocation": location};
-    Pebble.sendAppMessage(dictionary,
-                          function(e) {
-                            console.log("Null key sent to Pebble successfully!");
-                          },
-                          function(e) {
-                            console.log("Null key error sending to Pebble!");
-                          }
-                         );
-  }
-  function getinfo() {var settings4 = JSON.parse(localStorage.getItem('clay-settings')) || {};
-
-    navigator.geolocation.getCurrentPosition(
+  var settings4 = JSON.parse(localStorage.getItem('clay-settings')) || {};
+  var manuallat = settings4.Lat;
+  var manuallong = settings4.Long;
+  console.log("Ready from getinfo");
+  if(manuallat != null && manuallat != '' && manuallong != null && manuallong != '' ){
+      console.log(manuallat);
+      console.log(manuallong);
+      suncalcinfo();
+      }
+  else {
+      navigator.geolocation.getCurrentPosition(
       suncalcinfo,
       locationError,
       {enableHighAccuracy:true,timeout: 15000, maximumAge: 1000}
     );
-}
+    navigator.geolocation.getCurrentPosition(
+    suncalcinfo,
+    locationError,
+    {enableHighAccuracy:true,timeout: 15000, maximumAge: 1000}
+  );
+    }
+  }
+
+
 // Listen for when the watchface is opened
 Pebble.addEventListener('ready',
                         function(e) {
                           console.log("Starting Watchface!");
                           localStorage.setItem("OKAPI", 0);
                           //get suncalc
-                        //  suncalcinfo();
+                          //suncalcinfo();
                           // Get the initial weather
                           getinfo();
                         }
@@ -351,7 +398,7 @@ Pebble.addEventListener('ready',
 Pebble.addEventListener('appmessage',
                         function(e) {
                           console.log("Requesting geoposition!");
-                         // suncalcinfo();
+                        //  suncalcinfo();
                           getinfo();
                         }
                        );
@@ -359,11 +406,10 @@ Pebble.addEventListener('appmessage',
 Pebble.addEventListener('webviewclosed',
                         function(e) {
                           console.log("Updating config!");
-                         // suncalcinfo();
+                          //suncalcinfo();
                           getinfo();
                         }
                        );
-
 
 
 //functions and mappings
@@ -373,3 +419,74 @@ Pebble.addEventListener('webviewclosed',
   }
   return 'metric';
 }*/
+
+
+/*function rotation(rightleft) {
+  if (rightleft) {
+    return 'false';
+  }
+  return 'true';
+}*/
+
+function translate(langloc){
+  if (langloc==='es-ES'){
+    return 'es';
+  }
+  else if (langloc==='fr_FR'){
+    return 'fr';
+  }
+  else if (langloc==='de_DE'){
+    return 'de';
+  }
+  else if (langloc==='it_IT'){
+    return 'it';
+  }
+  else if (langloc==='pt_PT'){
+    return 'pt';
+  }
+  else {
+    return 'en';
+  }
+}
+function translatewu(langloc){
+  if (langloc==='es-ES'){
+    return 'SP';
+  }
+  else if (langloc==='fr_FR'){
+    return 'FR';
+  }
+  else if (langloc==='de_DE'){
+    return 'DL';
+  }
+  else if (langloc==='it_IT'){
+    return 'IT';
+  }
+  else if (langloc==='pt_PT'){
+    return 'BR';
+  }
+  else {
+    return 'EN';
+  }
+}
+
+
+function replaceDiacritics(s){
+    var diacritics =[
+        /[\300-\306]/g, /[\340-\346]/g,  // A, a
+        /[\310-\313]/g, /[\350-\353]/g,  // E, e
+        /[\314-\317]/g, /[\354-\357]/g,  // I, i
+        /[\322-\330]/g, /[\362-\370]/g,  // O, o
+        /[\331-\334]/g, /[\371-\374]/g,  // U, u
+        /[\321]/g, /[\361]/g, // N, n
+        /[\307]/g, /[\347]/g, // C, c
+    ];
+
+    var chars = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];
+
+    for (var i = 0; i < diacritics.length; i++)
+    {
+        s = s.replace(diacritics[i],chars[i]);
+    }
+  var end=s;
+  return end;
+}

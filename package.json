@@ -45,6 +45,10 @@
             "WeatherWind",
             "bluetoothvibe",
             "WEATHER_SUNSET_KEY",
+            "WEATHER_SUNSET_KEY_12H",
+            "WEATHER_SUNRISE_KEY_12H",
+            "Lat",
+            "Long",
             "Text3Color",
             "Text3ColorN",
             "IconNow",
@@ -63,6 +67,9 @@
             "Rotate",
             "MoonPhase",
             "WEATHER_SUNRISE_KEY",
+            "HealthOff",
+            "AddZero12h",
+            "RemoveZero24h",
             "FrameColor1",
             "FrameColor2",
             "FrameColor1N",
@@ -157,5 +164,5 @@
             "watchface": true
         }
     },
-    "version": "1.7.0"
+    "version": "1.9.0"
 }

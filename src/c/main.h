@@ -30,7 +30,7 @@ typedef struct ClaySettings {
      GColor SideColor1N;
    GColor SideColor2N;
   GColor Text1ColorN;
-  GColor Text2ColorN; 
+  GColor Text2ColorN;
     GColor Text3ColorN;
   GColor Text4ColorN;
    GColor Text5ColorN;
@@ -41,6 +41,9 @@ typedef struct ClaySettings {
   char* WeatherTemp;
   char* TempFore;
   bool NightTheme;
+  bool HealthOff;
+  bool AddZero12h;
+  bool RemoveZero24h;
  // bool Rotate;
  // bool RightLeft;
 } __attribute__((__packed__)) ClaySettings;
