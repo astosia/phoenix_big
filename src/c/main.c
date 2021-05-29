@@ -13,7 +13,7 @@
 
 //Static and initial vars
 static GFont //FontHour,
-  FontDate, FontDate2, FontSunset, FontWeather, FontBattery, FontSteps, FontIcon, FontIcon2, FontIcon3,FontCity, FontWeatherIcons, FontWind;
+  FontDate, FontDate2, FontSunset, FontWeather, FontBattery, FontSteps, FontIcon, FontIcon2, FontIcon3,FontCity, FontWeatherIcons, FontWind, FontFore;
 /*char
   sunsetstring[44],
   sunrisestring[44],
@@ -172,8 +172,9 @@ int moonphase=0;
 bool BTOn=true;
 bool GPSOn=true;
 bool IsNightNow=false;
-bool showWeather = false;
+//bool showWeather = false;
 int s_countdown = 0;
+int showWeather = 0;
 
 //////End Configuration///
 ///////////////////////////
@@ -204,8 +205,17 @@ void request_watchjs(){
 static void accel_tap_handler(AccelAxisType axis, int32_t direction) {
   // A tap event occured
 
-    showWeather = !showWeather;
+  //showWeather = showweather +1;
+  if (showWeather == 2){
+    //Reset
+    showWeather = 0;
+  } else{
+    showWeather = showWeather + 1;
+  }
+
+  //  showWeather = !showWeather;
   layer_mark_dirty (s_canvas);
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "showweather is %d", showWeather);
 
 }
 ///BT Connection
@@ -633,6 +643,12 @@ static void layer_update_proc_sunset(Layer * layer2, GContext * ctx2){
            GRect(8,106,32,40),
            GRect(0+108+18-28, 146, 54,20)));
 
+           GRect ForeRect =  //temperature number
+                (PBL_IF_ROUND_ELSE(
+            //      GRect(100+4-20,130,75,20),
+                   GRect(8,106+2,32,40),
+                   GRect(0+108+18-28, 146, 54,20)));
+
     GRect IconNowRect = //weather condition icon
          (PBL_IF_ROUND_ELSE(
            GRect(28-20,139-100+6,28,20),
@@ -680,10 +696,13 @@ snprintf(SunsetToDraw, sizeof(SunsetToDraw), "%s",settings.sunrisestring12);
 }
 char CondToDraw[20];
 char TempToDraw[20];
-//char HiLowToDraw[20];
+char ForeToDraw[20];
+char HiLowToDraw[20];
 
 snprintf(CondToDraw, sizeof(CondToDraw), "%s",settings.iconnowstring);
 snprintf(TempToDraw, sizeof(TempToDraw), "%s",settings.tempstring);
+snprintf(ForeToDraw, sizeof(ForeToDraw), "%s",settings.iconforestring);
+snprintf(HiLowToDraw, sizeof(HiLowToDraw), "%s",settings.temphistring);
 
 if (!settings.WeatherOn) {
   graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
@@ -694,7 +713,7 @@ if (!settings.WeatherOn) {
   graphics_draw_text(ctx2, SunsetToDraw, FontSunset, SunsetRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
 } else {
 
-if (!showWeather)
+if (showWeather==0) //show moonphase and sunset/sunrise
 {
  graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
  graphics_draw_text(ctx2, SunsetIconToDraw, FontWeatherIcons, SunsetIconRect, GTextOverflowModeFill,PBL_IF_ROUND_ELSE(GTextAlignmentLeft,GTextAlignmentCenter), NULL);
@@ -703,7 +722,7 @@ if (!showWeather)
  graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
  graphics_draw_text(ctx2, SunsetToDraw, FontSunset, SunsetRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
 }
-else
+else if (showWeather==1) //show current weather
 {
   graphics_context_set_text_color(ctx2,ColorSelect(settings.Text7Color,settings.Text7ColorN));
   graphics_draw_text(ctx2, TempToDraw, FontSunset, TempRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
@@ -718,6 +737,21 @@ else
   graphics_draw_text(ctx2, SunsetToDraw, FontSunset, SunsetRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
   #endif
  }
+ else if (showWeather==2) //show forecast weather
+ {
+   graphics_context_set_text_color(ctx2,ColorSelect(settings.Text7Color,settings.Text7ColorN));
+   graphics_draw_text(ctx2, HiLowToDraw, FontFore, ForeRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+   graphics_context_set_text_color(ctx2,ColorSelect(settings.Text5Color,settings.Text5ColorN));
+   graphics_draw_text(ctx2, ForeToDraw, FontIcon, IconNowRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+   #ifdef PBL_ROUND
+ //  graphics_context_set_text_color(ctx2,ColorSelect(settings.Text4Color,settings.Text4ColorN));
+ //  graphics_draw_text(ctx2, MoonToDraw, FontIcon, MoonRect, GTextOverflowModeFill, GTextAlignmentCenter, NULL);
+   graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
+   graphics_draw_text(ctx2, SunsetIconToDraw, FontWeatherIcons, SunsetIconRect, GTextOverflowModeFill,PBL_IF_ROUND_ELSE(GTextAlignmentLeft,GTextAlignmentCenter), NULL);
+   graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
+   graphics_draw_text(ctx2, SunsetToDraw, FontSunset, SunsetRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+   #endif
+  }
 }
 }
 
@@ -1024,10 +1058,21 @@ if (wtemp_t){
 snprintf(settings.tempstring, sizeof(settings.tempstring), "%s", wtemp_t -> value -> cstring);
 }
 
+Tuple * wforetemp_t = dict_find(iter, MESSAGE_KEY_TempFore);
+if (wforetemp_t){
+  snprintf(settings.temphistring, sizeof(settings.temphistring), "%s", wforetemp_t -> value -> cstring);
+}
+
 Tuple * iconnow_tuple = dict_find(iter, MESSAGE_KEY_IconNow);
   //////////Add in icons and forecast hi/lo temp////////////
   if (iconnow_tuple){
     snprintf(settings.iconnowstring,sizeof(settings.iconnowstring),"%s",weather_conditions[(int)iconnow_tuple->value->int32]);
+}
+
+Tuple * iconfore_tuple = dict_find(iter, MESSAGE_KEY_IconFore);
+if (iconfore_tuple){
+  snprintf(settings.iconforestring,sizeof(settings.iconforestring),"%s",weather_conditions[(int)iconfore_tuple->value->int32]);
+  //  snprintf(forecast_result,sizeof(forecast_result),"%s","\U0000F002");
 }
 
 Tuple * frequpdate = dict_find(iter, MESSAGE_KEY_UpSlider);
@@ -1440,6 +1485,7 @@ static void init(){
   FontDate2 = fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD);
   FontBattery= fonts_get_system_font(FONT_KEY_GOTHIC_14);
   FontSunset = fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD);
+  FontFore = PBL_IF_ROUND_ELSE(fonts_get_system_font(FONT_KEY_GOTHIC_14),fonts_get_system_font(FONT_KEY_GOTHIC_18));
   FontIcon = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_WEATHERICONS_20));
   FontIcon2 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_DRIPICONS_16));
   FontIcon3 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_DRIPICONS_18));

@@ -840,7 +840,7 @@ function locationSuccessDS(pos){
                   var forecast_low_tempc = Math.round(json.daily.data[0].temperatureLow);              //+ '\xB0';
                   var highds = String(temptousewu(units,forecast_high_tempf,forecast_high_tempc));
                   var lowds = String(temptousewu(units,forecast_low_tempf,forecast_low_tempc));
-                  var highlowds = highds + '|'+ lowds+'\xB0';
+                  var highlowds = highds + '|'+ lowds;//+'\xB0';
                   var forecast_ave_wind_mph = Math.round(json.daily.data[0].windSpeed*2.2369362920544);
                   var forecast_ave_wind_kts = Math.round(json.daily.data[0].windSpeed *1.9438444924574);
                   var forecast_ave_wind_kph = Math.round(json.daily.data[0].windSpeed *3.6);
@@ -992,7 +992,7 @@ function locationSuccessOWM(pos){
     var forecast_low_tempc = Math.round(json.daily[0].temp.min - 273.15);              //+ '\xB0';
     var highowm = String(temptousewu(units,forecast_high_tempf,forecast_high_tempc));
     var lowowm = String(temptousewu(units,forecast_low_tempf,forecast_low_tempc));
-    var highlowowm = highowm + '|'+ lowowm+'\xB0';
+    var highlowowm = highowm + '|'+ lowowm;//+'\xB0';
     var forecast_ave_wind_mph = Math.round(json.daily[0].wind_speed*2.2369362920544);
     var forecast_ave_wind_kts = Math.round(json.daily[0].wind_speed *1.9438444924574);
     var forecast_ave_wind_kph = Math.round(json.daily[0].wind_speed *3.6);

@@ -60,11 +60,11 @@ typedef struct ClaySettings {
   //char condstring[10];
   //char windstring[10];
   //char windavestring[10];
-  //char iconforestring[6];
+  char iconforestring[6];
   //char windiconnowstring[6];
   //char windiconavestring[6];
   //char templowstring[10];
-  //char temphistring[10];
+  char temphistring[10];
  // bool Rotate;
  // bool RightLeft;
 } __attribute__((__packed__)) ClaySettings;
