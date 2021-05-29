@@ -16,6 +16,8 @@ typedef struct ClaySettings {
   GColor Text4Color;
   GColor Text5Color;
    GColor Text6Color;
+   GColor Text7Color;
+    GColor Text8Color;
   /////////////////
   GColor HourColor;
   GColor MinColor;
@@ -35,6 +37,8 @@ typedef struct ClaySettings {
   GColor Text4ColorN;
    GColor Text5ColorN;
      GColor Text6ColorN;
+      GColor Text7ColorN;
+          GColor Text8ColorN;
   int WeatherUnit;
   char* WindUnit;
   int UpSlider;
@@ -44,6 +48,23 @@ typedef struct ClaySettings {
   bool HealthOff;
   bool AddZero12h;
   bool RemoveZero24h;
+  bool WeatherOn;
+  char FontChoice[12];
+  char moonstring[12];
+  char sunsetstring[10];
+  char sunrisestring[10];
+  char sunsetstring12[10];
+  char sunrisestring12[10];
+  char tempstring[10];
+  char iconnowstring[6];
+  //char condstring[10];
+  //char windstring[10];
+  //char windavestring[10];
+  //char iconforestring[6];
+  //char windiconnowstring[6];
+  //char windiconavestring[6];
+  //char templowstring[10];
+  //char temphistring[10];
  // bool Rotate;
  // bool RightLeft;
 } __attribute__((__packed__)) ClaySettings;

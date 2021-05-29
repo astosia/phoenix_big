@@ -67,6 +67,7 @@
             "Rotate",
             "MoonPhase",
             "WEATHER_SUNRISE_KEY",
+            "WeatherOn",
             "HealthOff",
             "AddZero12h",
             "RemoveZero24h",
@@ -79,7 +80,11 @@
             "SideColor2",
             "SideColor2N",
             "Text6Color",
-            "Text6ColorN"
+            "Text6ColorN",
+            "Text7Color",
+            "Text7ColorN",
+            "Text8Color",
+            "Text8ColorN"
         ],
         "projectType": "native",
         "resources": {
@@ -115,38 +120,8 @@
                     "type": "font"
                 },
                 {
-                    "file": "images/Sunset2",
-                    "name": "IMAGE_SUNSET_ICON2",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
-                    "file": "images/sunset",
-                    "name": "IMAGE_SUNSET_ICON",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
-                    "file": "images/bt-icon",
-                    "name": "IMAGE_BT_ICON",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
                     "file": "data/STEELFISH BIG",
                     "name": "FONT_STEELFISH",
-                    "targetPlatforms": null,
-                    "type": "raw"
-                },
-                {
-                    "file": "data/Open sans ffont",
-                    "name": "OPENSANSCON_FFONT",
-                    "targetPlatforms": null,
-                    "type": "raw"
-                },
-                {
-                    "file": "data/DIN",
-                    "name": "FONT_DINCONBOLD",
                     "targetPlatforms": null,
                     "type": "raw"
                 }
@@ -164,5 +139,5 @@
             "watchface": true
         }
     },
-    "version": "1.9.0"
+    "version": "2.0.0"
 }
