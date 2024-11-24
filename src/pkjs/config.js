@@ -311,7 +311,7 @@ module.exports = [
               "messageKey": "APIKEY_User",
               "defaultValue": "",
               "label": "API Key",
-              "description": "If you don't have an API key, weather data will not be displayed. You can register for a free personal OneCall 3.0 API key for <a href =https://home.openweathermap.org/users/sign_up/>OpenWeatherMap here</a>. You will need to subscribe to the API but you can limit calls to the free tier (1000 calls per day) to avoid being charged.",
+              "description": "If left blank, the watch will attempt to request an api from your pmkey.xyz.  If you don't have an api key, weather data will not be displayed. You can register for a free personal OneCall 3.0 API key for <a href =https://home.openweathermap.org/users/sign_up/>OpenWeatherMap here</a>. You will need to subscribe to the API but you can limit calls to the free 1000 calls per day tier to avoid being charged",
               "attributes": {
                 "placeholder": "Paste your API Key here"
               }
@@ -333,7 +333,7 @@ module.exports = [
     },
     {
     "type": "heading",
-    "defaultValue": "version v3.0",
+    "defaultValue": "version v3.1",
     "size":6
     },
     {
