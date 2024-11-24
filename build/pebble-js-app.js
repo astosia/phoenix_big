@@ -326,8 +326,490 @@
 	        angle: angle
 	    };
 	};
+	var owm_WindToId = {
+	    '0': 0,
+	    '1': 0,
+	    '2': 0,
+	    '3': 0,
+	    '4': 0,
+	    '5': 0,
+	    '6': 0,
+	    '7': 0,
+	    '8': 0,
+	    '9': 0,
+	    '10': 0,
+	    '11': 0,
+	    '12': 0,
+	    '13': 0,
+	    '14': 0,
+	    '15': 0,
+	    '16': 0,
+	    '17': 0,
+	    '18': 0,
+	    '19': 0,
+	    '20': 0,
+	    '21': 0,
+	    '22': 0,
+	    '23': 2,
+	    '24': 2,
+	    '25': 2,
+	    '26': 2,
+	    '27': 2,
+	    '28': 2,
+	    '29': 2,
+	    '30': 2,
+	    '31': 2,
+	    '32': 2,
+	    '33': 2,
+	    '34': 2,
+	    '35': 2,
+	    '36': 2,
+	    '37': 2,
+	    '38': 2,
+	    '39': 2,
+	    '40': 2,
+	    '41': 2,
+	    '42': 2,
+	    '43': 2,
+	    '44': 2,
+	    '45': 2,
+	    '46': 2,
+	    '47': 2,
+	    '48': 2,
+	    '49': 2,
+	    '50': 2,
+	    '51': 2,
+	    '52': 2,
+	    '53': 2,
+	    '54': 2,
+	    '55': 2,
+	    '56': 2,
+	    '57': 2,
+	    '58': 2,
+	    '59': 2,
+	    '60': 2,
+	    '61': 2,
+	    '62': 2,
+	    '63': 2,
+	    '64': 2,
+	    '65': 2,
+	    '66': 2,
+	    '67': 2,
+	    '68': 4,
+	    '69': 4,
+	    '70': 4,
+	    '71': 4,
+	    '72': 4,
+	    '73': 4,
+	    '74': 4,
+	    '75': 4,
+	    '76': 4,
+	    '77': 4,
+	    '78': 4,
+	    '79': 4,
+	    '80': 4,
+	    '81': 4,
+	    '82': 4,
+	    '83': 4,
+	    '84': 4,
+	    '85': 4,
+	    '86': 4,
+	    '87': 4,
+	    '88': 4,
+	    '89': 4,
+	    '90': 4,
+	    '91': 4,
+	    '92': 4,
+	    '93': 4,
+	    '94': 4,
+	    '95': 4,
+	    '96': 4,
+	    '97': 4,
+	    '98': 4,
+	    '99': 4,
+	    '100': 4,
+	    '101': 4,
+	    '102': 4,
+	    '103': 4,
+	    '104': 4,
+	    '105': 4,
+	    '106': 4,
+	    '107': 4,
+	    '108': 4,
+	    '109': 4,
+	    '110': 4,
+	    '111': 4,
+	    '112': 4,
+	    '113': 6,
+	    '114': 6,
+	    '115': 6,
+	    '116': 6,
+	    '117': 6,
+	    '118': 6,
+	    '119': 6,
+	    '120': 6,
+	    '121': 6,
+	    '122': 6,
+	    '123': 6,
+	    '124': 6,
+	    '125': 6,
+	    '126': 6,
+	    '127': 6,
+	    '128': 6,
+	    '129': 6,
+	    '130': 6,
+	    '131': 6,
+	    '132': 6,
+	    '133': 6,
+	    '134': 6,
+	    '135': 6,
+	    '136': 6,
+	    '137': 6,
+	    '138': 6,
+	    '139': 6,
+	    '140': 6,
+	    '141': 6,
+	    '142': 6,
+	    '143': 6,
+	    '144': 6,
+	    '145': 6,
+	    '146': 6,
+	    '147': 6,
+	    '148': 6,
+	    '149': 6,
+	    '150': 6,
+	    '151': 6,
+	    '152': 6,
+	    '153': 6,
+	    '154': 6,
+	    '155': 6,
+	    '156': 6,
+	    '157': 6,
+	    '158': 8,
+	    '159': 8,
+	    '160': 8,
+	    '161': 8,
+	    '162': 8,
+	    '163': 8,
+	    '164': 8,
+	    '165': 8,
+	    '166': 8,
+	    '167': 8,
+	    '168': 8,
+	    '169': 8,
+	    '170': 8,
+	    '171': 8,
+	    '172': 8,
+	    '173': 8,
+	    '174': 8,
+	    '175': 8,
+	    '176': 8,
+	    '177': 8,
+	    '178': 8,
+	    '179': 8,
+	    '180': 8,
+	    '181': 8,
+	    '182': 8,
+	    '183': 8,
+	    '184': 8,
+	    '185': 8,
+	    '186': 8,
+	    '187': 8,
+	    '188': 8,
+	    '189': 8,
+	    '190': 8,
+	    '191': 8,
+	    '192': 8,
+	    '193': 8,
+	    '194': 8,
+	    '195': 8,
+	    '196': 8,
+	    '197': 8,
+	    '198': 8,
+	    '199': 8,
+	    '200': 8,
+	    '201': 8,
+	    '202': 8,
+	    '203': 10,
+	    '204': 10,
+	    '205': 10,
+	    '206': 10,
+	    '207': 10,
+	    '208': 10,
+	    '209': 10,
+	    '210': 10,
+	    '211': 10,
+	    '212': 10,
+	    '213': 10,
+	    '214': 10,
+	    '215': 10,
+	    '216': 10,
+	    '217': 10,
+	    '218': 10,
+	    '219': 10,
+	    '220': 10,
+	    '221': 10,
+	    '222': 10,
+	    '223': 10,
+	    '224': 10,
+	    '225': 10,
+	    '226': 10,
+	    '227': 10,
+	    '228': 10,
+	    '229': 10,
+	    '230': 10,
+	    '231': 10,
+	    '232': 10,
+	    '233': 10,
+	    '234': 10,
+	    '235': 10,
+	    '236': 10,
+	    '237': 10,
+	    '238': 10,
+	    '239': 10,
+	    '240': 10,
+	    '241': 10,
+	    '242': 10,
+	    '243': 10,
+	    '244': 10,
+	    '245': 10,
+	    '246': 10,
+	    '247': 10,
+	    '248': 12,
+	    '249': 12,
+	    '250': 12,
+	    '251': 12,
+	    '252': 12,
+	    '253': 12,
+	    '254': 12,
+	    '255': 12,
+	    '256': 12,
+	    '257': 12,
+	    '258': 12,
+	    '259': 12,
+	    '260': 12,
+	    '261': 12,
+	    '262': 12,
+	    '263': 12,
+	    '264': 12,
+	    '265': 12,
+	    '266': 12,
+	    '267': 12,
+	    '268': 12,
+	    '269': 12,
+	    '270': 12,
+	    '271': 12,
+	    '272': 12,
+	    '273': 12,
+	    '274': 12,
+	    '275': 12,
+	    '276': 12,
+	    '277': 12,
+	    '278': 12,
+	    '279': 12,
+	    '280': 12,
+	    '281': 12,
+	    '282': 12,
+	    '283': 12,
+	    '284': 12,
+	    '285': 12,
+	    '286': 12,
+	    '287': 12,
+	    '288': 12,
+	    '289': 12,
+	    '290': 12,
+	    '291': 12,
+	    '292': 12,
+	    '293': 14,
+	    '294': 14,
+	    '295': 14,
+	    '296': 14,
+	    '297': 14,
+	    '298': 14,
+	    '299': 14,
+	    '300': 14,
+	    '301': 14,
+	    '302': 14,
+	    '303': 14,
+	    '304': 14,
+	    '305': 14,
+	    '306': 14,
+	    '307': 14,
+	    '308': 14,
+	    '309': 14,
+	    '310': 14,
+	    '311': 14,
+	    '312': 14,
+	    '313': 14,
+	    '314': 14,
+	    '315': 14,
+	    '316': 14,
+	    '317': 14,
+	    '318': 14,
+	    '319': 14,
+	    '320': 14,
+	    '321': 14,
+	    '322': 14,
+	    '323': 14,
+	    '324': 14,
+	    '325': 14,
+	    '326': 14,
+	    '327': 14,
+	    '328': 14,
+	    '329': 14,
+	    '330': 14,
+	    '331': 14,
+	    '332': 14,
+	    '333': 14,
+	    '334': 14,
+	    '335': 14,
+	    '336': 14,
+	    '337': 14,
+	    '338': 0,
+	    '339': 0,
+	    '340': 0,
+	    '341': 0,
+	    '342': 0,
+	    '343': 0,
+	    '344': 0,
+	    '345': 0,
+	    '346': 0,
+	    '347': 0,
+	    '348': 0,
+	    '349': 0,
+	    '350': 0,
+	    '351': 0,
+	    '352': 0,
+	    '353': 0,
+	    '354': 0,
+	    '355': 0,
+	    '356': 0,
+	    '357': 0,
+	    '358': 0,
+	    '359': 0,
+	    '360': 0,
 	
-	
+	};
+	var owm_iconToId = {
+	  '20011d':1, //thunderstorm with light rain
+	  '20011n':2, //thunderstorm with light rain
+	  '20111d':3, //thunderstorm with rain
+	  '20111n':4, //thunderstorm with rain
+	  '20211d':5, //thunderstorm with heavy rain
+	  '20211n':6, //thunderstorm with heavy rain
+	  '21011d':7, //light thunderstorm
+	  '21011n':8, //light thunderstorm
+	  '21111d':9, //thunderstorm
+	  '21111n':10, //thunderstorm
+	  '21211d':11, //heavy thunderstorm
+	  '21211n':12, //heavy thunderstorm
+	  '22111d':13, //ragged thunderstorm
+	  '22111n':14, //ragged thunderstorm
+	  '23011d':15, //thunderstorm with light drizzle
+	  '23011n':16, //thunderstorm with light drizzle
+	  '23111d':17, //thunderstorm with drizzle
+	  '23111n':18, //thunderstorm with drizzle
+	  '23211d':19, //thunderstorm with heavy drizzle
+	  '23211n':20, //thunderstorm with heavy drizzle
+	  '30009d':21, //light intensity drizzle
+	  '30009n':22, //light intensity drizzle
+	  '30109d':23, //drizzle
+	  '30109n':24, //drizzle
+	  '30209d':25, //heavy intensity drizzle
+	  '30209n':26, //heavy intensity drizzle
+	  '31009d':27, //light intensity drizzle rain
+	  '31009n':28, //light intensity drizzle rain
+	  '31109d':29, //drizzle rain
+	  '31109n':30, //drizzle rain
+	  '31209d':31, //heavy intensity drizzle rain
+	  '31209n':32, //heavy intensity drizzle rain
+	  '31309d':33, //shower rain and drizzle
+	  '31309n':34, //shower rain and drizzle
+	  '31409d':35, //heavy shower rain and drizzle
+	  '31409n':36, //heavy shower rain and drizzle
+	  '32109d':37, //shower drizzle
+	  '32109n':38, //shower drizzle
+	  '50010d':39, //light rain
+	  '50010n':40, //light rain
+	  '50110d':41, //moderate rain
+	  '50110n':42, //moderate rain
+	  '50210d':43, //heavy intensity rain
+	  '50210n':44, //heavy intensity rain
+	  '50310d':45, //very heavy rain
+	  '50310n':46, //very heavy rain
+	  '50410d':47, //extreme rain
+	  '50410n':48, //extreme rain
+	  '51113d':49, //freezing rain
+	  '51113n':50, //freezing rain
+	  '52009d':51, //light intensity shower rain
+	  '52009n':52, //light intensity shower rain
+	  '52109d':53, //shower rain
+	  '52109n':54, //shower rain
+	  '52209d':55, //heavy intensity shower rain
+	  '52209n':56, //heavy intensity shower rain
+	  '53109d':57, //ragged shower rain
+	  '53109n':58, //ragged shower rain
+	  '60013d':59, //light snow
+	  '60013n':60, //light snow
+	  '60113d':61, //Snow
+	  '60113n':62, //Snow
+	  '60213d':63, //Heavy snow
+	  '60213n':64, //Heavy snow
+	  '61113d':65, //Sleet
+	  '61113n':66, //Sleet
+	  '61213d':67, //Light shower sleet
+	  '61213n':68, //Light shower sleet
+	  '61313d':69, //Shower sleet
+	  '61313n':70, //Shower sleet
+	  '61513d':71, //Light rain and snow
+	  '61513n':72, //Light rain and snow
+	  '61613d':73, //Rain and snow
+	  '61613n':74, //Rain and snow
+	  '62013d':75, //Light shower snow
+	  '62013n':76, //Light shower snow
+	  '62113d':77, //Shower snow
+	  '62113n':78, //Shower snow
+	  '62213d':79, //Heavy shower snow
+	  '62213n':80, //Heavy shower snow
+	  '70150d':81, //mist
+	  '70150n':82, //mist
+	  '71150d':83, //Smoke
+	  '71150n':84, //Smoke
+	  '72150d':85, //Haze
+	  '72150n':86, //Haze
+	  '73150d':87, //sand/ dust whirls
+	  '73150n':88, //sand/ dust whirls
+	  '74150d':89, //fog
+	  '74150n':90, //fog
+	  '75150d':91, //sand
+	  '75150n':92, //sand
+	  '76150d':93, //dust
+	  '76150n':94, //dust
+	  '76250d':95, //volcanic ash
+	  '76250n':96, //volcanic ash
+	  '77150d':97, //squalls
+	  '77150n':98, //squalls
+	  '78150d':99, //tornado
+	  '78150n':100, //tornado
+	  '80001d':101, //clear sky
+	  '80001n':102, //clear sky
+	  '80102d':103, //few clouds: 11-25%
+	  '80102n':104, //few clouds: 11-25%
+	  '80203d':105, //scattered clouds: 25-50%
+	  '80203n':106, //scattered clouds: 25-50%
+	  '80304d':107, //broken clouds: 51-84%
+	  '80304n':108, //broken clouds: 51-84%
+	  '80404d':109, //overcast clouds: 85-100%
+	  '80404n':110, //overcast clouds: 85-100%
+	  '900':111, //tornado
+	  '901':112, //storm-showers
+	  '902':113, //hurricane
+	  '903':114, //snowflake-cold
+	  '904':115, //hot
+	  '905':116, //windy
+	  '906':117, //hail
+	  '957':118, //strong-wind
+	};
 	
 	var Clay = __webpack_require__(3);
 	var clayConfig = __webpack_require__(6);
@@ -344,9 +826,20 @@
 	
 	function suncalcinfo (pos){
 	    //suncalc stuff
-	  var lat=pos.coords.latitude;
-	  var lon= pos.coords.longitude;
+	
 	  var settings = JSON.parse(localStorage.getItem('clay-settings')) || {};
+	  var manuallat = settings.Lat;
+	  var manuallong = settings.Long;
+	  if(manuallat !== null && manuallat !== '' && manuallong !== null && manuallong !== '' ){
+	    var lat= manuallat;
+	    var lon= manuallong;
+	  }
+	  else {
+	    var lat=pos.coords.latitude;
+	    var lon= pos.coords.longitude;
+	  }
+	  //var lat=pos.coords.latitude;
+	  //var lon= pos.coords.longitude;
 	        var d = new Date();
 	        var sunTimes = SunCalc.getTimes(d, lat, lon);
 	        var sunsetraw = sunTimes.sunset.toTimeString().split(' ')[0];
@@ -356,25 +849,48 @@
 	        var sunsetStr = String(sunsetStrhr + ":" + sunsetStrmin);
 	        var sunriseStrhr = ('0'+sunTimes.sunrise.getHours()).substr(-2);
 	        var sunriseStrmin = ('0'+sunTimes.sunrise.getMinutes()).substr(-2);
+	        var sunriseint = sunTimes.sunrise.getHours()*100+sunTimes.sunrise.getMinutes();
+	        var sunsetint = sunTimes.sunset.getHours()*100+sunTimes.sunset.getMinutes();
+	        //var sunsetint= String((sunsetStrhr*1) + sunsetStrmin);
+	        //var sunriseint= String((sunriseStrhr*1) + sunriseStrmin);
 	        var sunriseStr = String(sunriseStrhr + ":" + sunriseStrmin);
-	       var moonmetrics = SunCalc.getMoonIllumination(d);
-	     var moonphase = Math.round(moonmetrics.phase*28);
+	        var sunsetStrhr12 = parseInt(sunTimes.sunset.getHours());
+	        var sunriseStrhr12 = parseInt(sunTimes.sunrise.getHours());
+	        if(sunsetStrhr12 > 12 ){
+	          var sunsetStr12h = String (sunsetStrhr12 - 12 + ":" + sunsetStrmin);// +"pm");
+	          }
+	        else{
+	          var sunsetStr12h = String (sunsetStrhr12  + ":" + sunsetStrmin);// + "am");
+	          }
+	        if(sunriseStrhr > 12 ){
+	          var sunriseStr12h = String(sunriseStrhr12 - 12 + ":" + sunriseStrmin);// +"pm");
+	          }
+	        else{
+	          var sunriseStr12h = String(sunriseStrhr12  + ":" + sunriseStrmin);// + "am");
+	          }
+	
+	        var moonmetrics = SunCalc.getMoonIllumination(d);
+	        var moonphase = Math.round(moonmetrics.phase*28);
 	   localStorage.setItem("OKAPI", 1);
 	    console.log("OK API");
 	    console.log(moonphase);
+	    console.log(d);
+	    console.log(lat);
+	    console.log(lon);
 	    console.log(sunsetStr);
 	    console.log(sunriseStr);
-	    console.log(sunsetraw);
-	    console.log(sunriseraw);
-	
+	    console.log(sunriseint);
+	    console.log(sunsetint);
 	//    console.log(rightlefts);
 	    // Assemble dictionary
 	    var dictionary = {
+	      "HourSunrise":sunriseint,
+	      "HourSunset":sunsetint,
 	      "WEATHER_SUNSET_KEY":sunsetStr,
 	      "WEATHER_SUNRISE_KEY":sunriseStr,
+	      "WEATHER_SUNSET_KEY_12H":sunsetStr12h,
+	      "WEATHER_SUNRISE_KEY_12H":sunriseStr12h,
 	      "MoonPhase": moonphase,
-	      "HourSunrise":sunriseraw,
-	      "HourSunset":sunsetraw,
 	    };
 	    // Send to Pebble
 	    Pebble.sendAppMessage(dictionary,function(e) {console.log("Suncalc stuff sent to Pebble successfully!");},
@@ -382,47 +898,283 @@
 	                                    );
 	  }
 	
-	// Request for WU
-	
-	// Request for DarkSky
 	
 	// Request for OWM
+	function locationSuccessOWM(pos){
+	  //Request OWM
+	//  var lat=pos.coords.latitude;
+	//  var lon= pos.coords.longitude;
+	  var settings3 = JSON.parse(localStorage.getItem('clay-settings')) || {};
+	  var manuallat = settings3.Lat;
+	  var manuallong = settings3.Long;
+	  if(manuallat != null && manuallat != '' && manuallong != null && manuallong != '' ){
+	    var lat= manuallat;
+	    var lon= manuallong;
+	  }
+	  else {
+	    var lat=pos.coords.latitude;
+	    var lon= pos.coords.longitude;
+	  }
+	        var d = new Date();
+	        var sunTimes = SunCalc.getTimes(d, lat, lon);
+	        var sunsetStrhr = ('0'+sunTimes.sunset.getHours()).substr(-2);
+	        var sunsetStrmin = ('0'+sunTimes.sunset.getMinutes()).substr(-2);
+	        var sunsetStr = String(sunsetStrhr + ":" + sunsetStrmin);
+	        var sunriseStrhr = ('0'+sunTimes.sunrise.getHours()).substr(-2);
+	        var sunriseStrmin = ('0'+sunTimes.sunrise.getMinutes()).substr(-2);
+	        var sunriseStr = String(sunriseStrhr + ":" + sunriseStrmin);
+	        var sunsetStrhr12 = parseInt(sunTimes.sunset.getHours());
+	        var sunriseStrhr12 = parseInt(sunTimes.sunrise.getHours());
+	        if(sunsetStrhr12 > 12 ){
+	          var sunsetStr12h = String (sunsetStrhr12 - 12 + ":" + sunsetStrmin);// +"pm");
+	          }
+	        else{
+	          var sunsetStr12h = String (sunsetStrhr12  + ":" + sunsetStrmin);// + "am");
+	          }
+	        if(sunriseStrhr > 12 ){
+	          var sunriseStr12h = String(sunriseStrhr12 - 12 + ":" + sunriseStrmin);// +"pm");
+	          }
+	        else{
+	          var sunriseStr12h = String(sunriseStrhr12  + ":" + sunriseStrmin);// + "am");
+	          }
+	     var moonmetrics = SunCalc.getMoonIllumination(d);
+	     var moonphase = Math.round(moonmetrics.phase*28);
+	  var keyAPIowm=localStorage.getItem('owmKey');
+	  var userKeyApi=settings3.APIKEY_User;
+	  var endapikey=apikeytouse(userKeyApi,keyAPIowm);
+	  var units = unitsToString(settings3.WeatherUnit);
+	 // var unitsOWM=unitsToStringOWM(settings3.WeatherUnit);
+	  var windunits = windunitsToString(settings3.WindUnit);
+	  var langtouse=translate(navigator.language);
+	  // Construct URL
+	
+	  var urlOWM = "http://api.openweathermap.org/data/3.0/onecall?lat=" +
+	      lat + "&lon=" + lon +
+	      '&appid=' + endapikey + "&exclude=minutely,hourly,alerts" +
+	      '&lang='+langtouse;
+	
+	  console.log("OWMUrl= " + urlOWM);
+	  // Send request to OpenWeatherMap
+	  xhrRequest(encodeURI(urlOWM), 'GET',function(responseText) {
+	    // responseText contains a JSON object with current weather info
+	    var json = JSON.parse(responseText);
+	    localStorage.setItem("OKAPI", 0);
+	    // Temperature
+	    var tempf = Math.round((json.current.temp * 1.8) - 459.67);//+'\xB0'+units;
+	    var tempc = Math.round(json.current.temp -273.15);
+	    var tempowm=String(temptousewu(units,tempf,tempc))+'\xB0';
+	    // Conditions
+	    var condowm=json.current.weather[0].description;//main;
+	    var condclean=replaceDiacritics(condowm);
+	    var icon_owm = String(json.current.weather[0].icon);
+	    var id_owm = parseInt(json.current.weather[0].id);
+	    var id_icon = String(id_owm)+String(icon_owm);
+	    if (id_owm>899) {
+	      var icon2_owm = owm_iconToId[String(id_owm)];
+	    } else {
+	      var icon2_owm = owm_iconToId[String(id_owm)+String(icon_owm)];
+	    }
+	    // Sunrise and Sunset
+	    var auxsunowm =new Date(json.current.sunrise*1000);
+	    var sunriseowm=auxsunowm.getHours()*100+auxsunowm.getMinutes();
+	    var auxsetowm =new Date(json.current.sunset*1000);
+	    var sunsetowm=auxsetowm.getHours()*100+auxsetowm.getMinutes();
+	//current conditions
+	    var windkts = Math.round(json.current.wind_speed * 1.9438444924574);
+	    var windkph = Math.round(json.current.wind_speed * 3.6);
+	    var windms = Math.round(json.current.wind_speed);
+	    var windmph = Math.round(json.current.wind_speed * 2.2369362920544);
+	    var wind = String(windtousewu(windunits,windkph,windmph,windms,windkts))+windunits;
+	    var winddeg = String(json.current.wind_deg);
+	    var winddir_num = owm_WindToId[winddeg];
+	//forecast
+	    var forecondowm=json.daily[0].weather[0].description;//main;
+	    var forecondclean=replaceDiacritics(forecondowm);
+	    var forecast_icon_owm = json.daily[0].weather[0].icon;
+	    var forecast_id_owm = parseInt(json.daily[0].weather[0].id);
+	    if (forecast_id_owm>899) {
+	      var forecast_icon2_owm = owm_iconToId[String(forecast_id_owm)];
+	    } else {
+	      var forecast_icon2_owm = owm_iconToId[String(forecast_id_owm)+String(forecast_icon_owm)];
+	    }
+	    var forecast_high_tempf = Math.round((json.daily[0].temp.max* 1.8) - 459.67);       //+'\xB0';
+	    var forecast_low_tempf = Math.round((json.daily[0].temp.min* 1.8) - 459.67);        //+'\xB0';
+	    var forecast_high_tempc = Math.round(json.daily[0].temp.max - 273.15);              //+ '\xB0';
+	    var forecast_low_tempc = Math.round(json.daily[0].temp.min - 273.15);              //+ '\xB0';
+	    var highowm = String(temptousewu(units,forecast_high_tempf,forecast_high_tempc));
+	    var lowowm = String(temptousewu(units,forecast_low_tempf,forecast_low_tempc));
+	    var highlowowm = highowm + '|'+ lowowm;//+'\xB0';
+	    var forecast_ave_wind_mph = Math.round(json.daily[0].wind_speed*2.2369362920544);
+	    var forecast_ave_wind_kts = Math.round(json.daily[0].wind_speed *1.9438444924574);
+	    var forecast_ave_wind_kph = Math.round(json.daily[0].wind_speed *3.6);
+	    var forecast_ave_wind_ms = Math.round(json.daily[0].wind_speed);
+	    var forecast_wind_deg = String(json.daily[0].wind_deg);
+	    var forecast_wind_dir_num = owm_WindToId[forecast_wind_deg];
+	    var forecast_ave_wind_owm = String(windtousewu(windunits,forecast_ave_wind_kph,forecast_ave_wind_mph,forecast_ave_wind_ms,forecast_ave_wind_kts))+windunits;
+	    var auxtimeowm =new Date(json.current.dt*1000);
+	    var owmtime =auxtimeowm.getHours()*100+auxtimeowm.getMinutes();
 	
 	
+	    console.log(condclean);
+	    console.log(sunsetowm);
+	    console.log(sunriseowm);
+	    console.log(wind);
+	    console.log(winddir_num);
+	    console.log(tempowm);
+	    console.log(icon_owm);
+	    console.log(id_owm);
+	    console.log(id_icon);
+	    console.log(icon2_owm);
+	    console.log(highowm);
+	    console.log(forecondclean);
+	    console.log(forecast_icon2_owm);
+	    console.log(lowowm);
+	    console.log(highlowowm);
+	    console.log(forecast_wind_dir_num);
+	    console.log(forecast_ave_wind_owm);
+	    console.log(sunsetStr);
+	    console.log(sunriseStr);
+	    console.log(moonphase);
+	    console.log(winddeg);
+	    console.log(forecast_wind_deg);
+	    console.log(owmtime);
 	
-	  // Get keys from pmkey
+	   // var wind = String(windkts + "kts");
+	    localStorage.setItem("OKAPI", 1);
+	    console.log("OK API");
 	
-	  function locationError(err) {
-	    console.log("Error requesting geolocation!");
-	    //Send response null
-	    var location="";
+	  //    xhrRequest(encodeURI(urlForecast), 'GET',function(forecastresponseText) {
+	      // forecastresponseText contains a JSON object with forecast weather info
+	  //    var jsonf = JSON.parse(forecastresponseText);
+	  //    localStorage.setItem("OKAPIForecast", 0);
+	        // Forecast Conditions
+	    //              var condowm=jsonf.weather[0].main;//description;
+	
+	
 	    // Assemble dictionary using our keys
 	    var dictionary = {
-	      "NameLocation": location};
-	    Pebble.sendAppMessage(dictionary,
-	                          function(e) {
-	                            console.log("Null key sent to Pebble successfully!");
-	                          },
-	                          function(e) {
-	                            console.log("Null key error sending to Pebble!");
-	                          }
-	                         );
-	  }
-	  function getinfo() {var settings4 = JSON.parse(localStorage.getItem('clay-settings')) || {};
+	      "WeatherTemp": tempowm,
+	      "WeatherCond": condclean,
+	      "HourSunset": sunsetowm,
+	      "HourSunrise":sunriseowm,
+	      "WeatherWind" : wind,
+	      "WEATHER_SUNSET_KEY":sunsetStr,
+	      "WEATHER_SUNRISE_KEY":sunriseStr,
+	      "WEATHER_SUNSET_KEY_12H":sunsetStr12h,
+	      "WEATHER_SUNRISE_KEY_12H":sunriseStr12h,
+	      "IconNow":icon2_owm,
+	      "IconFore":forecast_icon2_owm,
+	      "TempFore": highlowowm,//hi_low,
+	      "TempForeLow": lowowm,
+	      "WindFore": forecast_ave_wind_owm,
+	      "WindIconNow":winddir_num,
+	      "WindIconAve":forecast_wind_dir_num,
+	      "Weathertime":owmtime,
+	      "MoonPhase": moonphase,
 	
+	    };
+	    // Send to Pebble
+	    Pebble.sendAppMessage(dictionary,
+	                          function(e) {console.log("Weather from OWM sent to Pebble successfully!");},
+	                          function(e) { console.log("Error sending OWM info to Pebble!");}
+	                         );
+	  //    });
+	  });
+	}
+	
+	
+	function locationError(err) {
+	  console.log("Error requesting geolocation!");
+	  //Send response null
+	  var location="";
+	  // Assemble dictionary using our keys
+	  var dictionary = {
+	    "NameLocation": location};
+	  Pebble.sendAppMessage(dictionary,
+	                        function(e) {
+	                          console.log("Null key sent to Pebble successfully!");
+	                        },
+	                        function(e) {
+	                          console.log("Null key error sending to Pebble!");
+	                        }
+	                       );
+	}
+	
+	function getinfo() {
+	  var settings4 = JSON.parse(localStorage.getItem('clay-settings')) || {};
+	  var manuallat = settings4.Lat;
+	  var manuallong = settings4.Long;
+	  // Get keys from pmkey
+	//  if (email !== undefined && pin !== undefined) {
+	//    //Request API from pmkey.xyz
+	//    var urlpmk='https://pmkey.xyz/search/?email='+email+"&pin="+pin;
+	//    console.log("Url PMKEY is "+ urlpmk);
+	//    var keys = parseInt(localStorage.getItem("OKAPI"));
+	//    console.log("Flag keys is " + keys);
+	//    if (keys===0){
+	//      xhrRequest(encodeURI(urlpmk),'GET',
+	//                 function(responseText){
+	//                   var jsonpmk=JSON.parse(responseText);
+	//                   var owmKey=jsonpmk.keys.weather.owm;
+	//                   var dsKey=jsonpmk.keys.weather.forecast;
+	//                   localStorage.setItem("owmKey", owmKey);
+	//                  }
+	//                );
+	//    }
+	//  }
+	  var weatherprov=settings4.WeatherProv;
+	
+	  if (weatherprov=="owm"){
+	    console.log("Ready from OWM");
+	    if(manuallat != null && manuallat != '' && manuallong != null && manuallong != '' ){
+	      console.log(manuallat);
+	      console.log(manuallong);
+	      suncalcinfo();
+	      locationSuccessOWM();
+	    }
+	    else {
 	    navigator.geolocation.getCurrentPosition(
 	      suncalcinfo,
 	      locationError,
 	      {enableHighAccuracy:true,timeout: 15000, maximumAge: 1000}
 	    );
-	}
+	    navigator.geolocation.getCurrentPosition(
+	      locationSuccessOWM,
+	      locationError,
+	      {enableHighAccuracy:true,timeout: 15000, maximumAge: 1000}
+	    );
+	    }
+	  }
+	  else
+	    {
+	    console.log("no weather provider");
+	    if(manuallat != null && manuallat != '' && manuallong != null && manuallong != '' ){
+	      console.log(manuallat);
+	      console.log(manuallong);
+	      suncalcinfo();
+	      }
+	    else {
+	      navigator.geolocation.getCurrentPosition(
+	      suncalcinfo,
+	      locationError,
+	      {enableHighAccuracy:true,timeout: 15000, maximumAge: 1000}
+	    );
+	      navigator.geolocation.getCurrentPosition(
+	      locationError,
+	      {enableHighAccuracy:true,timeout: 15000, maximumAge: 1000}
+	    );
+	    }
+	    }
+	  }
+	
+	
 	// Listen for when the watchface is opened
 	Pebble.addEventListener('ready',
 	                        function(e) {
 	                          console.log("Starting Watchface!");
 	                          localStorage.setItem("OKAPI", 0);
 	                          //get suncalc
-	                        //  suncalcinfo();
+	                          //suncalcinfo();
 	                          // Get the initial weather
 	                          getinfo();
 	                        }
@@ -431,7 +1183,7 @@
 	Pebble.addEventListener('appmessage',
 	                        function(e) {
 	                          console.log("Requesting geoposition!");
-	                         // suncalcinfo();
+	                        //  suncalcinfo();
 	                          getinfo();
 	                        }
 	                       );
@@ -439,13 +1191,29 @@
 	Pebble.addEventListener('webviewclosed',
 	                        function(e) {
 	                          console.log("Updating config!");
-	                         // suncalcinfo();
+	                          //suncalcinfo();
 	                          getinfo();
 	                        }
 	                       );
 	
-	
-	
+	function unitsToString(unit) {
+	 if (unit) {
+	   return 'F';
+	 }
+	 return 'C';
+	}
+	function windunitsToString(windunit){
+	 if (windunit=='kts') {
+	   return 'kt';
+	 }
+	 else if (windunit=='kph'){
+	   return 'kph';
+	 }
+	 else if (windunit=='ms'){
+	   return 'ms';
+	 }
+	 return 'mph';
+	 }
 	//functions and mappings
 	/*function unitsToStringOWM(unit) {
 	  if (unit) {
@@ -453,6 +1221,100 @@
 	  }
 	  return 'metric';
 	}*/
+	
+	
+	/*function rotation(rightleft) {
+	  if (rightleft) {
+	    return 'false';
+	  }
+	  return 'true';
+	}*/
+	
+	function translate(langloc){
+	  if (langloc==='es-ES'){
+	    return 'es';
+	  }
+	  else if (langloc==='fr_FR'){
+	    return 'fr';
+	  }
+	  else if (langloc==='de_DE'){
+	    return 'de';
+	  }
+	  else if (langloc==='it_IT'){
+	    return 'it';
+	  }
+	  else if (langloc==='pt_PT'){
+	    return 'pt';
+	  }
+	  else {
+	    return 'en';
+	  }
+	}
+	function translatewu(langloc){
+	  if (langloc==='es-ES'){
+	    return 'SP';
+	  }
+	  else if (langloc==='fr_FR'){
+	    return 'FR';
+	  }
+	  else if (langloc==='de_DE'){
+	    return 'DL';
+	  }
+	  else if (langloc==='it_IT'){
+	    return 'IT';
+	  }
+	  else if (langloc==='pt_PT'){
+	    return 'BR';
+	  }
+	  else {
+	    return 'EN';
+	  }
+	}
+	
+	function temptousewu(unit,tempf,tempc){
+	  if (unit=="F"){
+	    return tempf; }
+	  else return tempc;
+	}
+	function windtousewu(windunit,windkph,windmph,windms,windkts){
+	  if (windunit=="kph"){
+	    return windkph; }
+	  else if (windunit=="mph")
+	    {return windmph; }
+	  else if (windunit=="ms")
+	    {return windms; }
+	  else return windkts;
+	}
+	function replaceDiacritics(s){
+	    var diacritics =[
+	        /[\300-\306]/g, /[\340-\346]/g,  // A, a
+	        /[\310-\313]/g, /[\350-\353]/g,  // E, e
+	        /[\314-\317]/g, /[\354-\357]/g,  // I, i
+	        /[\322-\330]/g, /[\362-\370]/g,  // O, o
+	        /[\331-\334]/g, /[\371-\374]/g,  // U, u
+	        /[\321]/g, /[\361]/g, // N, n
+	        /[\307]/g, /[\347]/g, // C, c
+	    ];
+	
+	    var chars = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];
+	
+	    for (var i = 0; i < diacritics.length; i++)
+	    {
+	        s = s.replace(diacritics[i],chars[i]);
+	    }
+	  var end=s;
+	  return end;
+	}
+	function apikeytouse(APIUser,APIPMKEY){
+	  if (APIUser===""){
+	    console.log("Using pmkey");
+	    return APIPMKEY;
+	  }
+	  else {
+	    console.log("Using Key User");
+	    return APIUser;
+	  }
+	}
 
 
 /***/ }),
@@ -492,7 +1354,7 @@
 /* 5 */
 /***/ (function(module, exports) {
 
-	module.exports = {"APIKEY_User":10017,"Back1Color":10000,"Back1ColorN":10001,"Back2Color":10002,"Back2ColorN":10003,"EmailPMKEY":10020,"FrameColor":10008,"FrameColor1":10047,"FrameColor1N":10049,"FrameColor2":10048,"FrameColor2N":10050,"FrameColorN":10009,"HourColor":10022,"HourColorN":10023,"HourSunrise":10012,"HourSunset":10013,"IconFore":10032,"IconNow":10031,"MinColor":10024,"MinColorN":10025,"MoonPhase":10045,"NameLocation":10014,"NightTheme":10016,"PINPMKEY":10021,"RightLeft":10043,"Rotate":10044,"SideColor1":10051,"SideColor1N":10052,"SideColor2":10053,"SideColor2N":10054,"TempFore":10033,"TempForeLow":10035,"Text1Color":10004,"Text1ColorN":10005,"Text2Color":10006,"Text2ColorN":10007,"Text3Color":10029,"Text3ColorN":10030,"Text4Color":10036,"Text4ColorN":10037,"Text5Color":10040,"Text5ColorN":10041,"Text6Color":10055,"Text6ColorN":10056,"UpSlider":10015,"WEATHER_SUNRISE_KEY":10046,"WEATHER_SUNSET_KEY":10028,"WeatherCond":10010,"WeatherProv":10019,"WeatherTemp":10011,"WeatherUnit":10018,"WeatherWind":10026,"WindFore":10034,"WindIconAve":10039,"WindIconNow":10038,"WindUnit":10042,"bluetoothvibe":10027}
+	module.exports = {"APIKEY_User":10017,"AddZero12h":10053,"Back1Color":10000,"Back1ColorN":10001,"Back2Color":10002,"Back2ColorN":10003,"EmailPMKEY":10020,"FrameColor":10008,"FrameColor1":10055,"FrameColor1N":10057,"FrameColor2":10056,"FrameColor2N":10058,"FrameColorN":10009,"HealthOff":10052,"HourColor":10022,"HourColorN":10023,"HourSunrise":10012,"HourSunset":10013,"IconFore":10036,"IconNow":10035,"Lat":10031,"Long":10032,"MinColor":10024,"MinColorN":10025,"MoonPhase":10049,"NameLocation":10014,"NightTheme":10016,"PINPMKEY":10021,"RemoveZero24h":10054,"RightLeft":10047,"Rotate":10048,"SideColor1":10059,"SideColor1N":10060,"SideColor2":10061,"SideColor2N":10062,"TempFore":10037,"TempForeLow":10039,"Text1Color":10004,"Text1ColorN":10005,"Text2Color":10006,"Text2ColorN":10007,"Text3Color":10033,"Text3ColorN":10034,"Text4Color":10040,"Text4ColorN":10041,"Text5Color":10044,"Text5ColorN":10045,"Text6Color":10063,"Text6ColorN":10064,"Text7Color":10065,"Text7ColorN":10066,"Text8Color":10067,"Text8ColorN":10068,"UpSlider":10015,"WEATHER_SUNRISE_KEY":10050,"WEATHER_SUNRISE_KEY_12H":10030,"WEATHER_SUNSET_KEY":10028,"WEATHER_SUNSET_KEY_12H":10029,"WeatherCond":10010,"WeatherOn":10051,"WeatherProv":10019,"WeatherTemp":10011,"WeatherUnit":10018,"WeatherWind":10026,"WindFore":10038,"WindIconAve":10043,"WindIconNow":10042,"WindUnit":10046,"bluetoothvibe":10027}
 
 /***/ }),
 /* 6 */
@@ -511,38 +1373,26 @@
 	        "type": "heading",
 	        "defaultValue": "Theme settings"
 	      },
-	  /*    {
-	        "type":"toggle",
-	        "messageKey":"Rotate",
-	        "label":"Rotate by 90°?",
-	        "defaultValue":false,
-	      },
-	       {
-	           "type": "toggle",
-	           "messageKey": "RightLeft",
-	          "label": "Rotation direction",
-	          "description": "On to rotate Right/clockwise, off to rotate Left/anti-clockwise.",
-	             "defaultValue": true,
-	           },
 	      {
-	        "type": "color",
-	        "messageKey": "Back1Color",
-	        "defaultValue": "0x000000",
-	        "label": "Background"
-	      },
-	       {
-	        "type": "color",
-	        "messageKey": "FrameColor",
-	        "defaultValue": "0x000000",
-	        "label": "Time Background Colour"
-	      },*/
-	    /*   {
-	        "type": "color",
-	        "messageKey": "FrameColor2",
-	        "defaultValue": "0x000000",
-	        "label": "Minute Background Colour"
-	      },*/
-	      {
+	          "type": "toggle",
+	          "messageKey": "HealthOff",
+	          "label": "Switch off Steps",
+	          "defaultValue": true,
+	          "capabilities":["HEALTH"]
+	        },
+	        {
+	          "type": "toggle",
+	          "messageKey": "AddZero12h",
+	          "label": "Add leading zero to 12h time",
+	          "defaultValue": false
+	        },
+	        {
+	          "type": "toggle",
+	          "messageKey": "RemoveZero24h",
+	          "label": "Remove leading zero from 24h time",
+	          "defaultValue": false
+	        },
+	    {
 	        "type": "color",
 	        "messageKey": "FrameColor1",
 	        "defaultValue": "0x000000",
@@ -566,14 +1416,14 @@
 	      {
 	        "type": "color",
 	        "messageKey": "HourColor",
-	        "defaultValue": "0x00FFFF",
+	        "defaultValue": "0xFFFFFF",
 	        "label": "Hour Text Colour",
 	        "allowGray":true
 	      },
 	      {
 	        "type": "color",
 	        "messageKey": "MinColor",
-	        "defaultValue": "0x00FFFF",
+	        "defaultValue": "0xFFFFFF",
 	        "label": "Minute Text Colour",
 	        "allowGray":true
 	      },
@@ -583,13 +1433,13 @@
 	        "defaultValue": "0xFFFFFF",
 	        "label": "Steps Colour",
 	        "allowGray":true,
-	        "capabilities":["BW"]
+	        "capabilities":["HEALTH"]
 	      },
 	      {
 	        "type": "color",
 	        "messageKey": "Text3Color",
 	        "defaultValue": "0xFFFFFF",
-	        "label": "Day & Battery Colour",
+	        "label": "Day Colour",
 	        "allowGray":true
 	      },
 	      {
@@ -603,7 +1453,14 @@
 	        "type": "color",
 	        "messageKey": "Text2Color",
 	        "defaultValue": "0xFFFFFF",
-	        "label": "Sunset Colour",
+	        "label": "Sunset/Sunrise Colour",
+	        "allowGray":true
+	      },
+	      {
+	        "type": "color",
+	        "messageKey": "Text8Color",
+	        "defaultValue": "0xFFFFFF",
+	        "label": "Battery Colour",
 	        "allowGray":true
 	      },
 	      {
@@ -613,6 +1470,22 @@
 	        "label":"Moon Colour",
 	        "allowGray":true
 	      },
+	      {
+	    "type": "color",
+	    "messageKey": "Text5Color",
+	    "defaultValue": "0xFFFFFF",
+	    "label": "Weather Icon Colour",
+	    "allowGray":true
+	  },
+	  {
+	"type": "color",
+	"messageKey": "Text7Color",
+	"defaultValue": "0xFFFFFF",
+	"label": "Temperature Colour",
+	"allowGray":true
+	},
+	    ]
+	  },
 	      {"type": "section",
 	       "items": [
 	         {
@@ -626,26 +1499,7 @@
 	           "label": "Activate Night Theme",
 	           "defaultValue": false,
 	         },
-	         /*{
-	           "type": "color",
-	           "messageKey": "Back1ColorN",
-	           "defaultValue": "0xFFFFFF",
-	           "label": "Background"
-	         },
-	                  {
-	        "type": "color",
-	        "messageKey": "FrameColorN",
-	        "defaultValue": "0xFFFFFF",
-	        "label": "Time Background Colour",
-	          "allowGray":true
-	      },*/
-	      /* {
-	        "type": "color",
-	        "messageKey": "FrameColor2N",
-	        "defaultValue": "0xFFFFFF",
-	        "label": "Minute Background Colour"
-	      },*/
-	      {
+	         {
 	        "type": "color",
 	        "messageKey": "FrameColor1N",
 	        "defaultValue": "0xFFFFFF",
@@ -683,16 +1537,16 @@
 	      {
 	        "type": "color",
 	        "messageKey": "Text1ColorN",
-	        "defaultValue": "0xFFFFFF",
+	        "defaultValue": "0x000000",
 	        "label": "Steps Colour",
 	        "allowGray":true,
-	        "capabilities":["BW", "HEALTH"]
+	        "capabilities":["HEALTH"]
 	      },
 	         {
 	           "type": "color",
 	           "messageKey": "Text3ColorN",
 	           "defaultValue": "0x000000",
-	           "label": "Day & Battery Colour",
+	           "label": "Day Colour",
 	           "allowGray":true
 	         },
 	         {
@@ -706,35 +1560,150 @@
 	        "type": "color",
 	        "messageKey": "Text2ColorN",
 	        "defaultValue": "0x000000",
-	        "label": "Sunset Colour",
+	        "label": "Sunset/Sunrise Colour",
+	        "allowGray":true
+	      },
+	      {
+	        "type": "color",
+	        "messageKey": "Text8ColorN",
+	        "defaultValue": "0x000000",
+	        "label": "Battery Colour",
 	        "allowGray":true
 	      },
 	      {
 	        "type":"color",
 	        "messageKey":"Text4ColorN",
-	        "defaultValue":"0xFFFFFF",
+	        "defaultValue":"0x000000",
 	        "label":"Moon Colour",
 	        "allowGray":true
 	      },
-	       ]
-	         }
-	       ]
+	          {
+	        "type": "color",
+	        "messageKey": "Text5ColorN",
+	        "defaultValue": "0x000000",
+	        "label": "Weather Icon Colour",
+	        "allowGray":true
 	      },
 	      {
-	          "type": "submit",
-	          "defaultValue":"SAVE"
-	          },
-	          {
-	          "type": "heading",
-	          "defaultValue": "version v1.0",
-	          "size":6
-	          },
-	          {
-	          "type": "heading",
-	          "defaultValue": "Made in UK",
-	          "size":6
-	          }
-	        ];
+	    "type": "color",
+	    "messageKey": "Text7ColorN",
+	    "defaultValue": "0x000000",
+	    "label": "Temperature Colour",
+	    "allowGray":true
+	  },
+	     ]
+	   },
+	   {
+	      "type": "section",
+	      "items": [
+	            {
+	              "type": "heading",
+	              "defaultValue": "Weather settings"
+	            },
+	            {
+	              "type": "toggle",
+	              "messageKey": "WeatherOn",
+	              "label": "Turn Weather On",
+	              "description": "On = shake to see current weather conditions.  Off = weather not shown",
+	              "defaultValue": false,
+	            },
+	            {
+	              "type": "toggle",
+	              "messageKey": "WeatherUnit",
+	              "label": "Temperature in Fahrenheit",
+	              "defaultValue": false,
+	            },
+	            /*  {
+	              "type": "select",
+	              "messageKey": "WindUnit",
+	              "label": "Wind speed",
+	              "defaultValue": "knots",
+	                 "options": [
+	                {
+	                  "label": "knots",
+	                  "value": "kts"
+	                },
+	                {
+	                  "label": "miles per hour",
+	                  "value": "mph"
+	                },
+	                   {
+	                  "label": "metres per second",
+	                  "value": "ms"
+	                },
+	                {
+	                  "label": "kilometres per hour",
+	                  "value": "kph"
+	                }
+	              ]
+	            },*/
+	             {
+	              "type": "select",
+	              "messageKey": "WeatherProv",
+	              "defaultValue": "owm",
+	              "label": "Weather Provider",
+	              "options": [
+	                {
+	                  "label": "OpenWeatherMap 3.0",
+	                  "value": "owm"
+	                }
+	              ]
+	            },
+	            {
+	               "type": "input",
+	               "messageKey": "Lat",
+	               "defaultValue": "",
+	               "label": "Manual Location - Latitude",
+	               "attributes": {
+	               "placeholder": "eg: 51.4962"
+	               }
+	             },
+	             {
+	                "type": "input",
+	                "messageKey": "Long",
+	                "defaultValue": "",
+	                "label": "Manual Location - Longitude",
+	                "description": "Leave both blank to use GPS location for sunrise & sunset times and weather. You can use <a href =https://www.google.com/maps>Google Maps</a> or <a href =https://www.openstreetmap.org/>OpenStreetMap</a> to find latitude & longitude.",
+	                "attributes": {
+	                  "placeholder": "eg: -0.0989"
+	                }
+	              },
+	           {
+	              "type": "input",
+	              "messageKey": "APIKEY_User",
+	              "defaultValue": "",
+	              "label": "API Key",
+	              "description": "If you don't have an API key, weather data will not be displayed. You can register for a free personal OneCall 3.0 API key for <a href =https://home.openweathermap.org/users/sign_up/>OpenWeatherMap here</a>. You will need to subscribe to the API but you can limit calls to the free tier (1000 calls per day) to avoid being charged.",
+	              "attributes": {
+	                "placeholder": "Paste your API Key here"
+	              }
+	            },
+	            {
+	              "type": "slider",
+	              "messageKey": "UpSlider",
+	              "defaultValue": 30,
+	              "label": "Update frequency (minutes)",
+	              "description": "More frequent requests will drain your phone battery more quickly",
+	              "min": 15,
+	              "max": 120,
+	              "step": 15},
+	          ]
+	     },
+	    {
+	    "type": "submit",
+	    "defaultValue":"SAVE"
+	    },
+	    {
+	    "type": "heading",
+	    "defaultValue": "version v3.0",
+	    "size":6
+	    },
+	    {
+	    "type": "heading",
+	    "defaultValue": "Made in UK",
+	    "size":6
+	    }
+	  ];
 
 
 /***/ })

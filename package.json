@@ -45,6 +45,10 @@
             "WeatherWind",
             "bluetoothvibe",
             "WEATHER_SUNSET_KEY",
+            "WEATHER_SUNSET_KEY_12H",
+            "WEATHER_SUNRISE_KEY_12H",
+            "Lat",
+            "Long",
             "Text3Color",
             "Text3ColorN",
             "IconNow",
@@ -63,6 +67,10 @@
             "Rotate",
             "MoonPhase",
             "WEATHER_SUNRISE_KEY",
+            "WeatherOn",
+            "HealthOff",
+            "AddZero12h",
+            "RemoveZero24h",
             "FrameColor1",
             "FrameColor2",
             "FrameColor1N",
@@ -72,7 +80,11 @@
             "SideColor2",
             "SideColor2N",
             "Text6Color",
-            "Text6ColorN"
+            "Text6ColorN",
+            "Text7Color",
+            "Text7ColorN",
+            "Text8Color",
+            "Text8ColorN"
         ],
         "projectType": "native",
         "resources": {
@@ -108,38 +120,8 @@
                     "type": "font"
                 },
                 {
-                    "file": "images/Sunset2",
-                    "name": "IMAGE_SUNSET_ICON2",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
-                    "file": "images/sunset",
-                    "name": "IMAGE_SUNSET_ICON",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
-                    "file": "images/bt-icon",
-                    "name": "IMAGE_BT_ICON",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
                     "file": "data/STEELFISH BIG",
                     "name": "FONT_STEELFISH",
-                    "targetPlatforms": null,
-                    "type": "raw"
-                },
-                {
-                    "file": "data/Open sans ffont",
-                    "name": "OPENSANSCON_FFONT",
-                    "targetPlatforms": null,
-                    "type": "raw"
-                },
-                {
-                    "file": "data/DIN",
-                    "name": "FONT_DINCONBOLD",
                     "targetPlatforms": null,
                     "type": "raw"
                 }
@@ -157,5 +139,5 @@
             "watchface": true
         }
     },
-    "version": "1.7.0"
+    "version": "3.0.0"
 }

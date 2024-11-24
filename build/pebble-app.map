@@ -1,7 +1,7 @@
 Archive member included because of file (symbol)
 
 /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                              src/c/main.c.33.o (app_event_loop)
+                              src/c/main.c.33.o (accel_tap_service_subscribe)
 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
                               src/c/main.c.33.o (fctx_begin_fill)
 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
@@ -29,14 +29,9 @@ Allocating common symbols
 Common symbol       size              file
 
 time_font           0x4               src/c/main.c.33.o
-sunsetstring        0x2c              src/c/main.c.33.o
-moonstring          0x2c              src/c/main.c.33.o
-settings            0x2f              src/c/main.c.33.o
-color_winner        0x1               src/c/main.c.33.o
+settings            0x97              src/c/main.c.33.o
 hour_area_layer     0x4               src/c/main.c.33.o
-sunrisestring       0x2c              src/c/main.c.33.o
 minute_area_layer   0x4               src/c/main.c.33.o
-color_loser         0x1               src/c/main.c.33.o
 
 Discarded input sections
 
@@ -69,10 +64,10 @@ Discarded input sections
  .text.effect_layer_add_effect
                 0x0000000000000000       0x1a src/c/effect_layer.c.33.o
  .rodata        0x0000000000000000       0x10 src/c/effect_layer.c.33.o
+ .data.parent_layer_offset.7620
+                0x0000000000000000        0x1 src/c/effect_layer.c.33.o
  .rodata.str1.1
                 0x0000000000000000       0x77 src/c/effect_layer.c.33.o
- .data.parent_layer_offset.7608
-                0x0000000000000000        0x1 src/c/effect_layer.c.33.o
  .text          0x0000000000000000        0x0 src/c/effects.c.33.o
  .bss           0x0000000000000000        0x0 src/c/effects.c.33.o
  .text.set_pixel.isra.0
@@ -107,11 +102,11 @@ Discarded input sections
                 0x0000000000000000      0x4d0 src/c/effects.c.33.o
  .text.effect_outline
                 0x0000000000000000      0x134 src/c/effects.c.33.o
- .bss.buff.7829
+ .bss.buff.7841
                 0x0000000000000000       0x10 src/c/effects.c.33.o
  .rodata.str1.1
                 0x0000000000000000       0x22 src/c/effects.c.33.o
- .bss.font.7828
+ .bss.font.7840
                 0x0000000000000000        0x4 src/c/effects.c.33.o
  .text          0x0000000000000000        0x0 src/c/main.c.33.o
  .bss           0x0000000000000000        0x0 src/c/main.c.33.o
@@ -150,22 +145,14 @@ Discarded input sections
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
  .data.RESOURCE_ID_FONT_WEATHERICONS_16
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
- .data.RESOURCE_ID_OPENSANSCON_FFONT
-                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
- .data.RESOURCE_ID_IMAGE_BT_ICON
-                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
- .data.RESOURCE_ID_IMAGE_SUNSET_ICON2
-                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
  .data.RESOURCE_ID_FONT_STEELFISH
-                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
- .data.RESOURCE_ID_IMAGE_SUNSET_ICON
-                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
- .data.RESOURCE_ID_FONT_DINCONBOLD
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
  .data.RESOURCE_ID_FONT_DRIPICONS_16
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
  .text          0x0000000000000000        0x0 src/message_keys.auto.c.33.o
  .bss           0x0000000000000000        0x0 src/message_keys.auto.c.33.o
+ .data.MESSAGE_KEY_Lat
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_Back2Color
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_Back1ColorN
@@ -176,15 +163,11 @@ Discarded input sections
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_Back2ColorN
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
- .data.MESSAGE_KEY_TempForeLow
-                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_WeatherCond
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_NameLocation
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_PINPMKEY
-                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
- .data.MESSAGE_KEY_IconFore
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_FrameColor2
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
@@ -194,7 +177,7 @@ Discarded input sections
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_FrameColorN
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
- .data.MESSAGE_KEY_WindFore
+ .data.MESSAGE_KEY_TempForeLow
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_APIKEY_User
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
@@ -202,7 +185,7 @@ Discarded input sections
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_bluetoothvibe
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
- .data.MESSAGE_KEY_IconNow
+ .data.MESSAGE_KEY_WindFore
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_Back1Color
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
@@ -210,23 +193,15 @@ Discarded input sections
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_WindUnit
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
- .data.MESSAGE_KEY_Text5ColorN
+ .data.MESSAGE_KEY_Long
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_RightLeft
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
- .data.MESSAGE_KEY_UpSlider
-                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_WindIconNow
-                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
- .data.MESSAGE_KEY_WeatherTemp
-                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
- .data.MESSAGE_KEY_Text5Color
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_WindIconAve
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_EmailPMKEY
-                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
- .data.MESSAGE_KEY_TempFore
                 0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .bss           0x0000000000000000        0x0 /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.accel_data_service_subscribe__deprecated
@@ -238,10 +213,6 @@ Discarded input sections
  .text.accel_service_set_samples_per_update
                 0x0000000000000000        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.accel_service_set_sampling_rate
-                0x0000000000000000        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
- .text.accel_tap_service_subscribe
-                0x0000000000000000        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
- .text.accel_tap_service_unsubscribe
                 0x0000000000000000        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.action_bar_layer_legacy2_add_to_window
                 0x0000000000000000        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
@@ -623,8 +594,6 @@ Discarded input sections
  .text.simple_menu_layer_set_selected_index
                 0x0000000000000000        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.srand    0x0000000000000000        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
- .text.strftime
-                0x0000000000000000        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.strlen   0x0000000000000000        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.strncat  0x0000000000000000        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.strncmp  0x0000000000000000        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
@@ -1364,7 +1333,7 @@ LOAD /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc
  .note.gnu.build-id
                 0x0000000000000084       0x24 linker stubs
 
-.text           0x00000000000000a8     0x30cf
+.text           0x00000000000000a8     0x3955
  *(.text)
  .text          0x00000000000000a8       0x14 /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text          0x00000000000000bc      0x370 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
@@ -1394,623 +1363,689 @@ LOAD /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc
  *(.text.*)
  .text.ColorSelect
                 0x00000000000008a0       0x34 src/c/main.c.33.o
+ .text.accel_tap_handler
+                0x00000000000008d4       0x50 src/c/main.c.33.o
  .text.bluetooth_vibe_icon
-                0x00000000000008d4       0x20 src/c/main.c.33.o
+                0x0000000000000924       0x20 src/c/main.c.33.o
+ .text.display_step_count
+                0x0000000000000944       0xc0 src/c/main.c.33.o
  .text.prv_inbox_received_handler
-                0x00000000000008f4      0x5dc src/c/main.c.33.o
+                0x0000000000000a04      0x9e4 src/c/main.c.33.o
  .text.window_unload
-                0x0000000000000ed0       0xd4 src/c/main.c.33.o
+                0x00000000000013e8       0xd4 src/c/main.c.33.o
  .text.window_load
-                0x0000000000000fa4      0x180 src/c/main.c.33.o
+                0x00000000000014bc      0x180 src/c/main.c.33.o
  .text.layer_update_proc_qt
-                0x0000000000001124       0x78 src/c/main.c.33.o
+                0x000000000000163c       0x78 src/c/main.c.33.o
  .text.layer_update_proc_sunset
-                0x000000000000119c       0xdc src/c/main.c.33.o
+                0x00000000000016b4      0x39c src/c/main.c.33.o
  .text.layer_update_proc
-                0x0000000000001278      0x228 src/c/main.c.33.o
+                0x0000000000001a50      0x148 src/c/main.c.33.o
  .text.update_minute_area_layer
-                0x00000000000014a0       0xe8 src/c/main.c.33.o
-                0x00000000000014a0                update_minute_area_layer
+                0x0000000000001b98       0xc4 src/c/main.c.33.o
+                0x0000000000001b98                update_minute_area_layer
+ *fill*         0x0000000000001c5c        0x4 
  .text.update_hour_area_layer
-                0x0000000000001588      0x140 src/c/main.c.33.o
-                0x0000000000001588                update_hour_area_layer
+                0x0000000000001c60      0x198 src/c/main.c.33.o
+                0x0000000000001c60                update_hour_area_layer
  .text.layer_update_proc_background
-                0x00000000000016c8       0xb4 src/c/main.c.33.o
-                0x00000000000016c8                layer_update_proc_background
+                0x0000000000001df8       0xb4 src/c/main.c.33.o
+                0x0000000000001df8                layer_update_proc_background
  .text.health_handler
-                0x000000000000177c      0x10c src/c/main.c.33.o
+                0x0000000000001eac       0x68 src/c/main.c.33.o
  .text.request_watchjs
-                0x0000000000001888       0x24 src/c/main.c.33.o
-                0x0000000000001888                request_watchjs
+                0x0000000000001f14       0x24 src/c/main.c.33.o
+                0x0000000000001f14                request_watchjs
  .text.layer_update_proc_bt
-                0x00000000000018ac       0xb0 src/c/main.c.33.o
+                0x0000000000001f38       0xb0 src/c/main.c.33.o
  .text.step_data_is_available
-                0x000000000000195c       0x1e src/c/main.c.33.o
-                0x000000000000195c                step_data_is_available
- *fill*         0x000000000000197a        0x2 
+                0x0000000000001fe8       0x1e src/c/main.c.33.o
+                0x0000000000001fe8                step_data_is_available
+ *fill*         0x0000000000002006        0x2 
  .text.main_window_push
-                0x000000000000197c       0x50 src/c/main.c.33.o
-                0x000000000000197c                main_window_push
+                0x0000000000002008       0x50 src/c/main.c.33.o
+                0x0000000000002008                main_window_push
  .text.main_window_update
-                0x00000000000019cc       0x98 src/c/main.c.33.o
-                0x00000000000019cc                main_window_update
+                0x0000000000002058       0x98 src/c/main.c.33.o
+                0x0000000000002058                main_window_update
  .text.tick_handler
-                0x0000000000001a64      0x204 src/c/main.c.33.o
+                0x00000000000020f0      0x214 src/c/main.c.33.o
  .text.startup.main
-                0x0000000000001c68      0x240 src/c/main.c.33.o
-                0x0000000000001c68                main
+                0x0000000000002304      0x28c src/c/main.c.33.o
+                0x0000000000002304                main
  .text.fetchwday
-                0x0000000000001ea8       0xac src/c/weekday.c.33.o
-                0x0000000000001ea8                fetchwday
+                0x0000000000002590       0xac src/c/weekday.c.33.o
+                0x0000000000002590                fetchwday
+ .text.accel_tap_service_subscribe
+                0x000000000000263c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000263c                accel_tap_service_subscribe
+ .text.accel_tap_service_unsubscribe
+                0x0000000000002648        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002648                accel_tap_service_unsubscribe
  .text.app_event_loop
-                0x0000000000001f54        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001f54                app_event_loop
- .text.app_log  0x0000000000001f60        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001f60                app_log
+                0x0000000000002654        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002654                app_event_loop
+ .text.app_log  0x0000000000002660        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002660                app_log
  .text.app_message_deregister_callbacks
-                0x0000000000001f6c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001f6c                app_message_deregister_callbacks
+                0x000000000000266c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000266c                app_message_deregister_callbacks
  .text.app_message_open
-                0x0000000000001f78        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001f78                app_message_open
+                0x0000000000002678        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002678                app_message_open
  .text.atan2_lookup
-                0x0000000000001f84        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001f84                atan2_lookup
+                0x0000000000002684        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002684                atan2_lookup
  .text.battery_state_service_peek
-                0x0000000000001f90        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001f90                battery_state_service_peek
+                0x0000000000002690        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002690                battery_state_service_peek
  .text.battery_state_service_unsubscribe
-                0x0000000000001f9c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001f9c                battery_state_service_unsubscribe
+                0x000000000000269c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000269c                battery_state_service_unsubscribe
  .text.clock_is_24h_style
-                0x0000000000001fa8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001fa8                clock_is_24h_style
+                0x00000000000026a8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000026a8                clock_is_24h_style
  .text.cos_lookup
-                0x0000000000001fb4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001fb4                cos_lookup
+                0x00000000000026b4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000026b4                cos_lookup
  .text.dict_find
-                0x0000000000001fc0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001fc0                dict_find
+                0x00000000000026c0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000026c0                dict_find
  .text.dict_write_uint8
-                0x0000000000001fcc        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001fcc                dict_write_uint8
+                0x00000000000026cc        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000026cc                dict_write_uint8
  .text.fonts_get_system_font
-                0x0000000000001fd8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001fd8                fonts_get_system_font
+                0x00000000000026d8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000026d8                fonts_get_system_font
  .text.fonts_load_custom_font
-                0x0000000000001fe4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001fe4                fonts_load_custom_font
+                0x00000000000026e4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000026e4                fonts_load_custom_font
  .text.fonts_unload_custom_font
-                0x0000000000001ff0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001ff0                fonts_unload_custom_font
- .text.free     0x0000000000001ffc        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001ffc                free
+                0x00000000000026f0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000026f0                fonts_unload_custom_font
+ .text.free     0x00000000000026fc        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000026fc                free
  .text.gbitmap_destroy
-                0x0000000000002008        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002008                gbitmap_destroy
+                0x0000000000002708        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002708                gbitmap_destroy
  .text.graphics_fill_rect
-                0x0000000000002014        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002014                graphics_fill_rect
+                0x0000000000002714        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002714                graphics_fill_rect
  .text.layer_add_child
-                0x0000000000002020        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002020                layer_add_child
+                0x0000000000002720        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002720                layer_add_child
  .text.layer_create
-                0x000000000000202c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000202c                layer_create
+                0x000000000000272c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000272c                layer_create
  .text.layer_destroy
-                0x0000000000002038        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002038                layer_destroy
+                0x0000000000002738        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002738                layer_destroy
  .text.layer_get_bounds
-                0x0000000000002044        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002044                layer_get_bounds
+                0x0000000000002744        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002744                layer_get_bounds
  .text.layer_mark_dirty
-                0x0000000000002050        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002050                layer_mark_dirty
+                0x0000000000002750        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002750                layer_mark_dirty
  .text.layer_set_hidden
-                0x000000000000205c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000205c                layer_set_hidden
+                0x000000000000275c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000275c                layer_set_hidden
  .text.layer_set_update_proc
-                0x0000000000002068        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002068                layer_set_update_proc
- .text.malloc   0x0000000000002074        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002074                malloc
- .text.memset   0x0000000000002080        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002080                memset
+                0x0000000000002768        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002768                layer_set_update_proc
+ .text.malloc   0x0000000000002774        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002774                malloc
+ .text.memset   0x0000000000002780        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002780                memset
  .text.resource_get_handle
-                0x000000000000208c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000208c                resource_get_handle
+                0x000000000000278c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000278c                resource_get_handle
  .text.resource_load
-                0x0000000000002098        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002098                resource_load
+                0x0000000000002798        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002798                resource_load
  .text.resource_size
-                0x00000000000020a4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000020a4                resource_size
+                0x00000000000027a4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000027a4                resource_size
  .text.sin_lookup
-                0x00000000000020b0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000020b0                sin_lookup
+                0x00000000000027b0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000027b0                sin_lookup
  .text.snprintf
-                0x00000000000020bc        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000020bc                snprintf
- .text.strcat   0x00000000000020c8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000020c8                strcat
- .text.strcmp   0x00000000000020d4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000020d4                strcmp
- .text.strcpy   0x00000000000020e0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000020e0                strcpy
+                0x00000000000027bc        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000027bc                snprintf
+ .text.strcat   0x00000000000027c8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000027c8                strcat
+ .text.strcmp   0x00000000000027d4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000027d4                strcmp
+ .text.strcpy   0x00000000000027e0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000027e0                strcpy
+ .text.strftime
+                0x00000000000027ec        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000027ec                strftime
  .text.tick_timer_service_subscribe
-                0x00000000000020ec        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000020ec                tick_timer_service_subscribe
+                0x00000000000027f8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000027f8                tick_timer_service_subscribe
  .text.tick_timer_service_unsubscribe
-                0x00000000000020f8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000020f8                tick_timer_service_unsubscribe
+                0x0000000000002804        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002804                tick_timer_service_unsubscribe
  .text.vibes_double_pulse
-                0x0000000000002104        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002104                vibes_double_pulse
+                0x0000000000002810        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002810                vibes_double_pulse
  .text.window_create
-                0x0000000000002110        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002110                window_create
+                0x000000000000281c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000281c                window_create
  .text.window_destroy
-                0x000000000000211c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000211c                window_destroy
+                0x0000000000002828        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002828                window_destroy
  .text.window_get_root_layer
-                0x0000000000002128        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002128                window_get_root_layer
+                0x0000000000002834        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002834                window_get_root_layer
  .text.window_set_window_handlers
-                0x0000000000002134        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002134                window_set_window_handlers
+                0x0000000000002840        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002840                window_set_window_handlers
  .text.window_stack_push
-                0x0000000000002140        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002140                window_stack_push
+                0x000000000000284c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000284c                window_stack_push
  .text.app_message_outbox_begin
-                0x000000000000214c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000214c                app_message_outbox_begin
+                0x0000000000002858        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002858                app_message_outbox_begin
  .text.app_message_outbox_send
-                0x0000000000002158        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002158                app_message_outbox_send
+                0x0000000000002864        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002864                app_message_outbox_send
  .text.app_message_register_inbox_received
-                0x0000000000002164        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002164                app_message_register_inbox_received
+                0x0000000000002870        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002870                app_message_register_inbox_received
  .text.graphics_draw_text
-                0x0000000000002170        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002170                graphics_draw_text
+                0x000000000000287c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000287c                graphics_draw_text
  .text.persist_read_data
-                0x000000000000217c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000217c                persist_read_data
+                0x0000000000002888        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002888                persist_read_data
  .text.persist_write_data
-                0x0000000000002188        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002188                persist_write_data
+                0x0000000000002894        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002894                persist_write_data
  .text.graphics_release_frame_buffer
-                0x0000000000002194        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002194                graphics_release_frame_buffer
+                0x00000000000028a0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000028a0                graphics_release_frame_buffer
  .text.i18n_get_system_locale
-                0x00000000000021a0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000021a0                i18n_get_system_locale
+                0x00000000000028ac        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000028ac                i18n_get_system_locale
  .text.gcolor_equal
-                0x00000000000021ac        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000021ac                gcolor_equal
+                0x00000000000028b8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000028b8                gcolor_equal
  .text.graphics_context_set_fill_color
-                0x00000000000021b8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000021b8                graphics_context_set_fill_color
+                0x00000000000028c4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000028c4                graphics_context_set_fill_color
  .text.graphics_context_set_text_color
-                0x00000000000021c4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000021c4                graphics_context_set_text_color
+                0x00000000000028d0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000028d0                graphics_context_set_text_color
  .text.localtime
-                0x00000000000021d0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000021d0                localtime
+                0x00000000000028dc        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000028dc                localtime
  .text.gbitmap_create_blank
-                0x00000000000021dc        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000021dc                gbitmap_create_blank
+                0x00000000000028e8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000028e8                gbitmap_create_blank
  .text.graphics_capture_frame_buffer
-                0x00000000000021e8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000021e8                graphics_capture_frame_buffer
+                0x00000000000028f4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000028f4                graphics_capture_frame_buffer
  .text.gbitmap_get_bounds
-                0x00000000000021f4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000021f4                gbitmap_get_bounds
+                0x0000000000002900        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002900                gbitmap_get_bounds
  .text.gbitmap_get_bytes_per_row
-                0x0000000000002200        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002200                gbitmap_get_bytes_per_row
+                0x000000000000290c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000290c                gbitmap_get_bytes_per_row
  .text.gbitmap_get_data
-                0x000000000000220c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000220c                gbitmap_get_data
+                0x0000000000002918        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002918                gbitmap_get_data
  .text.text_layer_create
-                0x0000000000002218        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002218                text_layer_create
+                0x0000000000002924        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002924                text_layer_create
  .text.text_layer_destroy
-                0x0000000000002224        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002224                text_layer_destroy
+                0x0000000000002930        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002930                text_layer_destroy
  .text.text_layer_get_layer
-                0x0000000000002230        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002230                text_layer_get_layer
+                0x000000000000293c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000293c                text_layer_get_layer
  .text.text_layer_set_background_color
-                0x000000000000223c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000223c                text_layer_set_background_color
+                0x0000000000002948        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002948                text_layer_set_background_color
  .text.text_layer_set_font
-                0x0000000000002248        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002248                text_layer_set_font
+                0x0000000000002954        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002954                text_layer_set_font
  .text.text_layer_set_text
-                0x0000000000002254        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002254                text_layer_set_text
+                0x0000000000002960        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002960                text_layer_set_text
  .text.text_layer_set_text_alignment
-                0x0000000000002260        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002260                text_layer_set_text_alignment
+                0x000000000000296c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000296c                text_layer_set_text_alignment
  .text.text_layer_set_text_color
-                0x000000000000226c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000226c                text_layer_set_text_color
- .text.time     0x0000000000002278        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002278                time
+                0x0000000000002978        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002978                text_layer_set_text_color
+ .text.time     0x0000000000002984        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002984                time
  .text.connection_service_peek_pebble_app_connection
-                0x0000000000002284        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002284                connection_service_peek_pebble_app_connection
+                0x0000000000002990        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000002990                connection_service_peek_pebble_app_connection
  .text.connection_service_subscribe
-                0x0000000000002290        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000002290                connection_service_subscribe
+                0x000000000000299c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000299c                connection_service_subscribe
  .text.connection_service_unsubscribe
-                0x000000000000229c        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000229c                connection_service_unsubscribe
+                0x00000000000029a8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000029a8                connection_service_unsubscribe
  .text.gbitmap_get_data_row_info
-                0x00000000000022a8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000022a8                gbitmap_get_data_row_info
+                0x00000000000029b4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000029b4                gbitmap_get_data_row_info
  .text.health_service_events_subscribe
-                0x00000000000022b4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000022b4                health_service_events_subscribe
+                0x00000000000029c0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000029c0                health_service_events_subscribe
  .text.health_service_events_unsubscribe
-                0x00000000000022c0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000022c0                health_service_events_unsubscribe
+                0x00000000000029cc        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000029cc                health_service_events_unsubscribe
  .text.health_service_metric_accessible
-                0x00000000000022cc        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000022cc                health_service_metric_accessible
+                0x00000000000029d8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000029d8                health_service_metric_accessible
  .text.health_service_sum_today
-                0x00000000000022d8        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000022d8                health_service_sum_today
+                0x00000000000029e4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000029e4                health_service_sum_today
  .text.time_start_of_today
-                0x00000000000022e4        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000022e4                time_start_of_today
+                0x00000000000029f0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000029f0                time_start_of_today
  .text.health_service_sum_averaged
-                0x00000000000022f0        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000022f0                health_service_sum_averaged
+                0x00000000000029fc        0xc /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000029fc                health_service_sum_averaged
  .text.fctx_move_to_func
-                0x00000000000022fc       0x1c /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x00000000000022fc                fctx_move_to_func
+                0x0000000000002a08       0x1c /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002a08                fctx_move_to_func
  .text.fctx_line_to_func
-                0x0000000000002318       0x24 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002318                fctx_line_to_func
- .text.bezier   0x000000000000233c      0x154 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002a24       0x24 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002a24                fctx_line_to_func
+ .text.bezier   0x0000000000002a48      0x154 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
  .text.fctx_curve_to_func
-                0x0000000000002490       0x38 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002490                fctx_curve_to_func
+                0x0000000000002b9c       0x38 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002b9c                fctx_curve_to_func
  .text.fctx_end_fill_bw
-                0x00000000000024c8      0x188 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x00000000000024c8                fctx_end_fill_bw
+                0x0000000000002bd4      0x188 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002bd4                fctx_end_fill_bw
  .text.checkObject
-                0x0000000000002650       0x28 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002650                checkObject
+                0x0000000000002d5c       0x28 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002d5c                checkObject
  .text.fctx_init_context_bw
-                0x0000000000002678       0x74 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002678                fctx_init_context_bw
+                0x0000000000002d84       0x74 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002d84                fctx_init_context_bw
  .text.floorDivMod
-                0x00000000000026ec       0x36 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x00000000000026ec                floorDivMod
+                0x0000000000002df8       0x36 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002df8                floorDivMod
  .text.edge_step
-                0x0000000000002722       0x30 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002722                edge_step
+                0x0000000000002e2e       0x30 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002e2e                edge_step
  .text.fctx_begin_fill
-                0x0000000000002752       0x3e /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002752                fctx_begin_fill
+                0x0000000000002e5e       0x3e /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002e5e                fctx_begin_fill
  .text.fctx_deinit_context
-                0x0000000000002790       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002790                fctx_deinit_context
+                0x0000000000002e9c       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002e9c                fctx_deinit_context
  .text.fctx_set_fill_color
-                0x00000000000027a4        0x6 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x00000000000027a4                fctx_set_fill_color
+                0x0000000000002eb0        0x6 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002eb0                fctx_set_fill_color
  .text.fctx_set_color_bias
-                0x00000000000027aa        0x6 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x00000000000027aa                fctx_set_color_bias
+                0x0000000000002eb6        0x6 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002eb6                fctx_set_color_bias
  .text.fctx_set_offset
-                0x00000000000027b0       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x00000000000027b0                fctx_set_offset
+                0x0000000000002ebc       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002ebc                fctx_set_offset
  .text.fctx_set_scale
-                0x00000000000027c4       0x30 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x00000000000027c4                fctx_set_scale
- .text.fceil    0x00000000000027f4       0x1c /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x00000000000027f4                fceil
+                0x0000000000002ed0       0x30 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002ed0                fctx_set_scale
+ .text.fceil    0x0000000000002f00       0x1c /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002f00                fceil
  .text.edge_init
-                0x0000000000002810       0x6c /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002810                edge_init
+                0x0000000000002f1c       0x6c /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002f1c                edge_init
  .text.fctx_plot_edge_bw
-                0x000000000000287c       0x98 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x000000000000287c                fctx_plot_edge_bw
+                0x0000000000002f88       0x98 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000002f88                fctx_plot_edge_bw
  .text.fctx_transform_points
-                0x0000000000002914       0xec /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002914                fctx_transform_points
+                0x0000000000003020       0xec /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000003020                fctx_transform_points
  .text.fctx_draw_commands
-                0x0000000000002a00      0x258 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002a00                fctx_draw_commands
+                0x000000000000310c      0x258 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x000000000000310c                fctx_draw_commands
  .text.fctx_set_text_em_height
-                0x0000000000002c58       0x16 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002c58                fctx_set_text_em_height
+                0x0000000000003364       0x16 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000003364                fctx_set_text_em_height
  .text.fctx_string_width
-                0x0000000000002c6e       0x46 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002c6e                fctx_string_width
+                0x000000000000337a       0x46 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x000000000000337a                fctx_string_width
  .text.fctx_draw_string
-                0x0000000000002cb4       0xf2 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000002cb4                fctx_draw_string
+                0x00000000000033c0       0xf2 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x00000000000033c0                fctx_draw_string
  .text.ffont_create_from_resource
-                0x0000000000002da6       0x24 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
-                0x0000000000002da6                ffont_create_from_resource
+                0x00000000000034b2       0x24 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+                0x00000000000034b2                ffont_create_from_resource
  .text.ffont_glyph_table
-                0x0000000000002dca        0xa /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
-                0x0000000000002dca                ffont_glyph_table
+                0x00000000000034d6        0xa /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+                0x00000000000034d6                ffont_glyph_table
  .text.ffont_path_data
-                0x0000000000002dd4       0x12 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
-                0x0000000000002dd4                ffont_path_data
+                0x00000000000034e0       0x12 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+                0x00000000000034e0                ffont_path_data
  .text.ffont_glyph_info
-                0x0000000000002de6       0x3e /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
-                0x0000000000002de6                ffont_glyph_info
+                0x00000000000034f2       0x3e /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+                0x00000000000034f2                ffont_glyph_info
  .text.ffont_glyph_outline
-                0x0000000000002e24        0xe /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
-                0x0000000000002e24                ffont_glyph_outline
+                0x0000000000003530        0xe /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+                0x0000000000003530                ffont_glyph_outline
  .text.ffont_destroy
-                0x0000000000002e32        0x4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
-                0x0000000000002e32                ffont_destroy
+                0x000000000000353e        0x4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+                0x000000000000353e                ffont_destroy
  .text.utf8_decode_byte
-                0x0000000000002e36       0x82 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
-                0x0000000000002e36                utf8_decode_byte
+                0x0000000000003542       0x82 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
+                0x0000000000003542                utf8_decode_byte
  *(.rodata)
- .rodata        0x0000000000002eb8       0x50 src/c/main.c.33.o
- .rodata        0x0000000000002f08        0x8 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+ .rodata        0x00000000000035c4       0x50 src/c/main.c.33.o
+ .rodata        0x0000000000003614        0x8 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
  *(.rodata*)
  .rodata.str1.1
-                0x0000000000002f10      0x198 src/c/main.c.33.o
-                                        0x19e (size before relaxing)
+                0x000000000000361c      0x312 src/c/main.c.33.o
+                                        0x31b (size before relaxing)
  .rodata.str1.1
-                0x00000000000030a8       0x96 src/c/weekday.c.33.o
+                0x000000000000392e       0x96 src/c/weekday.c.33.o
  .rodata.str1.1
-                0x000000000000313e       0x39 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x00000000000039c4       0x39 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
 
-.glue_7         0x0000000000003178        0x0
+.glue_7         0x0000000000003a00        0x0
  .glue_7        0x0000000000000000        0x0 linker stubs
 
-.glue_7t        0x0000000000003178        0x0
+.glue_7t        0x0000000000003a00        0x0
  .glue_7t       0x0000000000000000        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000003178        0x0
+.vfp11_veneer   0x0000000000003a00        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000000003178        0x0
+.v4_bx          0x0000000000003a00        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000000003178        0x0
+.iplt           0x0000000000003a00        0x0
  .iplt          0x0000000000000000        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.rel.dyn        0x0000000000003178        0x0
+.rel.dyn        0x0000000000003a00        0x0
  .rel.iplt      0x0000000000000000        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
  .rel.got       0x0000000000000000        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.data           0x0000000000003178      0x1a4
+.data           0x0000000000003a00      0x3c0
  *(.data)
- .data          0x0000000000003178        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
- .data          0x0000000000003178        0x4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x0000000000003178                __dso_handle
- .data          0x000000000000317c        0x0 src/c/blur.c.33.o
- .data          0x000000000000317c        0x0 src/c/effect_layer.c.33.o
- .data          0x000000000000317c        0x0 src/c/effects.c.33.o
- .data          0x000000000000317c        0x0 src/c/main.c.33.o
- .data          0x000000000000317c        0x0 src/c/math.c.33.o
- .data          0x000000000000317c        0x0 src/c/weekday.c.33.o
- .data          0x000000000000317c        0x0 aplite/appinfo.auto.c.33.o
- .data          0x000000000000317c        0x0 aplite/src/resource_ids.auto.c.33.o
- .data          0x000000000000317c        0x0 src/message_keys.auto.c.33.o
- .data          0x000000000000317c        0x0 /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_truncdfsf2.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpsf2.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
- .data          0x000000000000317c        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ .data          0x0000000000003a00        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .data          0x0000000000003a00        0x4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000003a00                __dso_handle
+ .data          0x0000000000003a04        0x0 src/c/blur.c.33.o
+ .data          0x0000000000003a04        0x0 src/c/effect_layer.c.33.o
+ .data          0x0000000000003a04        0x0 src/c/effects.c.33.o
+ .data          0x0000000000003a04        0x0 src/c/main.c.33.o
+ .data          0x0000000000003a04        0x0 src/c/math.c.33.o
+ .data          0x0000000000003a04        0x0 src/c/weekday.c.33.o
+ .data          0x0000000000003a04        0x0 aplite/appinfo.auto.c.33.o
+ .data          0x0000000000003a04        0x0 aplite/src/resource_ids.auto.c.33.o
+ .data          0x0000000000003a04        0x0 src/message_keys.auto.c.33.o
+ .data          0x0000000000003a04        0x0 /home/astosia/.pebble-sdk/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_truncdfsf2.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpsf2.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .data          0x0000000000003a04        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
  *(.data.*)
  .data.HourSunset
-                0x000000000000317c        0x4 src/c/main.c.33.o
-                0x000000000000317c                HourSunset
+                0x0000000000003a04        0x4 src/c/main.c.33.o
+                0x0000000000003a04                HourSunset
  .data.rel.ro.local.moon_phase
-                0x0000000000003180       0x74 src/c/main.c.33.o
- .data.BTOn     0x00000000000031f4        0x1 src/c/main.c.33.o
-                0x00000000000031f4                BTOn
- *fill*         0x00000000000031f5        0x3 
+                0x0000000000003a08       0x74 src/c/main.c.33.o
+ .data.rel.ro.local.weather_conditions
+                0x0000000000003a7c      0x1dc src/c/main.c.33.o
  .data.HourSunrise
-                0x00000000000031f8        0x4 src/c/main.c.33.o
-                0x00000000000031f8                HourSunrise
- .data.GPSOn    0x00000000000031fc        0x1 src/c/main.c.33.o
-                0x00000000000031fc                GPSOn
- *fill*         0x00000000000031fd        0x3 
+                0x0000000000003c58        0x4 src/c/main.c.33.o
+                0x0000000000003c58                HourSunrise
+ .data.BTOn     0x0000000000003c5c        0x1 src/c/main.c.33.o
+                0x0000000000003c5c                BTOn
+ .data.GPSOn    0x0000000000003c5d        0x1 src/c/main.c.33.o
+                0x0000000000003c5d                GPSOn
+ *fill*         0x0000000000003c5e        0x2 
  .data.rel.local.WEEKDAY_IT
-                0x0000000000003200       0x1c src/c/weekday.c.33.o
-                0x0000000000003200                WEEKDAY_IT
+                0x0000000000003c60       0x1c src/c/weekday.c.33.o
+                0x0000000000003c60                WEEKDAY_IT
  .data.rel.local.WEEKDAY_PT
-                0x000000000000321c       0x1c src/c/weekday.c.33.o
-                0x000000000000321c                WEEKDAY_PT
+                0x0000000000003c7c       0x1c src/c/weekday.c.33.o
+                0x0000000000003c7c                WEEKDAY_PT
  .data.rel.local.WEEKDAY_EN
-                0x0000000000003238       0x1c src/c/weekday.c.33.o
-                0x0000000000003238                WEEKDAY_EN
+                0x0000000000003c98       0x1c src/c/weekday.c.33.o
+                0x0000000000003c98                WEEKDAY_EN
  .data.rel.local.WEEKDAY_ES
-                0x0000000000003254       0x1c src/c/weekday.c.33.o
-                0x0000000000003254                WEEKDAY_ES
+                0x0000000000003cb4       0x1c src/c/weekday.c.33.o
+                0x0000000000003cb4                WEEKDAY_ES
  .data.rel.local.WEEKDAY_FR
-                0x0000000000003270       0x1c src/c/weekday.c.33.o
-                0x0000000000003270                WEEKDAY_FR
+                0x0000000000003cd0       0x1c src/c/weekday.c.33.o
+                0x0000000000003cd0                WEEKDAY_FR
  .data.rel.local.WEEKDAY_DE
-                0x000000000000328c       0x1c src/c/weekday.c.33.o
-                0x000000000000328c                WEEKDAY_DE
- .data.MESSAGE_KEY_HourColorN
-                0x00000000000032a8        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032a8                MESSAGE_KEY_HourColorN
- .data.MESSAGE_KEY_MinColor
-                0x00000000000032ac        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032ac                MESSAGE_KEY_MinColor
- .data.MESSAGE_KEY_Text6Color
-                0x00000000000032b0        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032b0                MESSAGE_KEY_Text6Color
- .data.MESSAGE_KEY_Text3Color
-                0x00000000000032b4        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032b4                MESSAGE_KEY_Text3Color
- .data.MESSAGE_KEY_HourSunrise
-                0x00000000000032b8        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032b8                MESSAGE_KEY_HourSunrise
- .data.MESSAGE_KEY_SideColor1N
-                0x00000000000032bc        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032bc                MESSAGE_KEY_SideColor1N
- .data.MESSAGE_KEY_NightTheme
-                0x00000000000032c0        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032c0                MESSAGE_KEY_NightTheme
- .data.MESSAGE_KEY_HourSunset
-                0x00000000000032c4        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032c4                MESSAGE_KEY_HourSunset
- .data.MESSAGE_KEY_Text1ColorN
-                0x00000000000032c8        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032c8                MESSAGE_KEY_Text1ColorN
- .data.MESSAGE_KEY_Text2ColorN
-                0x00000000000032cc        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032cc                MESSAGE_KEY_Text2ColorN
+                0x0000000000003cec       0x1c src/c/weekday.c.33.o
+                0x0000000000003cec                WEEKDAY_DE
  .data.MESSAGE_KEY_WEATHER_SUNSET_KEY
-                0x00000000000032d0        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032d0                MESSAGE_KEY_WEATHER_SUNSET_KEY
+                0x0000000000003d08        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d08                MESSAGE_KEY_WEATHER_SUNSET_KEY
+ .data.MESSAGE_KEY_Text8ColorN
+                0x0000000000003d0c        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d0c                MESSAGE_KEY_Text8ColorN
+ .data.MESSAGE_KEY_MinColor
+                0x0000000000003d10        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d10                MESSAGE_KEY_MinColor
+ .data.MESSAGE_KEY_Text6Color
+                0x0000000000003d14        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d14                MESSAGE_KEY_Text6Color
+ .data.MESSAGE_KEY_Text3Color
+                0x0000000000003d18        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d18                MESSAGE_KEY_Text3Color
+ .data.MESSAGE_KEY_HourSunrise
+                0x0000000000003d1c        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d1c                MESSAGE_KEY_HourSunrise
+ .data.MESSAGE_KEY_HealthOff
+                0x0000000000003d20        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d20                MESSAGE_KEY_HealthOff
+ .data.MESSAGE_KEY_IconFore
+                0x0000000000003d24        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d24                MESSAGE_KEY_IconFore
+ .data.MESSAGE_KEY_SideColor1N
+                0x0000000000003d28        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d28                MESSAGE_KEY_SideColor1N
+ .data.MESSAGE_KEY_NightTheme
+                0x0000000000003d2c        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d2c                MESSAGE_KEY_NightTheme
+ .data.MESSAGE_KEY_RemoveZero24h
+                0x0000000000003d30        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d30                MESSAGE_KEY_RemoveZero24h
+ .data.MESSAGE_KEY_Text1ColorN
+                0x0000000000003d34        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d34                MESSAGE_KEY_Text1ColorN
+ .data.MESSAGE_KEY_WeatherOn
+                0x0000000000003d38        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d38                MESSAGE_KEY_WeatherOn
+ .data.MESSAGE_KEY_Text7Color
+                0x0000000000003d3c        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d3c                MESSAGE_KEY_Text7Color
+ .data.MESSAGE_KEY_AddZero12h
+                0x0000000000003d40        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d40                MESSAGE_KEY_AddZero12h
+ .data.MESSAGE_KEY_Text2ColorN
+                0x0000000000003d44        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d44                MESSAGE_KEY_Text2ColorN
  .data.MESSAGE_KEY_Text4Color
-                0x00000000000032d4        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032d4                MESSAGE_KEY_Text4Color
+                0x0000000000003d48        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d48                MESSAGE_KEY_Text4Color
+ .data.MESSAGE_KEY_IconNow
+                0x0000000000003d4c        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d4c                MESSAGE_KEY_IconNow
  .data.MESSAGE_KEY_SideColor1
-                0x00000000000032d8        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032d8                MESSAGE_KEY_SideColor1
+                0x0000000000003d50        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d50                MESSAGE_KEY_SideColor1
  .data.MESSAGE_KEY_SideColor2
-                0x00000000000032dc        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032dc                MESSAGE_KEY_SideColor2
+                0x0000000000003d54        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d54                MESSAGE_KEY_SideColor2
  .data.MESSAGE_KEY_FrameColor1N
-                0x00000000000032e0        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032e0                MESSAGE_KEY_FrameColor1N
+                0x0000000000003d58        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d58                MESSAGE_KEY_FrameColor1N
  .data.MESSAGE_KEY_Text1Color
-                0x00000000000032e4        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032e4                MESSAGE_KEY_Text1Color
- .data.MESSAGE_KEY_FrameColor1
-                0x00000000000032e8        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032e8                MESSAGE_KEY_FrameColor1
+                0x0000000000003d5c        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d5c                MESSAGE_KEY_Text1Color
+ .data.MESSAGE_KEY_HourSunset
+                0x0000000000003d60        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d60                MESSAGE_KEY_HourSunset
  .data.MESSAGE_KEY_MinColorN
-                0x00000000000032ec        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032ec                MESSAGE_KEY_MinColorN
+                0x0000000000003d64        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d64                MESSAGE_KEY_MinColorN
+ .data.MESSAGE_KEY_Text5ColorN
+                0x0000000000003d68        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d68                MESSAGE_KEY_Text5ColorN
+ .data.MESSAGE_KEY_WEATHER_SUNSET_KEY_12H
+                0x0000000000003d6c        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d6c                MESSAGE_KEY_WEATHER_SUNSET_KEY_12H
  .data.MESSAGE_KEY_Text4ColorN
-                0x00000000000032f0        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032f0                MESSAGE_KEY_Text4ColorN
+                0x0000000000003d70        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d70                MESSAGE_KEY_Text4ColorN
+ .data.MESSAGE_KEY_HourColorN
+                0x0000000000003d74        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d74                MESSAGE_KEY_HourColorN
  .data.MESSAGE_KEY_Text6ColorN
-                0x00000000000032f4        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032f4                MESSAGE_KEY_Text6ColorN
+                0x0000000000003d78        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d78                MESSAGE_KEY_Text6ColorN
  .data.MESSAGE_KEY_HourColor
-                0x00000000000032f8        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032f8                MESSAGE_KEY_HourColor
+                0x0000000000003d7c        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d7c                MESSAGE_KEY_HourColor
  .data.MESSAGE_KEY_SideColor2N
-                0x00000000000032fc        0x4 src/message_keys.auto.c.33.o
-                0x00000000000032fc                MESSAGE_KEY_SideColor2N
+                0x0000000000003d80        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d80                MESSAGE_KEY_SideColor2N
+ .data.MESSAGE_KEY_Text8Color
+                0x0000000000003d84        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d84                MESSAGE_KEY_Text8Color
+ .data.MESSAGE_KEY_UpSlider
+                0x0000000000003d88        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d88                MESSAGE_KEY_UpSlider
  .data.MESSAGE_KEY_MoonPhase
-                0x0000000000003300        0x4 src/message_keys.auto.c.33.o
-                0x0000000000003300                MESSAGE_KEY_MoonPhase
+                0x0000000000003d8c        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d8c                MESSAGE_KEY_MoonPhase
+ .data.MESSAGE_KEY_Text7ColorN
+                0x0000000000003d90        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d90                MESSAGE_KEY_Text7ColorN
+ .data.MESSAGE_KEY_WeatherTemp
+                0x0000000000003d94        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d94                MESSAGE_KEY_WeatherTemp
+ .data.MESSAGE_KEY_Text5Color
+                0x0000000000003d98        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d98                MESSAGE_KEY_Text5Color
  .data.MESSAGE_KEY_WEATHER_SUNRISE_KEY
-                0x0000000000003304        0x4 src/message_keys.auto.c.33.o
-                0x0000000000003304                MESSAGE_KEY_WEATHER_SUNRISE_KEY
+                0x0000000000003d9c        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003d9c                MESSAGE_KEY_WEATHER_SUNRISE_KEY
+ .data.MESSAGE_KEY_FrameColor1
+                0x0000000000003da0        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003da0                MESSAGE_KEY_FrameColor1
+ .data.MESSAGE_KEY_WEATHER_SUNRISE_KEY_12H
+                0x0000000000003da4        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003da4                MESSAGE_KEY_WEATHER_SUNRISE_KEY_12H
  .data.MESSAGE_KEY_Text2Color
-                0x0000000000003308        0x4 src/message_keys.auto.c.33.o
-                0x0000000000003308                MESSAGE_KEY_Text2Color
+                0x0000000000003da8        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003da8                MESSAGE_KEY_Text2Color
+ .data.MESSAGE_KEY_TempFore
+                0x0000000000003dac        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003dac                MESSAGE_KEY_TempFore
  .data.MESSAGE_KEY_Text3ColorN
-                0x000000000000330c        0x4 src/message_keys.auto.c.33.o
-                0x000000000000330c                MESSAGE_KEY_Text3ColorN
+                0x0000000000003db0        0x4 src/message_keys.auto.c.33.o
+                0x0000000000003db0                MESSAGE_KEY_Text3ColorN
  .data.rel.fctx_plot_edge
-                0x0000000000003310        0x4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000003310                fctx_plot_edge
+                0x0000000000003db4        0x4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000003db4                fctx_plot_edge
  .data.rel.fctx_end_fill
-                0x0000000000003314        0x4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000003314                fctx_end_fill
+                0x0000000000003db8        0x4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000003db8                fctx_end_fill
  .data.rel.fctx_init_context
-                0x0000000000003318        0x4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
-                0x0000000000003318                fctx_init_context
+                0x0000000000003dbc        0x4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x0000000000003dbc                fctx_init_context
 
-.igot.plt       0x000000000000331c        0x0
+.igot.plt       0x0000000000003dc0        0x0
  .igot.plt      0x0000000000000000        0x0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.got            0x000000000000331c       0x94
- .got           0x000000000000331c       0x94 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+.got            0x0000000000003dc0       0xc4
+ .got           0x0000000000003dc0       0xc4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.got.plt        0x00000000000033b0        0xc
- .got.plt       0x00000000000033b0        0xc /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x00000000000033b0                _GLOBAL_OFFSET_TABLE_
+.got.plt        0x0000000000003e84        0xc
+ .got.plt       0x0000000000003e84        0xc /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000003e84                _GLOBAL_OFFSET_TABLE_
 
-.bss            0x00000000000033bc      0x145
+.bss            0x0000000000003e90      0x130
  *(.bss)
  *(.bss.*)
- .bss.s_countdown
-                0x00000000000033bc        0x4 src/c/main.c.33.o
  .bss.s_canvas_background
-                0x00000000000033c0        0x4 src/c/main.c.33.o
- .bss.FontDate  0x00000000000033c4        0x4 src/c/main.c.33.o
- .bss.s_day     0x00000000000033c8        0x4 src/c/main.c.33.o
- .bss.FontIcon3
-                0x00000000000033cc        0x4 src/c/main.c.33.o
- .bss.FontDate2
-                0x00000000000033d0        0x4 src/c/main.c.33.o
- .bss.s_current_steps_buffer
-                0x00000000000033d4       0x10 src/c/main.c.33.o
- .bss.s_step_average
-                0x00000000000033e4        0x4 src/c/main.c.33.o
- .bss.s_canvas_qt_icon
-                0x00000000000033e8        0x4 src/c/main.c.33.o
- .bss.FontWind  0x00000000000033ec        0x4 src/c/main.c.33.o
- .bss.FontBattery
-                0x00000000000033f0        0x4 src/c/main.c.33.o
- .bss.s_window  0x00000000000033f4        0x4 src/c/main.c.33.o
- .bss.FontCity  0x00000000000033f8        0x4 src/c/main.c.33.o
- .bss.FontWeatherIcons
-                0x00000000000033fc        0x4 src/c/main.c.33.o
- .bss.FontIcon2
-                0x0000000000003400        0x4 src/c/main.c.33.o
- .bss.FontSteps
-                0x0000000000003404        0x4 src/c/main.c.33.o
- .bss.FontIcon  0x0000000000003408        0x4 src/c/main.c.33.o
- .bss.s_step_goal
-                0x000000000000340c        0x4 src/c/main.c.33.o
- .bss.s_loop    0x0000000000003410        0x4 src/c/main.c.33.o
- .bss.s_step_layer
-                0x0000000000003414        0x4 src/c/main.c.33.o
+                0x0000000000003e90        0x4 src/c/main.c.33.o
+ .bss.FontFore  0x0000000000003e94        0x4 src/c/main.c.33.o
+ .bss.s_day     0x0000000000003e98        0x4 src/c/main.c.33.o
  .bss.s_weekday
-                0x0000000000003418        0x4 src/c/main.c.33.o
- .bss.s_hours   0x000000000000341c        0x4 src/c/main.c.33.o
- .bss.s_canvas  0x0000000000003420        0x4 src/c/main.c.33.o
- .bss.IsNightNow
-                0x0000000000003424        0x1 src/c/main.c.33.o
-                0x0000000000003424                IsNightNow
- *fill*         0x0000000000003425        0x3 
- .bss.s_canvas_bt_icon
-                0x0000000000003428        0x4 src/c/main.c.33.o
- .bss.s_canvas_sunset_icon
-                0x000000000000342c        0x4 src/c/main.c.33.o
- .bss.s_minutes
-                0x0000000000003430        0x4 src/c/main.c.33.o
+                0x0000000000003e9c        0x4 src/c/main.c.33.o
+ .bss.s_step_layer
+                0x0000000000003ea0        0x4 src/c/main.c.33.o
+ .bss.FontWeatherIcons
+                0x0000000000003ea4        0x4 src/c/main.c.33.o
+ .bss.FontDate2
+                0x0000000000003ea8        0x4 src/c/main.c.33.o
+ .bss.FontDate  0x0000000000003eac        0x4 src/c/main.c.33.o
+ .bss.s_step_average
+                0x0000000000003eb0        0x4 src/c/main.c.33.o
+ .bss.s_canvas_qt_icon
+                0x0000000000003eb4        0x4 src/c/main.c.33.o
+ .bss.FontWind  0x0000000000003eb8        0x4 src/c/main.c.33.o
+ .bss.FontBattery
+                0x0000000000003ebc        0x4 src/c/main.c.33.o
+ .bss.s_window  0x0000000000003ec0        0x4 src/c/main.c.33.o
+ .bss.FontCity  0x0000000000003ec4        0x4 src/c/main.c.33.o
+ .bss.FontIcon2
+                0x0000000000003ec8        0x4 src/c/main.c.33.o
+ .bss.FontIcon3
+                0x0000000000003ecc        0x4 src/c/main.c.33.o
  .bss.s_step_count
-                0x0000000000003434        0x4 src/c/main.c.33.o
+                0x0000000000003ed0        0x4 src/c/main.c.33.o
+ .bss.s_countdown
+                0x0000000000003ed4        0x4 src/c/main.c.33.o
+                0x0000000000003ed4                s_countdown
+ .bss.s_loop    0x0000000000003ed8        0x4 src/c/main.c.33.o
+ .bss.showWeather
+                0x0000000000003edc        0x4 src/c/main.c.33.o
+                0x0000000000003edc                showWeather
+ .bss.s_current_steps_buffer
+                0x0000000000003ee0       0x10 src/c/main.c.33.o
+ .bss.FontSteps
+                0x0000000000003ef0        0x4 src/c/main.c.33.o
+ .bss.s_hours   0x0000000000003ef4        0x4 src/c/main.c.33.o
+ .bss.s_step_goal
+                0x0000000000003ef8        0x4 src/c/main.c.33.o
+ .bss.s_canvas  0x0000000000003efc        0x4 src/c/main.c.33.o
+ .bss.IsNightNow
+                0x0000000000003f00        0x1 src/c/main.c.33.o
+                0x0000000000003f00                IsNightNow
+ *fill*         0x0000000000003f01        0x3 
+ .bss.s_canvas_bt_icon
+                0x0000000000003f04        0x4 src/c/main.c.33.o
+ .bss.s_canvas_sunset_icon
+                0x0000000000003f08        0x4 src/c/main.c.33.o
+ .bss.s_minutes
+                0x0000000000003f0c        0x4 src/c/main.c.33.o
+ .bss.FontIcon  0x0000000000003f10        0x4 src/c/main.c.33.o
  .bss.FontWeather
-                0x0000000000003438        0x4 src/c/main.c.33.o
+                0x0000000000003f14        0x4 src/c/main.c.33.o
  .bss.FontSunset
-                0x000000000000343c        0x4 src/c/main.c.33.o
- COMMON         0x0000000000003440       0xc1 src/c/main.c.33.o
-                0x0000000000003440                time_font
-                0x0000000000003444                sunsetstring
-                0x0000000000003470                moonstring
-                0x000000000000349c                settings
-                0x00000000000034cb                color_winner
-                0x00000000000034cc                hour_area_layer
-                0x00000000000034d0                sunrisestring
-                0x00000000000034fc                minute_area_layer
-                0x0000000000003500                color_loser
+                0x0000000000003f18        0x4 src/c/main.c.33.o
+ COMMON         0x0000000000003f1c       0xa4 src/c/main.c.33.o
+                0x0000000000003f1c                time_font
+                0x0000000000003f20                settings
+                0x0000000000003fb8                hour_area_layer
+                0x0000000000003fbc                minute_area_layer
 
 DISCARD
  libc.a(*)
@@ -2090,62 +2125,62 @@ OUTPUT(/home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/build/aplite/
  .comment       0x0000000000000000       0x4f /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
  .comment       0x0000000000000000       0x4f /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
 
-.debug_info     0x0000000000000000     0xa1f6
+.debug_info     0x0000000000000000     0xac91
  .debug_info    0x0000000000000000      0x18b src/c/blur.c.33.o
  .debug_info    0x000000000000018b      0x672 src/c/effect_layer.c.33.o
  .debug_info    0x00000000000007fd     0x2518 src/c/effects.c.33.o
- .debug_info    0x0000000000002d15     0x346f src/c/main.c.33.o
- .debug_info    0x0000000000006184      0x4c1 src/c/math.c.33.o
- .debug_info    0x0000000000006645      0x1fd src/c/weekday.c.33.o
- .debug_info    0x0000000000006842      0x31a aplite/appinfo.auto.c.33.o
- .debug_info    0x0000000000006b5c      0x135 aplite/src/resource_ids.auto.c.33.o
- .debug_info    0x0000000000006c91      0x471 src/message_keys.auto.c.33.o
- .debug_info    0x0000000000007102     0x21e0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
- .debug_info    0x00000000000092e2      0x7c3 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
- .debug_info    0x0000000000009aa5      0x199 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
- .debug_info    0x0000000000009c3e       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_info    0x0000000000009cf5       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_info    0x0000000000009dac       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_info    0x0000000000009e63       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_truncdfsf2.o)
- .debug_info    0x0000000000009f1a       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
- .debug_info    0x0000000000009fd1       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
- .debug_info    0x000000000000a088       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpsf2.o)
- .debug_info    0x000000000000a13f       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
+ .debug_info    0x0000000000002d15     0x3e8c src/c/main.c.33.o
+ .debug_info    0x0000000000006ba1      0x4c1 src/c/math.c.33.o
+ .debug_info    0x0000000000007062      0x1fd src/c/weekday.c.33.o
+ .debug_info    0x000000000000725f      0x31a aplite/appinfo.auto.c.33.o
+ .debug_info    0x0000000000007579       0xdb aplite/src/resource_ids.auto.c.33.o
+ .debug_info    0x0000000000007654      0x549 src/message_keys.auto.c.33.o
+ .debug_info    0x0000000000007b9d     0x21e0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+ .debug_info    0x0000000000009d7d      0x7c3 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+ .debug_info    0x000000000000a540      0x199 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
+ .debug_info    0x000000000000a6d9       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_info    0x000000000000a790       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_info    0x000000000000a847       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_info    0x000000000000a8fe       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_truncdfsf2.o)
+ .debug_info    0x000000000000a9b5       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+ .debug_info    0x000000000000aa6c       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .debug_info    0x000000000000ab23       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpsf2.o)
+ .debug_info    0x000000000000abda       0xb7 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
 
-.debug_abbrev   0x0000000000000000     0x193d
+.debug_abbrev   0x0000000000000000     0x18af
  .debug_abbrev  0x0000000000000000       0xd1 src/c/blur.c.33.o
  .debug_abbrev  0x00000000000000d1      0x295 src/c/effect_layer.c.33.o
  .debug_abbrev  0x0000000000000366      0x3dc src/c/effects.c.33.o
- .debug_abbrev  0x0000000000000742      0x556 src/c/main.c.33.o
- .debug_abbrev  0x0000000000000c98      0x159 src/c/math.c.33.o
- .debug_abbrev  0x0000000000000df1       0xed src/c/weekday.c.33.o
- .debug_abbrev  0x0000000000000ede       0x9e aplite/appinfo.auto.c.33.o
- .debug_abbrev  0x0000000000000f7c       0x44 aplite/src/resource_ids.auto.c.33.o
- .debug_abbrev  0x0000000000000fc0       0x44 src/message_keys.auto.c.33.o
- .debug_abbrev  0x0000000000001004      0x540 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
- .debug_abbrev  0x0000000000001544      0x266 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
- .debug_abbrev  0x00000000000017aa       0xf3 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
- .debug_abbrev  0x000000000000189d       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_abbrev  0x00000000000018b1       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_abbrev  0x00000000000018c5       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_abbrev  0x00000000000018d9       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_truncdfsf2.o)
- .debug_abbrev  0x00000000000018ed       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
- .debug_abbrev  0x0000000000001901       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
- .debug_abbrev  0x0000000000001915       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpsf2.o)
- .debug_abbrev  0x0000000000001929       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
+ .debug_abbrev  0x0000000000000742      0x4c8 src/c/main.c.33.o
+ .debug_abbrev  0x0000000000000c0a      0x159 src/c/math.c.33.o
+ .debug_abbrev  0x0000000000000d63       0xed src/c/weekday.c.33.o
+ .debug_abbrev  0x0000000000000e50       0x9e aplite/appinfo.auto.c.33.o
+ .debug_abbrev  0x0000000000000eee       0x44 aplite/src/resource_ids.auto.c.33.o
+ .debug_abbrev  0x0000000000000f32       0x44 src/message_keys.auto.c.33.o
+ .debug_abbrev  0x0000000000000f76      0x540 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+ .debug_abbrev  0x00000000000014b6      0x266 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+ .debug_abbrev  0x000000000000171c       0xf3 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
+ .debug_abbrev  0x000000000000180f       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_abbrev  0x0000000000001823       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_abbrev  0x0000000000001837       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_abbrev  0x000000000000184b       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_truncdfsf2.o)
+ .debug_abbrev  0x000000000000185f       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+ .debug_abbrev  0x0000000000001873       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .debug_abbrev  0x0000000000001887       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpsf2.o)
+ .debug_abbrev  0x000000000000189b       0x14 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
 
-.debug_loc      0x0000000000000000     0x5a87
+.debug_loc      0x0000000000000000     0x5bcf
  .debug_loc     0x0000000000000000       0x41 src/c/blur.c.33.o
  .debug_loc     0x0000000000000041      0x25c src/c/effect_layer.c.33.o
  .debug_loc     0x000000000000029d     0x1945 src/c/effects.c.33.o
- .debug_loc     0x0000000000001be2      0xc57 src/c/main.c.33.o
- .debug_loc     0x0000000000002839      0x610 src/c/math.c.33.o
- .debug_loc     0x0000000000002e49       0x9b src/c/weekday.c.33.o
- .debug_loc     0x0000000000002ee4     0x242c /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
- .debug_loc     0x0000000000005310      0x5f9 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
- .debug_loc     0x0000000000005909      0x17e /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
+ .debug_loc     0x0000000000001be2      0xd9f src/c/main.c.33.o
+ .debug_loc     0x0000000000002981      0x610 src/c/math.c.33.o
+ .debug_loc     0x0000000000002f91       0x9b src/c/weekday.c.33.o
+ .debug_loc     0x000000000000302c     0x242c /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+ .debug_loc     0x0000000000005458      0x5f9 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+ .debug_loc     0x0000000000005a51      0x17e /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
 
-.debug_aranges  0x0000000000000000      0x548
+.debug_aranges  0x0000000000000000      0x558
  .debug_aranges
                 0x0000000000000000       0x20 src/c/blur.c.33.o
  .debug_aranges
@@ -2153,106 +2188,106 @@ OUTPUT(/home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/build/aplite/
  .debug_aranges
                 0x0000000000000060       0x98 src/c/effects.c.33.o
  .debug_aranges
-                0x00000000000000f8       0xb0 src/c/main.c.33.o
+                0x00000000000000f8       0xc0 src/c/main.c.33.o
  .debug_aranges
-                0x00000000000001a8       0x80 src/c/math.c.33.o
+                0x00000000000001b8       0x80 src/c/math.c.33.o
  .debug_aranges
-                0x0000000000000228       0x20 src/c/weekday.c.33.o
+                0x0000000000000238       0x20 src/c/weekday.c.33.o
  .debug_aranges
-                0x0000000000000248       0x18 aplite/appinfo.auto.c.33.o
+                0x0000000000000258       0x18 aplite/appinfo.auto.c.33.o
  .debug_aranges
-                0x0000000000000260       0x18 aplite/src/resource_ids.auto.c.33.o
+                0x0000000000000270       0x18 aplite/src/resource_ids.auto.c.33.o
  .debug_aranges
-                0x0000000000000278       0x18 src/message_keys.auto.c.33.o
+                0x0000000000000288       0x18 src/message_keys.auto.c.33.o
  .debug_aranges
-                0x0000000000000290      0x128 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+                0x00000000000002a0      0x128 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
  .debug_aranges
-                0x00000000000003b8       0x60 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+                0x00000000000003c8       0x60 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
  .debug_aranges
-                0x0000000000000418       0x30 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
+                0x0000000000000428       0x30 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
  .debug_aranges
-                0x0000000000000448       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+                0x0000000000000458       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
  .debug_aranges
-                0x0000000000000468       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+                0x0000000000000478       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
  .debug_aranges
-                0x0000000000000488       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+                0x0000000000000498       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
  .debug_aranges
-                0x00000000000004a8       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_truncdfsf2.o)
+                0x00000000000004b8       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_truncdfsf2.o)
  .debug_aranges
-                0x00000000000004c8       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+                0x00000000000004d8       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
  .debug_aranges
-                0x00000000000004e8       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+                0x00000000000004f8       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
  .debug_aranges
-                0x0000000000000508       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpsf2.o)
+                0x0000000000000518       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpsf2.o)
  .debug_aranges
-                0x0000000000000528       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
+                0x0000000000000538       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
 
-.debug_ranges   0x0000000000000000      0xa70
+.debug_ranges   0x0000000000000000      0xa20
  .debug_ranges  0x0000000000000000       0x10 src/c/blur.c.33.o
  .debug_ranges  0x0000000000000010       0x30 src/c/effect_layer.c.33.o
  .debug_ranges  0x0000000000000040      0x4b8 src/c/effects.c.33.o
- .debug_ranges  0x00000000000004f8      0x1f8 src/c/main.c.33.o
- .debug_ranges  0x00000000000006f0       0xb8 src/c/math.c.33.o
- .debug_ranges  0x00000000000007a8       0x10 src/c/weekday.c.33.o
- .debug_ranges  0x00000000000007b8      0x1b8 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
- .debug_ranges  0x0000000000000970       0xe0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
- .debug_ranges  0x0000000000000a50       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
+ .debug_ranges  0x00000000000004f8      0x1a8 src/c/main.c.33.o
+ .debug_ranges  0x00000000000006a0       0xb8 src/c/math.c.33.o
+ .debug_ranges  0x0000000000000758       0x10 src/c/weekday.c.33.o
+ .debug_ranges  0x0000000000000768      0x1b8 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+ .debug_ranges  0x0000000000000920       0xe0 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+ .debug_ranges  0x0000000000000a00       0x20 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
 
-.debug_line     0x0000000000000000     0x2ec8
+.debug_line     0x0000000000000000     0x2f6c
  .debug_line    0x0000000000000000      0x123 src/c/blur.c.33.o
  .debug_line    0x0000000000000123      0x253 src/c/effect_layer.c.33.o
  .debug_line    0x0000000000000376      0x803 src/c/effects.c.33.o
- .debug_line    0x0000000000000b79      0x807 src/c/main.c.33.o
- .debug_line    0x0000000000001380      0x1c3 src/c/math.c.33.o
- .debug_line    0x0000000000001543       0xfe src/c/weekday.c.33.o
- .debug_line    0x0000000000001641      0x123 aplite/appinfo.auto.c.33.o
- .debug_line    0x0000000000001764       0xcd aplite/src/resource_ids.auto.c.33.o
- .debug_line    0x0000000000001831       0xc6 src/message_keys.auto.c.33.o
- .debug_line    0x00000000000018f7      0x826 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
- .debug_line    0x000000000000211d      0x30d /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
- .debug_line    0x000000000000242a      0x157 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
- .debug_line    0x0000000000002581      0x20a /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_line    0x000000000000278b      0x226 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_line    0x00000000000029b1       0x86 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
- .debug_line    0x0000000000002a37       0x9a /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_truncdfsf2.o)
- .debug_line    0x0000000000002ad1      0x128 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
- .debug_line    0x0000000000002bf9      0x149 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
- .debug_line    0x0000000000002d42      0x100 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpsf2.o)
- .debug_line    0x0000000000002e42       0x86 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
+ .debug_line    0x0000000000000b79      0x8ab src/c/main.c.33.o
+ .debug_line    0x0000000000001424      0x1c3 src/c/math.c.33.o
+ .debug_line    0x00000000000015e7       0xfe src/c/weekday.c.33.o
+ .debug_line    0x00000000000016e5      0x123 aplite/appinfo.auto.c.33.o
+ .debug_line    0x0000000000001808       0xcd aplite/src/resource_ids.auto.c.33.o
+ .debug_line    0x00000000000018d5       0xc6 src/message_keys.auto.c.33.o
+ .debug_line    0x000000000000199b      0x826 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+ .debug_line    0x00000000000021c1      0x30d /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+ .debug_line    0x00000000000024ce      0x157 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
+ .debug_line    0x0000000000002625      0x20a /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_line    0x000000000000282f      0x226 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_line    0x0000000000002a55       0x86 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_line    0x0000000000002adb       0x9a /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_truncdfsf2.o)
+ .debug_line    0x0000000000002b75      0x128 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubsf3.o)
+ .debug_line    0x0000000000002c9d      0x149 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivsf3.o)
+ .debug_line    0x0000000000002de6      0x100 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpsf2.o)
+ .debug_line    0x0000000000002ee6       0x86 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixsfsi.o)
 
-.debug_str      0x0000000000000000     0x2e57
+.debug_str      0x0000000000000000     0x30f4
  .debug_str     0x0000000000000000       0xfb src/c/blur.c.33.o
                                         0x141 (size before relaxing)
  .debug_str     0x00000000000000fb      0x1fe src/c/effect_layer.c.33.o
                                         0x34e (size before relaxing)
  .debug_str     0x00000000000002f9      0x68f src/c/effects.c.33.o
                                         0x83c (size before relaxing)
- .debug_str     0x0000000000000988     0x177f src/c/main.c.33.o
-                                       0x1e83 (size before relaxing)
- .debug_str     0x0000000000002107       0x78 src/c/math.c.33.o
+ .debug_str     0x0000000000000988     0x1b26 src/c/main.c.33.o
+                                       0x22a9 (size before relaxing)
+ .debug_str     0x00000000000024ae       0x78 src/c/math.c.33.o
                                         0x17c (size before relaxing)
- .debug_str     0x000000000000217f       0x6d src/c/weekday.c.33.o
+ .debug_str     0x0000000000002526       0x6d src/c/weekday.c.33.o
                                         0x164 (size before relaxing)
- .debug_str     0x00000000000021ec      0x22a aplite/appinfo.auto.c.33.o
+ .debug_str     0x0000000000002593      0x22a aplite/appinfo.auto.c.33.o
                                         0x330 (size before relaxing)
- .debug_str     0x0000000000002416      0x16a aplite/src/resource_ids.auto.c.33.o
-                                        0x245 (size before relaxing)
- .debug_str     0x0000000000002580      0x2e2 src/message_keys.auto.c.33.o
-                                        0x62a (size before relaxing)
- .debug_str     0x0000000000002862      0x4bd /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+ .debug_str     0x00000000000027bd       0xd9 aplite/src/resource_ids.auto.c.33.o
+                                        0x1b4 (size before relaxing)
+ .debug_str     0x0000000000002896      0x269 src/message_keys.auto.c.33.o
+                                        0x74d (size before relaxing)
+ .debug_str     0x0000000000002aff      0x4bd /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
                                         0xb1a (size before relaxing)
- .debug_str     0x0000000000002d1f       0xcd /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+ .debug_str     0x0000000000002fbc       0xcd /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
                                         0x38a (size before relaxing)
- .debug_str     0x0000000000002dec       0x6b /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
+ .debug_str     0x0000000000003089       0x6b /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
                                         0x141 (size before relaxing)
 
-.debug_frame    0x0000000000000000      0xc14
+.debug_frame    0x0000000000000000      0xc58
  .debug_frame   0x0000000000000000       0x24 src/c/blur.c.33.o
  .debug_frame   0x0000000000000024       0x90 src/c/effect_layer.c.33.o
  .debug_frame   0x00000000000000b4      0x23c src/c/effects.c.33.o
- .debug_frame   0x00000000000002f0      0x23c src/c/main.c.33.o
- .debug_frame   0x000000000000052c      0x198 src/c/math.c.33.o
- .debug_frame   0x00000000000006c4       0x2c src/c/weekday.c.33.o
- .debug_frame   0x00000000000006f0      0x400 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
- .debug_frame   0x0000000000000af0       0xe4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
- .debug_frame   0x0000000000000bd4       0x40 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)
+ .debug_frame   0x00000000000002f0      0x280 src/c/main.c.33.o
+ .debug_frame   0x0000000000000570      0x198 src/c/math.c.33.o
+ .debug_frame   0x0000000000000708       0x2c src/c/weekday.c.33.o
+ .debug_frame   0x0000000000000734      0x400 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(fctx.c.26.o)
+ .debug_frame   0x0000000000000b34       0xe4 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-fctx/dist/binaries/aplite/libpebble-fctx.a(ffont.c.26.o)
+ .debug_frame   0x0000000000000c18       0x40 /home/astosia/pebble-dev/pebble-sdk-4.5-linux64/phoenix_big/node_modules/pebble-utf8/dist/binaries/aplite/libpebble-utf8.a(pebble-utf8.c.26.o)

@@ -13,19 +13,21 @@
 
 //Static and initial vars
 static GFont //FontHour,
-  FontDate, FontDate2, FontSunset, FontWeather, FontBattery, FontSteps, FontIcon, FontIcon2, FontIcon3,FontCity, FontWeatherIcons, FontWind;
-char
+  FontDate, FontDate2, FontSunset, FontWeather, FontBattery, FontSteps, FontIcon, FontIcon2, FontIcon3,FontCity, FontWeatherIcons, FontWind, FontFore;
+/*char
   sunsetstring[44],
   sunrisestring[44],
-  moonstring[44];
+  sunsetstring12[44],
+  sunrisestring12[44],
+  moonstring[44];*/
 
 FFont* time_font;
 
 static Window * s_window;
 
 
-GColor color_loser;
-GColor color_winner;
+//GColor color_loser;
+//GColor color_winner;
 
 static Layer * s_canvas_background;
 //static Layer * s_canvas_to_be_rotated;
@@ -39,7 +41,7 @@ Layer * hour_area_layer;
 Layer * minute_area_layer;
 
 
-static int s_hours, s_minutes, s_weekday, s_day, s_loop, s_countdown;
+static int s_hours, s_minutes, s_weekday, s_day, s_loop;//, s_countdown;
 
 static char* moon_phase[] ={
   "\U0000F095",//'wi-moon-new':0,
@@ -72,6 +74,128 @@ static char* moon_phase[] ={
   "\U0000F0B0",//'wi-moon-waning-crescent-6',27,
   "\U0000F095",//'wi-moon-new',28,
 };
+
+static char* weather_conditions[] = {
+  "\U0000F07B", // 'unknown': 0,
+  "\U0000f00e", //thunderstorm with light rain: 1
+  "\U0000f02c", //thunderstorm with light rain: 2
+  "\U0000f01d", //thunderstorm with rain: 3
+  "\U0000f01d", //thunderstorm with rain: 4
+  "\U0000f01e", //thunderstorm with heavy rain: 5
+  "\U0000f01e", //thunderstorm with heavy rain: 6
+  "\U0000f005", //light thunderstorm: 7
+  "\U0000f025", //light thunderstorm: 8
+  "\U0000f01e", //thunderstorm: 9
+  "\U0000f01e", //thunderstorm: 10
+  "\U0000f01e", //heavy thunderstorm: 11
+  "\U0000f01e", //heavy thunderstorm: 12
+  "\U0000f01e", //ragged thunderstorm: 13
+  "\U0000f01e", //ragged thunderstorm: 14
+  "\U0000f00e", //thunderstorm with light drizzle: 15
+  "\U0000f02c", //thunderstorm with light drizzle: 16
+  "\U0000f01d", //thunderstorm with drizzle: 17
+  "\U0000f01d", //thunderstorm with drizzle: 18
+  "\U0000f01d", //thunderstorm with heavy drizzle: 19
+  "\U0000f01d", //thunderstorm with heavy drizzle: 20
+  "\U0000f00b", //light intensity drizzle: 21
+  "\U0000f02b", //light intensity drizzle: 22
+  "\U0000f01c", //drizzle: 23
+  "\U0000f01c", //drizzle: 24
+  "\U0000f01a", //heavy intensity drizzle: 25
+  "\U0000f01a", //heavy intensity drizzle: 26
+  "\U0000f009", //light intensity drizzle rain: 27
+  "\U0000f029", //light intensity drizzle rain: 28
+  "\U0000f009", //drizzle rain: 29
+  "\U0000f029", //drizzle rain: 30
+  "\U0000f019", //heavy intensity drizzle rain: 31
+  "\U0000f019", //heavy intensity drizzle rain: 32
+  "\U0000f01a", //shower rain and drizzle: 33
+  "\U0000f01a", //shower rain and drizzle: 34
+  "\U0000f01a", //heavy shower rain and drizzle: 35
+  "\U0000f01a", //heavy shower rain and drizzle: 36
+  "\U0000f00b", //shower drizzle: 37
+  "\U0000f02b", //shower drizzle: 38
+  "\U0000f01c", //light rain: 39
+  "\U0000f01c", //light rain: 40
+  "\U0000f019", //moderate rain: 41
+  "\U0000f019", //moderate rain: 42
+  "\U0000f019", //heavy intensity rain: 43
+  "\U0000f019 ", //heavy intensity rain: 44
+  "\U0000f019", //very heavy rain: 45
+  "\U0000f019", //very heavy rain: 46
+  "\U0000f018", //extreme rain: 47
+  "\U0000f018", //extreme rain: 48
+  "\U0000f015", //freezing rain: 49
+  "\U0000f015", //freezing rain: 50
+  "\U0000f01a", //light intensity shower rain: 51
+  "\U0000f01a", //light intensity shower rain: 52
+  "\U0000f008", //shower rain: 53
+  "\U0000f028", //shower rain: 54
+  "\U0000f01a", //heavy intensity shower rain: 55
+  "\U0000f01a", //heavy intensity shower rain: 56
+  "\U0000f019", //ragged shower rain: 57
+  "\U0000f019", //ragged shower rain: 58
+  "\U0000f00a", //light snow: 59
+  "\U0000f02a", //light snow: 60
+  "\U0000f01b", //Snow: 61
+  "\U0000f01b", //Snow: 62
+  "\U0000f01b", //Heavy snow: 63
+  "\U0000f01b", //Heavy snow: 64
+  "\U0000f0b5", //Sleet: 65
+  "\U0000f0b5", //Sleet: 66
+  "\U0000f0b2", //Light shower sleet: 67
+  "\U0000f0b4", //Light shower sleet: 68
+  "\U0000f0b2", //Shower sleet: 69
+  "\U0000f0b4", //Shower sleet: 70
+  "\U0000f006", //Light rain and snow: 71
+  "\U0000f026", //Light rain and snow: 72
+  "\U0000f017", //Rain and snow: 73
+  "\U0000f017", //Rain and snow: 74
+  "\U0000f00a", //Light shower snow: 75
+  "\U0000f02a", //Light shower snow: 76
+  "\U0000f00a", //Shower snow: 77
+  "\U0000f02a", //Shower snow: 78
+  "\U0000f01b", //Heavy shower snow: 79
+  "\U0000f01b", //Heavy shower snow: 80
+  "\U0000f003", //mist: 81
+  "\U0000f04a", //mist: 82
+  "\U0000f062", //Smoke: 83
+  "\U0000f062", //Smoke: 84
+  "\U0000f0b6", //Haze: 85
+  "\U0000f023", //Haze: 86
+  "\U0000f063", //sand/ dust whirls: 87
+  "\U0000f063", //sand/ dust whirls: 88
+  "\U0000f014", //fog: 89
+  "\U0000f014", //fog: 90
+  "\U0000f082", //sand: 91
+  "\U0000f082", //sand: 92
+  "\U0000f063", //dust: 93
+  "\U0000f063", //dust: 94
+  "\U0000f0c8", //volcanic ash: 95
+  "\U0000f0c8", //volcanic ash: 96
+  "\U0000f011", //squalls: 97
+  "\U0000f011", //squalls: 98
+  "\U0000f056", //tornado: 99
+  "\U0000f056", //tornado: 100
+  "\U0000f00d", //clear sky: 101
+  "\U0000f02e", //clear sky: 102
+  "\U0000f00c", //few clouds: 11-25%: 103
+  "\U0000f081", //few clouds: 11-25%: 104
+  "\U0000f002", //scattered clouds: 25-50%: 105
+  "\U0000f086", //scattered clouds: 25-50%: 106
+  "\U0000f041", //broken clouds: 51-84%: 107
+  "\U0000f041", //broken clouds: 51-84%: 108
+  "\U0000f013", //overcast clouds: 85-100%: 109
+  "\U0000f013", //overcast clouds: 85-100%: 110
+  "\U0000f056", //tornado: 111
+  "\U0000f01d", //storm-showers: 112
+  "\U0000f073", //hurricane: 113
+  "\U0000f076", //snowflake-cold: 114
+  "\U0000f072", //hot: 115
+  "\U0000f050", //windy: 116
+  "\U0000f015", //hail: 117
+  "\U0000f050", //strong-wind: 118
+};
 //////Init Configuration///
 //Init Clay
 ClaySettings settings;
@@ -79,16 +203,18 @@ ClaySettings settings;
 static void prv_default_settings(){
   //settings.Back1Color = GColorBlack;
 //  settings.FrameColor = GColorCobaltBlue;
-  settings.FrameColor1 = GColorCobaltBlue;
+  settings.FrameColor1 = GColorBlack;
 //  settings.FrameColor2 = GColorCobaltBlue;
-  settings.SideColor1 = GColorCobaltBlue;
-  settings.SideColor2 = GColorCobaltBlue;
+  settings.SideColor1 = GColorBlack;
+  settings.SideColor2 = GColorBlack;
   settings.Text1Color = GColorWhite;
   settings.Text2Color = GColorWhite;
   settings.Text3Color = GColorWhite;
   settings.Text4Color = GColorWhite;
-//  settings.Text5Color = GColorWhite;
+  settings.Text5Color = GColorWhite;
   settings.Text6Color = GColorWhite;
+  settings.Text7Color = GColorWhite;
+  settings.Text8Color = GColorWhite;
   settings.HourColor = GColorWhite;
   settings.MinColor = GColorWhite;
   settings.HourColorN = GColorBlack;
@@ -103,12 +229,18 @@ static void prv_default_settings(){
   settings.Text2ColorN = GColorBlack;
   settings.Text3ColorN = GColorBlack;
   settings.Text4ColorN = GColorBlack;
-//  settings.Text5ColorN = GColorBlack;
+  settings.Text5ColorN = GColorBlack;
   settings.Text6ColorN = GColorBlack;
+  settings.Text7ColorN = GColorBlack;
+  settings.Text8ColorN = GColorBlack;
 //  settings.WeatherUnit = 0;
 //  settings.WindUnit = 0;
-//  settings.UpSlider = 30;
+  settings.UpSlider = 30;
   settings.NightTheme = false;
+  settings.HealthOff = true;
+  settings.AddZero12h = false;
+  settings.RemoveZero24h = false;
+  settings.WeatherOn = false;
 }
 int HourSunrise=700;
 int HourSunset=2200;
@@ -116,6 +248,9 @@ int moonphase=0;
 bool BTOn=true;
 bool GPSOn=true;
 bool IsNightNow=false;
+//bool showWeather = false;
+int s_countdown = 0;
+int showWeather = 0;
 
 //////End Configuration///
 ///////////////////////////
@@ -143,7 +278,22 @@ void request_watchjs(){
   app_message_outbox_send();
 }
 
+static void accel_tap_handler(AccelAxisType axis, int32_t direction) {
+  // A tap event occured
 
+  //showWeather = showweather +1;
+  if (showWeather == 2){
+    //Reset
+    showWeather = 0;
+  } else{
+    showWeather = showWeather + 1;
+  }
+
+  //  showWeather = !showWeather;
+  layer_mark_dirty (s_canvas);
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "showweather is %d", showWeather);
+
+}
 ///BT Connection
 static void bluetooth_callback(bool connected){
   BTOn = connected;
@@ -216,10 +366,10 @@ static void display_step_count() {
 //  static char s_emoji[5];
 
   if(s_step_count >= s_step_average) {
-    text_layer_set_text_color(s_step_layer, PBL_IF_BW_ELSE(ColorSelect(settings.Text1Color, settings.Text1ColorN), color_winner));
+    text_layer_set_text_color(s_step_layer, ColorSelect(settings.Text1Color, settings.Text1ColorN));//, color_winner));
 //    snprintf(s_emoji, sizeof(s_emoji), "\U0001F600");
   } else {
-    text_layer_set_text_color(s_step_layer, PBL_IF_BW_ELSE(ColorSelect(settings.Text1Color, settings.Text1ColorN), color_loser));
+    text_layer_set_text_color(s_step_layer, ColorSelect(settings.Text1Color, settings.Text1ColorN));//, color_loser));
 //    snprintf(s_emoji, sizeof(s_emoji), "\U0001F61E");
   }
 
@@ -299,12 +449,14 @@ void layer_update_proc_background (Layer * back_layer, GContext * ctx){
 void update_hour_area_layer(Layer *l, GContext* ctx7) {
   // check layer bounds
   GRect bounds = layer_get_unobstructed_bounds(l);
+  GRect boundsobs = layer_get_bounds(l);
 
   #ifdef PBL_ROUND
  //   bounds = GRect(0, ROUND_VERTICAL_PADDING, bounds.size.w, bounds.size.h - ROUND_VERTICAL_PADDING * 2);
+
      bounds = GRect(0, 0,bounds.size.w/3*2, bounds.size.h);
-  #else
-     bounds = GRect(0,0,bounds.size.w/2,bounds.size.h);
+  //#else
+  //   bounds = GRect(0,0,bounds.size.w/2,bounds.size.h);
   #endif
 
   // initialize FCTX, the fancy 3rd party drawing library that all the cool kids use
@@ -321,7 +473,7 @@ void update_hour_area_layer(Layer *l, GContext* ctx7) {
 #ifdef PBL_ROUND
   int font_size = 168;//bounds.size.h * 1.15;
  #else
-  int font_size = 168;//bounds.size.h * 1.15;
+  int font_size =  boundsobs.size.h;//168;//
   #endif
 // steelfish metrics
 //  int v_padding = bounds.size.h / 16;
@@ -350,7 +502,7 @@ void update_hour_area_layer(Layer *l, GContext* ctx7) {
   fctx_set_color_bias(&fctx,0);
 //  fctx_set_text_em_height(&fctx, minutes_font, font_size);
 
-  int hourdraw;
+/*  int hourdraw;
   char hournow[8];
   if (clock_is_24h_style()){
     hourdraw=s_hours;
@@ -363,24 +515,40 @@ void update_hour_area_layer(Layer *l, GContext* ctx7) {
     else hourdraw=s_hours%12;
   snprintf(hournow, sizeof(hournow), "%d", hourdraw);
  // hourdraw = hourdraw1+(('0'==hourdraw1[0])?1:0));
-  }
+}*/
+  time_t temp = time(NULL);
+  struct tm *time_now = localtime(&temp);
 
+  char hourdraw[8];
+  if(clock_is_24h_style() && settings.RemoveZero24h){
+      strftime(hourdraw, sizeof(hourdraw),"%k",time_now);
+  } else if (clock_is_24h_style() && !settings.RemoveZero24h) {
+      strftime(hourdraw, sizeof(hourdraw),"%H",time_now);
+  } else if (settings.AddZero12h) {
+    strftime(hourdraw, sizeof(hourdraw),"%I",time_now);
+  } else {
+    strftime(hourdraw, sizeof(hourdraw),"%l",time_now);
+  }
   // draw hours
 
 //  time_pos.y = INT_TO_FIXED(v_padding + v_adjust);
 //  time_pos.x = INT_TO_FIXED(bounds.size.w / 2);
  // time_pos.x = INT_TO_FIXED(bounds.size.w / 4 + h_adjust);
  //   time_pos.x = INT_TO_FIXED(bounds.size.w / 4 + h_adjust); //this one works when center justified
-  time_pos.x = INT_TO_FIXED(PBL_IF_ROUND_ELSE(bounds.size.w / 2 +8, bounds.size.w / 2 + 1) + h_adjust);
-  time_pos.y = INT_TO_FIXED(PBL_IF_ROUND_ELSE(bounds.size.h / 2 +1, bounds.size.h / 2 -2)  + v_adjust);
+  time_pos.x = INT_TO_FIXED(PBL_IF_ROUND_ELSE(bounds.size.w / 2 +8, 36 + 1) + h_adjust);
+  time_pos.y = INT_TO_FIXED(PBL_IF_ROUND_ELSE(bounds.size.h / 2 +1, 1)  + v_adjust);
 //  fctx_set_pivot(&fctx, time_pos);
 
   int width;
-  width = fctx_string_width(&fctx,hournow,time_font);
-  fctx_set_scale(&fctx,FPoint(width,100),FPoint(144*16,PBL_IF_ROUND_ELSE(-225,-265)));
+  //width = fctx_string_width(&fctx,hourdraw,time_font);
+  width = fctx_string_width(&fctx,hourdraw,time_font);
+  //APP_LOG(APP_LOG_LEVEL_DEBUG, "Width is %d",width);
+  //APP_LOG(APP_LOG_LEVEL_DEBUG, "font size is %d",font_size);
+
+  fctx_set_scale(&fctx,FPoint(width,font_size),FPoint(144*16,PBL_IF_ROUND_ELSE(-font_size*2.25,-font_size*2.65*bounds.size.h/boundsobs.size.h)));
 
   fctx_set_offset(&fctx, time_pos);
-  fctx_draw_string(&fctx, hournow, time_font, GTextAlignmentCenter, FTextAnchorMiddle);
+  fctx_draw_string(&fctx, hourdraw, time_font, GTextAlignmentCenter, PBL_IF_ROUND_ELSE(FTextAnchorMiddle,FTextAnchorTop));
   fctx_end_fill(&fctx);
 
   fctx_deinit_context(&fctx);
@@ -393,8 +561,8 @@ void update_minute_area_layer(Layer *a, GContext* ctx8) {
   #ifdef PBL_ROUND
  //   bounds = GRect(0, ROUND_VERTICAL_PADDING, bounds.size.w, bounds.size.h - ROUND_VERTICAL_PADDING * 2);
  bounds = GRect(bounds.size.w/2, 0,bounds.size.w/2, bounds.size.h);
-#else
- bounds = GRect(bounds.size.w/2,0,bounds.size.w/2,bounds.size.h);
+//#else
+// bounds = GRect(bounds.size.w/2,0,bounds.size.w/2,bounds.size.h);
   #endif
   // initialize FCTX, the fancy 3rd party drawing library that all the cool kids use
   FContext fctx1;
@@ -410,7 +578,7 @@ void update_minute_area_layer(Layer *a, GContext* ctx8) {
 #ifdef PBL_ROUND
   int font_size2 = bounds.size.h * 0.55;
  #else
-  int font_size2 = bounds.size.h * 0.65;
+  int font_size2 = 109;//bounds.size.h * 0.65;
   #endif
   // avenir + avenir bold metrics
 //  int v_padding2 = bounds.size.h / 16;
@@ -440,10 +608,17 @@ void update_minute_area_layer(Layer *a, GContext* ctx8) {
 //  fixed_t fctx_string_width(&fctx1, minnow, time_font);
 //  fctx_set_text_em_height(&fctx, minutes_font, font_size);
 
-  int mindraw;
+  /*int mindraw;
   mindraw = s_minutes;
   char minnow[8];
   snprintf(minnow, sizeof(minnow), "%02d", mindraw);
+*/
+
+  time_t temp = time(NULL);
+  struct tm *time_now = localtime(&temp);
+
+  char mindraw[8];
+  strftime(mindraw, sizeof(mindraw),"%M",time_now);
 
   //draw minutes
  // time_pos2.x = INT_TO_FIXED(bounds.size.w / 2 + h_adjust2);
@@ -451,12 +626,12 @@ void update_minute_area_layer(Layer *a, GContext* ctx8) {
 //  time_pos2.x = INT_TO_FIXED(PBL_IF_ROUND_ELSE(bounds.size.w, bounds.size.w) + h_adjust2);
 //  time_pos2.y = INT_TO_FIXED(bounds.size.h  + v_adjust2);
 time_pos2.x = INT_TO_FIXED(PBL_IF_ROUND_ELSE(135, 108) + h_adjust2);
-time_pos2.y = INT_TO_FIXED(PBL_IF_ROUND_ELSE(bounds.size.h /2 , bounds.size.h /4 +6)  + v_adjust2);
+time_pos2.y = INT_TO_FIXED(PBL_IF_ROUND_ELSE(bounds.size.h /2 , 168/4 +6)  + v_adjust2);
 
 //  fctx_set_scale(&fctx1,FPoint(1,UINT8_MAX),FPoint(2,-bounds.size.h ));
 //  fctx_set_scale(&fctx1,FPoint(1,UINT8_MAX),FPoint(3,-bounds.size.h /0.65));
   fctx_set_offset(&fctx1, time_pos2);
-  fctx_draw_string(&fctx1, minnow, time_font, GTextAlignmentCenter, FTextAnchorMiddle);
+  fctx_draw_string(&fctx1, mindraw, time_font, GTextAlignmentCenter, FTextAnchorMiddle);
   fctx_end_fill(&fctx1);
 
   fctx_deinit_context(&fctx1);
@@ -469,79 +644,25 @@ time_pos2.y = INT_TO_FIXED(PBL_IF_ROUND_ELSE(bounds.size.h /2 , bounds.size.h /4
 
 
 static void layer_update_proc(Layer * layer, GContext * ctx){
-  // Create Rects
-//  GRect bounds3 = layer_get_bounds(layer);
 
- /* GRect HourRect =
-    (PBL_IF_ROUND_ELSE(
-      GRect(0, (bounds3.size.h/2) - 56, (bounds3.size.w/2)-10, 90),
-      GRect(0-10, (bounds3.size.h/2) - 48, (bounds3.size.w/2), 90)));
-
-  GRect MinRect =
-    (PBL_IF_ROUND_ELSE(
-      GRect((bounds3.size.w/2)+10, (bounds3.size.h/2)-56, (bounds3.size.w/2)-1, 90),
-      GRect((bounds3.size.w/2), (bounds3.size.h/2)-48, (bounds3.size.w/2), 90)));*/
-
-  //int offsetdate = PBL_IF_RECT_ELSE(12, 10);
  GRect DateRect =
   //  (0, offsetdate, bounds3.size.w, bounds1.size.h/4);
    (PBL_IF_ROUND_ELSE(
-      GRect(22-22+6, 26+40, 32, 40),
+      GRect(22-22+6, 26+40+2, 32, 40),
       GRect(0+108-19-18, 0+94, 38, 16)));
 
   GRect DateRect2 =
     (PBL_IF_ROUND_ELSE(
-      GRect(22-22+6, 16+22+40, 32, 40),
+      GRect(22-22+6, 16+22+40+2, 32, 40),
       GRect(0+108-19-18, 16+90, 38, 40)));
-
-
-  GRect SunsetRect =
-    (PBL_IF_ROUND_ELSE(
-     GRect(100,130,75,20),
-      GRect(0+108+18-28, 146, 54,20)));
-
-
-
- GRect MoonRect =
-    (PBL_IF_ROUND_ELSE(
-      GRect(28-20,139-100+6,28,20),
-      GRect(0+108-19+18,16+93, 38, 40)));
-
- /*GRect CitiRect =
-    (PBL_IF_ROUND_ELSE(
-      GRect(18, 142+8, bounds3.size.w/2-14-18,20),
-      GRect(0,bounds3.size.h-9, bounds3.size.w, 9)));*/
-
 
   GRect BatteryRect =
    (PBL_IF_ROUND_ELSE(
 //    GRect(0,142,54,20),
-      GRect(22-22+6,66+40,32,20),
+  //    GRect(22-22+6,66+40,32,20),
+      GRect(100,136+12,50,20),
       GRect(0+108-19-18,150, 38, 20)));
 
-
-
-
-//Minutes and Hours
-/*  int mindraw;
-  mindraw = s_minutes;
-  char minnow[8];
-  snprintf(minnow, sizeof(minnow), "%02d", mindraw);
-
-  int hourdraw;
-  char hournow[8];
-  if (clock_is_24h_style()){
-    hourdraw=s_hours;
-    snprintf(hournow,sizeof(hournow),"%02d",hourdraw);
-    }
-  else {
-    if (s_hours==0 || s_hours==12){
-      hourdraw=12;
-    }
-    else hourdraw=s_hours%12;
-  snprintf(hournow, sizeof(hournow), "%d", hourdraw);
- // hourdraw = hourdraw1+(('0'==hourdraw1[0])?1:0));
-  }*/
 
    //Date
   // Local language
@@ -557,87 +678,15 @@ static void layer_update_proc(Layer * layer, GContext * ctx){
   char daynow[8];
   snprintf(daynow, sizeof(daynow), "%02d", daydraw);
 
-
-  // Concatenate date
-  //strcat(/*datenow,*/ convertday);
-
-
   //Battery
   int battery_level = battery_state_service_peek().charge_percent;
   char battperc[20];
   snprintf(battperc, sizeof(battperc), "%d", battery_level);
   strcat(battperc, "%");
-  // Draw AM PM 24H
-  /*char ampm[5];
-  if (clock_is_24h_style()){
-    snprintf(ampm, sizeof(ampm), "24H");
-  }
-  else if (s_hours<12){
-    snprintf(ampm, sizeof(ampm), "AM");
-  }
-  else {
-    snprintf(ampm, sizeof(ampm), "PM");
-  }*/
-  //Connection settings
-  // Prepare to draw
-  // Update connection toggle
-  //onreconnection(BTOn, connection_service_peek_pebble_app_connection());
- // bluetooth_callback(connection_service_peek_pebble_app_connection());
-
-
-  //char LocToDraw[20];
-  char SunsetToDraw[20];
- // char SunriseToDraw[20];
-  char MoonToDraw[20];
-
-  /*if (!BTOn){
-    snprintf(LocToDraw, sizeof(LocToDraw), " ");
-    snprintf(SunsetToDraw, sizeof(SunsetToDraw),  "%s", " ");
-  }
-  else if (!GPSOn){
-
-    snprintf(LocToDraw, sizeof(LocToDraw), " ");
-    snprintf(SunsetToDraw, sizeof(SunsetToDraw),  "%s", " ");
-  }
-  else {*/
-    snprintf(MoonToDraw, sizeof(MoonToDraw), "%s",moonstring);
-  //  snprintf(LocToDraw, sizeof(LocToDraw), "%s",citistring);
-  int nowthehouris = s_hours * 100 + s_minutes;
-    if (HourSunrise <= nowthehouris && nowthehouris <= HourSunset){
-    snprintf(SunsetToDraw, sizeof(SunsetToDraw), "%s",sunsetstring);
-    }
-    else{
-    snprintf(SunsetToDraw, sizeof(SunsetToDraw), "%s",sunrisestring);
-    }
-
-
-  //}
-
-
-  //Hour Band
-/*  graphics_context_set_text_color(ctx, ColorSelect(settings.HourColor, settings.HourColorN));
-  if(clock_is_24h_style()){
-    graphics_draw_text(ctx,hournow,FontHour,HourRect,GTextOverflowModeFill,GTextAlignmentRight,NULL);
-  }
-  else{
-    graphics_draw_text(ctx, hournow+(('0'==hournow[0])?1:0), FontHour, HourRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentRight,GTextAlignmentRight), NULL);
-  } //graphics_draw_text(ctx, "47", FontHour, HourRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentRight,GTextAlignmentRight), NULL);
-
-  //Min Band
-  graphics_context_set_text_color(ctx, ColorSelect(settings.MinColor, settings.MinColorN));
-  graphics_draw_text(ctx, minnow, FontHour, MinRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentLeft,GTextAlignmentRight), NULL);
-  */
-  //dates band
-  graphics_context_set_text_color(ctx, ColorSelect(settings.Text2Color, settings.Text2ColorN));
-  graphics_draw_text(ctx, SunsetToDraw, FontSunset, SunsetRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
-  graphics_context_set_text_color(ctx,ColorSelect(settings.Text4Color,settings.Text4ColorN));
-  graphics_draw_text(ctx, MoonToDraw, FontIcon, MoonRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
-
-//  graphics_context_set_text_color(ctx,ColorSelect(settings.Text4Color,settings.Text4ColorN));
-//  graphics_draw_text(ctx, LocToDraw, FontCity, CitiRect, GTextOverflowModeTrailingEllipsis, PBL_IF_ROUND_ELSE(GTextAlignmentRight,GTextAlignmentCenter), NULL);
 
   graphics_context_set_text_color(ctx, ColorSelect(settings.Text3Color, settings.Text3ColorN));
   graphics_draw_text(ctx, datenow, FontDate, DateRect, GTextOverflowModeWordWrap, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+  graphics_context_set_text_color(ctx, ColorSelect(settings.Text8Color, settings.Text8ColorN));
   graphics_draw_text(ctx, battperc, FontBattery, BatteryRect, GTextOverflowModeWordWrap, PBL_IF_ROUND_ELSE(GTextAlignmentCenter, GTextAlignmentCenter), NULL);
 
   graphics_context_set_text_color(ctx, ColorSelect(settings.Text6Color, settings.Text6ColorN));
@@ -652,10 +701,39 @@ static void layer_update_proc_sunset(Layer * layer2, GContext * ctx2){
     (PBL_IF_ROUND_ELSE(
    //   GRect(0,104,54,20),
       GRect(102,136,75,20),
-      GRect(0+108-19+18,16+96+22,38,20)));
+      GRect(0+108-19+18,16+96+22-1,38,20)));
 
+  GRect MoonRect =
+         (PBL_IF_ROUND_ELSE(
+           GRect(28-20,139-100+8,28,20),
+           GRect(0+108-19+18,16+93, 38, 40)));
+
+   GRect SunsetRect =
+     (PBL_IF_ROUND_ELSE(
+      GRect(100,130,75,20),
+       GRect(0+108+18-28, 146, 54,20)));
+
+   GRect TempRect =  //temperature number
+        (PBL_IF_ROUND_ELSE(
+    //      GRect(100+4-20,130,75,20),
+           GRect(8,106,32,40),
+           GRect(0+108+18-28, 146, 54,20)));
+
+           GRect ForeRect =  //temperature number
+                (PBL_IF_ROUND_ELSE(
+            //      GRect(100+4-20,130,75,20),
+                   GRect(8,106+2,32,40),
+                   GRect(0+108+18-28, 146, 54,20)));
+
+    GRect IconNowRect = //weather condition icon
+         (PBL_IF_ROUND_ELSE(
+           GRect(28-20,139-100+6,28,20),
+           GRect(0+108-19+18,16+93+10, 38, 40)));
  //onreconnection(BTOn, connection_service_peek_pebble_app_connection());
 // bluetooth_callback(connection_service_peek_pebble_app_connection());
+
+  char MoonToDraw[20];
+snprintf(MoonToDraw, sizeof(MoonToDraw), "%s",settings.moonstring);
 
  char SunsetIconToDraw[20];
   char SunsetIconToShow[20];
@@ -668,23 +746,89 @@ static void layer_update_proc_sunset(Layer * layer2, GContext * ctx2){
   }
 
 
-
-  /*if (!BTOn){
-       snprintf(SunsetIconToDraw, sizeof(SunsetIconToDraw),  "%s"," ");
-  }
-  else if (!GPSOn){
-    snprintf(SunsetIconToDraw, sizeof(SunsetIconToDraw),  "%s", " ");
-  }
-  else*/ if (strcmp(sunsetstring, "") == 0){
-    snprintf(SunsetIconToDraw, sizeof(SunsetIconToDraw),  "%s", " ");
+if (strcmp(settings.sunsetstring, "") == 0){
+    snprintf(SunsetIconToDraw, sizeof(SunsetIconToDraw),  "%s", "\U0000F04C");
   }
   else {
     snprintf(SunsetIconToDraw, sizeof(SunsetIconToDraw), "%s",SunsetIconToShow/*"\U0000F052"*/);
   }
 
+char SunsetToDraw[20];
+//int nowthehouris = s_hours * 100 + s_minutes;
+if (clock_is_24h_style()){
+if (HourSunrise <= nowthehouris && nowthehouris <= HourSunset){
+snprintf(SunsetToDraw, sizeof(SunsetToDraw), "%s",settings.sunsetstring);
+}
+else{
+snprintf(SunsetToDraw, sizeof(SunsetToDraw), "%s",settings.sunrisestring);
+}
+} else {
+if (HourSunrise <= nowthehouris && nowthehouris <= HourSunset){
+snprintf(SunsetToDraw, sizeof(SunsetToDraw), "%s",settings.sunsetstring12);
+}
+else{
+snprintf(SunsetToDraw, sizeof(SunsetToDraw), "%s",settings.sunrisestring12);
+}
+}
+char CondToDraw[20];
+char TempToDraw[20];
+char ForeToDraw[20];
+char HiLowToDraw[20];
+
+snprintf(CondToDraw, sizeof(CondToDraw), "%s",settings.iconnowstring);
+snprintf(TempToDraw, sizeof(TempToDraw), "%s",settings.tempstring);
+snprintf(ForeToDraw, sizeof(ForeToDraw), "%s",settings.iconforestring);
+snprintf(HiLowToDraw, sizeof(HiLowToDraw), "%s",settings.temphistring);
+
+if (!settings.WeatherOn) {
+  graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
+  graphics_draw_text(ctx2, SunsetIconToDraw, FontWeatherIcons, SunsetIconRect, GTextOverflowModeFill,PBL_IF_ROUND_ELSE(GTextAlignmentLeft,GTextAlignmentCenter), NULL);
+  graphics_context_set_text_color(ctx2,ColorSelect(settings.Text4Color,settings.Text4ColorN));
+  graphics_draw_text(ctx2, MoonToDraw, FontIcon, MoonRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+  graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
+  graphics_draw_text(ctx2, SunsetToDraw, FontSunset, SunsetRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+} else {
+
+if (showWeather==0) //show moonphase and sunset/sunrise
+{
  graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
  graphics_draw_text(ctx2, SunsetIconToDraw, FontWeatherIcons, SunsetIconRect, GTextOverflowModeFill,PBL_IF_ROUND_ELSE(GTextAlignmentLeft,GTextAlignmentCenter), NULL);
-
+ graphics_context_set_text_color(ctx2,ColorSelect(settings.Text4Color,settings.Text4ColorN));
+ graphics_draw_text(ctx2, MoonToDraw, FontIcon, MoonRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+ graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
+ graphics_draw_text(ctx2, SunsetToDraw, FontSunset, SunsetRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+}
+else if (showWeather==1) //show current weather
+{
+  graphics_context_set_text_color(ctx2,ColorSelect(settings.Text7Color,settings.Text7ColorN));
+  graphics_draw_text(ctx2, TempToDraw, FontSunset, TempRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+  graphics_context_set_text_color(ctx2,ColorSelect(settings.Text5Color,settings.Text5ColorN));
+  graphics_draw_text(ctx2, CondToDraw, FontIcon, IconNowRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+  #ifdef PBL_ROUND
+//  graphics_context_set_text_color(ctx2,ColorSelect(settings.Text4Color,settings.Text4ColorN));
+//  graphics_draw_text(ctx2, MoonToDraw, FontIcon, MoonRect, GTextOverflowModeFill, GTextAlignmentCenter, NULL);
+  graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
+  graphics_draw_text(ctx2, SunsetIconToDraw, FontWeatherIcons, SunsetIconRect, GTextOverflowModeFill,PBL_IF_ROUND_ELSE(GTextAlignmentLeft,GTextAlignmentCenter), NULL);
+  graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
+  graphics_draw_text(ctx2, SunsetToDraw, FontSunset, SunsetRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+  #endif
+ }
+ else if (showWeather==2) //show forecast weather
+ {
+   graphics_context_set_text_color(ctx2,ColorSelect(settings.Text7Color,settings.Text7ColorN));
+   graphics_draw_text(ctx2, HiLowToDraw, FontFore, ForeRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+   graphics_context_set_text_color(ctx2,ColorSelect(settings.Text5Color,settings.Text5ColorN));
+   graphics_draw_text(ctx2, ForeToDraw, FontIcon, IconNowRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+   #ifdef PBL_ROUND
+ //  graphics_context_set_text_color(ctx2,ColorSelect(settings.Text4Color,settings.Text4ColorN));
+ //  graphics_draw_text(ctx2, MoonToDraw, FontIcon, MoonRect, GTextOverflowModeFill, GTextAlignmentCenter, NULL);
+   graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
+   graphics_draw_text(ctx2, SunsetIconToDraw, FontWeatherIcons, SunsetIconRect, GTextOverflowModeFill,PBL_IF_ROUND_ELSE(GTextAlignmentLeft,GTextAlignmentCenter), NULL);
+   graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
+   graphics_draw_text(ctx2, SunsetToDraw, FontSunset, SunsetRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+   #endif
+  }
+}
 }
 
 static void layer_update_proc_bt(Layer * layer3, GContext * ctx3){
@@ -693,7 +837,8 @@ static void layer_update_proc_bt(Layer * layer3, GContext * ctx3){
 
   GRect BTIconRect =
     (PBL_IF_ROUND_ELSE(
-      GRect(76,6,28,20),
+    //  GRect(76,6,28,20),
+    GRect(100,16,72,20),
       GRect(126-18,100-2,18,20)));
 
  onreconnection(BTOn, connection_service_peek_pebble_app_connection());
@@ -710,7 +855,7 @@ static void layer_update_proc_qt(Layer * layer4, GContext * ctx4){
 
   GRect QTIconRect =
     (PBL_IF_ROUND_ELSE(
-      GRect(6,124,32,20),
+      GRect(8,126,32,20),
       GRect(126,100-2,18,20)));
 
  quiet_time_icon();
@@ -869,14 +1014,14 @@ static void prv_inbox_received_handler(DictionaryIterator * iter, void * context
   if(ntx4_color_t){
     settings.Text4ColorN = GColorFromHEX(ntx4_color_t-> value -> int32);
   }
-  /*Tuple * tx5_color_t = dict_find(iter,MESSAGE_KEY_Text5Color);
+  Tuple * tx5_color_t = dict_find(iter,MESSAGE_KEY_Text5Color);
   if (tx5_color_t){
     settings.Text5Color = GColorFromHEX(tx5_color_t-> value -> int32);
     }
   Tuple * ntx5_color_t = dict_find(iter, MESSAGE_KEY_Text5ColorN);
   if(ntx5_color_t){
     settings.Text5ColorN = GColorFromHEX(ntx5_color_t-> value -> int32);
-  }*/
+  }
    Tuple * tx6_color_t = dict_find(iter,MESSAGE_KEY_Text6Color);
   if (tx6_color_t){
     settings.Text6Color = GColorFromHEX(tx6_color_t-> value -> int32);
@@ -885,6 +1030,24 @@ static void prv_inbox_received_handler(DictionaryIterator * iter, void * context
   if(ntx6_color_t){
     settings.Text6ColorN = GColorFromHEX(ntx6_color_t-> value -> int32);
   }
+
+  Tuple * tx7_color_t = dict_find(iter,MESSAGE_KEY_Text7Color);
+ if (tx7_color_t){
+   settings.Text7Color = GColorFromHEX(tx7_color_t-> value -> int32);
+   }
+ Tuple * ntx7_color_t = dict_find(iter, MESSAGE_KEY_Text7ColorN);
+ if(ntx7_color_t){
+   settings.Text7ColorN = GColorFromHEX(ntx7_color_t-> value -> int32);
+ }
+
+ Tuple * tx8_color_t = dict_find(iter,MESSAGE_KEY_Text8Color);
+if (tx8_color_t){
+  settings.Text8Color = GColorFromHEX(tx8_color_t-> value -> int32);
+  }
+Tuple * ntx8_color_t = dict_find(iter, MESSAGE_KEY_Text8ColorN);
+if(ntx8_color_t){
+  settings.Text8ColorN = GColorFromHEX(ntx8_color_t-> value -> int32);
+}
    //Control of data from http
   // Weather Cond
 /*  Tuple * wcond_t = dict_find(iter, MESSAGE_KEY_WeatherCond);
@@ -916,11 +1079,19 @@ static void prv_inbox_received_handler(DictionaryIterator * iter, void * context
   }
   Tuple * sunset_dt = dict_find(iter, MESSAGE_KEY_WEATHER_SUNSET_KEY);
   if (sunset_dt){
-     snprintf(sunsetstring, sizeof(sunsetstring), "%s", sunset_dt -> value -> cstring);
+     snprintf(settings.sunsetstring, sizeof(settings.sunsetstring), "%s", sunset_dt -> value -> cstring);
   }
    Tuple * sunrise_dt = dict_find(iter, MESSAGE_KEY_WEATHER_SUNRISE_KEY);
   if (sunrise_dt){
-     snprintf(sunrisestring, sizeof(sunrisestring), "%s", sunrise_dt -> value -> cstring);
+     snprintf(settings.sunrisestring, sizeof(settings.sunrisestring), "%s", sunrise_dt -> value -> cstring);
+  }
+  Tuple * sunset12_dt = dict_find(iter, MESSAGE_KEY_WEATHER_SUNSET_KEY_12H);
+  if (sunset12_dt){
+     snprintf(settings.sunsetstring12, sizeof(settings.sunsetstring12), "%s", sunset12_dt -> value -> cstring);
+  }
+   Tuple * sunrise12_dt = dict_find(iter, MESSAGE_KEY_WEATHER_SUNRISE_KEY_12H);
+  if (sunrise12_dt){
+     snprintf(settings.sunrisestring12, sizeof(settings.sunrisestring12), "%s", sunrise12_dt -> value -> cstring);
   }
 /*   Tuple * iconnow_tuple = dict_find(iter, MESSAGE_KEY_IconNow);
   //////////Add in icons and forecast hi/lo temp////////////
@@ -955,10 +1126,37 @@ static void prv_inbox_received_handler(DictionaryIterator * iter, void * context
 
   Tuple * moon_tuple = dict_find(iter, MESSAGE_KEY_MoonPhase);
   if (moon_tuple){
-    snprintf(moonstring,sizeof(moonstring),"%s",moon_phase[(int)moon_tuple->value->int32]);
+    snprintf(settings.moonstring,sizeof(settings.moonstring),"%s",moon_phase[(int)moon_tuple->value->int32]);
     //  snprintf(forecast_result,sizeof(forecast_result),"%s","\U0000F002");
 }
+Tuple * wtemp_t = dict_find(iter, MESSAGE_KEY_WeatherTemp);
+if (wtemp_t){
+snprintf(settings.tempstring, sizeof(settings.tempstring), "%s", wtemp_t -> value -> cstring);
+}
 
+Tuple * wforetemp_t = dict_find(iter, MESSAGE_KEY_TempFore);
+if (wforetemp_t){
+  snprintf(settings.temphistring, sizeof(settings.temphistring), "%s", wforetemp_t -> value -> cstring);
+}
+
+Tuple * iconnow_tuple = dict_find(iter, MESSAGE_KEY_IconNow);
+  //////////Add in icons and forecast hi/lo temp////////////
+  if (iconnow_tuple){
+    snprintf(settings.iconnowstring,sizeof(settings.iconnowstring),"%s",weather_conditions[(int)iconnow_tuple->value->int32]);
+}
+
+Tuple * iconfore_tuple = dict_find(iter, MESSAGE_KEY_IconFore);
+if (iconfore_tuple){
+  snprintf(settings.iconforestring,sizeof(settings.iconforestring),"%s",weather_conditions[(int)iconfore_tuple->value->int32]);
+  //  snprintf(forecast_result,sizeof(forecast_result),"%s","\U0000F002");
+}
+
+Tuple * frequpdate = dict_find(iter, MESSAGE_KEY_UpSlider);
+if (frequpdate){
+  settings.UpSlider = (int) frequpdate -> value -> int32;
+  //Restart the counter
+  s_countdown = settings.UpSlider;
+}
 
   // Location
 /*  Tuple * neigh_t = dict_find(iter, MESSAGE_KEY_NameLocation);
@@ -990,6 +1188,58 @@ static void prv_inbox_received_handler(DictionaryIterator * iter, void * context
       APP_LOG(APP_LOG_LEVEL_DEBUG, "NTHeme off");
     } else settings.NightTheme = true;
   }
+
+  Tuple * health_t = dict_find(iter, MESSAGE_KEY_HealthOff);
+  if (health_t){
+    if (health_t -> value -> int32 == 0){
+      settings.HealthOff = false;
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Health on");
+      get_step_count();
+      display_step_count();
+    } else {
+      settings.HealthOff = true;
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Health off");
+      snprintf(s_current_steps_buffer, sizeof(s_current_steps_buffer),
+       "%s", "");
+    }
+  }
+
+  Tuple * weatheron_t = dict_find(iter, MESSAGE_KEY_WeatherOn);
+  if (weatheron_t){
+    if (weatheron_t -> value -> int32 == 0){
+      settings.WeatherOn = false;
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Weather off");
+      //get_step_count();
+      //display_step_count();
+    } else {
+      settings.WeatherOn = true;
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Weather on");
+    //  snprintf(s_current_steps_buffer, sizeof(s_current_steps_buffer),
+      // "%s", "");
+    }
+  }
+
+  Tuple * addzero12_t = dict_find(iter, MESSAGE_KEY_AddZero12h);
+  if (addzero12_t){
+    if (addzero12_t -> value -> int32 == 0){
+      settings.AddZero12h = false;
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Add Zero 12h off");
+    } else {
+    settings.AddZero12h = true;
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "Add Zero 12h on");
+      }
+    }
+
+  Tuple * remzero24_t = dict_find(iter, MESSAGE_KEY_RemoveZero24h);
+  if (remzero24_t){
+    if (remzero24_t -> value -> int32 == 0){
+      settings.RemoveZero24h = false;
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Remove Zero 24h off");
+    } else {
+    settings.RemoveZero24h = true;
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "Remove Zero 24h off");
+      }
+    }
   /*Tuple * rot_t = dict_find(iter,MESSAGE_KEY_Rotate);
   if (rot_t){
     if(rot_t -> value -> int32==0){
@@ -1219,7 +1469,9 @@ static void tick_handler(struct tm * time_now, TimeUnits changed){
   //update_time();
   APP_LOG(APP_LOG_LEVEL_DEBUG, "Tick at %d", time_now -> tm_min);
   s_loop = 0;
-  if (s_countdown == 0){
+  if (s_countdown == 0 && settings.WeatherOn) {
+      s_countdown = settings.UpSlider;
+  } else if (s_countdown == 0){
     //Reset
     s_countdown = 60;
   } else{
@@ -1270,14 +1522,14 @@ static void tick_handler(struct tm * time_now, TimeUnits changed){
  }
 
 static void init(){
-  color_loser = GColorRed;
-  color_winner = GColorJaegerGreen;
+//  color_loser = GColorRed;
+//  color_winner = GColorJaegerGreen;
 
   prv_load_settings();
   // Listen for AppMessages
   //Starting loop at 0
   s_loop = 0;
-  s_countdown = 60;
+//  s_countdown = 60;
   //Clean vars
  // strcpy(tempstring, "");
   //strcpy(condstring, "");
@@ -1309,6 +1561,7 @@ static void init(){
   FontDate2 = fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD);
   FontBattery= fonts_get_system_font(FONT_KEY_GOTHIC_14);
   FontSunset = fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD);
+  FontFore = PBL_IF_ROUND_ELSE(fonts_get_system_font(FONT_KEY_GOTHIC_14),fonts_get_system_font(FONT_KEY_GOTHIC_18));
   FontIcon = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_WEATHERICONS_20));
   FontIcon2 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_DRIPICONS_16));
   FontIcon3 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_DRIPICONS_18));
@@ -1321,13 +1574,15 @@ static void init(){
   main_window_push();
   // Register with Event Services
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
-  if(step_data_is_available()){
+  if (!settings.HealthOff && step_data_is_available())  {
     health_service_events_subscribe(health_handler,NULL);
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "health is on, and steps data is subscribed");
   }
   connection_service_subscribe((ConnectionHandlers){
     .pebble_app_connection_handler = bluetooth_vibe_icon
   });
   bluetooth_vibe_icon(connection_service_peek_pebble_app_connection());
+  accel_tap_service_subscribe(accel_tap_handler);
  // handle_battery(battery_state_service_peek());
 }
 static void deinit(){
@@ -1337,6 +1592,7 @@ static void deinit(){
   battery_state_service_unsubscribe();
   connection_service_unsubscribe();
   health_service_events_unsubscribe();
+  accel_tap_service_unsubscribe();
 }
 int main(){
   init();
