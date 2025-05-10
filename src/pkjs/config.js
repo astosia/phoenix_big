@@ -275,14 +275,18 @@ module.exports = [
                 }
               ]
             },*/
-             {
+            {
               "type": "select",
               "messageKey": "WeatherProv",
-              "defaultValue": "owm",
+              "defaultValue": "ds",
               "label": "Weather Provider",
               "options": [
                 {
-                  "label": "OpenWeatherMap 3.0",
+                  "label": "Open-Meteo",
+                  "value": "ds"
+                },
+                {
+                  "label": "OpenWeatherMap",
                   "value": "owm"
                 }
               ]
@@ -293,7 +297,7 @@ module.exports = [
                "defaultValue": "",
                "label": "Manual Location - Latitude",
                "attributes": {
-               "placeholder": "eg: 51.4962"
+               "placeholder": "eg: 51.4962 (leave blank to use GPS)"
                }
              },
              {
@@ -303,19 +307,19 @@ module.exports = [
                 "label": "Manual Location - Longitude",
                 "description": "Leave both blank to use GPS location for sunrise & sunset times and weather. You can use <a href =https://www.google.com/maps>Google Maps</a> or <a href =https://www.openstreetmap.org/>OpenStreetMap</a> to find latitude & longitude.",
                 "attributes": {
-                  "placeholder": "eg: -0.0989"
+                  "placeholder": "eg: -0.0989 (leave blank to use GPS)"
                 }
               },
-           {
-              "type": "input",
-              "messageKey": "APIKEY_User",
-              "defaultValue": "",
-              "label": "API Key",
-              "description": "If you don't have an api key, weather data will not be displayed. You can register for a free personal OneCall 3.0 API key for <a href =https://home.openweathermap.org/users/sign_up/>OpenWeatherMap here</a>. You will need to subscribe to the API but you can limit calls to the free 1000 calls per day tier to avoid being charged",
-              "attributes": {
-                "placeholder": "Paste your API Key here"
-              }
-            },
+              {
+                 "type": "input",
+                 "messageKey": "APIKEY_User",
+                 "defaultValue": "",
+                 "label": "API Key",
+                 "description": "Weather data uses Open-Meteo by default which does not require an API key.  If you prefer OpenWeatherMap, you can <a href =https://home.openweathermap.org/users/sign_up/>register for a free personal API key here</a>.",
+                 "attributes": {
+                   "placeholder": "Paste OpenWeatherMap API Key, leave blank for Open-Meteo"
+                 }
+               },
             {
               "type": "slider",
               "messageKey": "UpSlider",
@@ -333,7 +337,7 @@ module.exports = [
     },
     {
     "type": "heading",
-    "defaultValue": "version v3.1",
+    "defaultValue": "version v3.4",
     "size":6
     },
     {

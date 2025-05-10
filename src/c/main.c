@@ -79,8 +79,8 @@ static char* weather_conditions[] = {
   "\U0000F07B", // 'unknown': 0,
   "\U0000f00e", //thunderstorm with light rain: 1
   "\U0000f02c", //thunderstorm with light rain: 2
-  "\U0000f01d", //thunderstorm with rain: 3
-  "\U0000f01d", //thunderstorm with rain: 4
+  "\U0000f010", //thunderstorm with rain: 3
+  "\U0000f02d", //thunderstorm with rain: 4
   "\U0000f01e", //thunderstorm with heavy rain: 5
   "\U0000f01e", //thunderstorm with heavy rain: 6
   "\U0000f005", //light thunderstorm: 7
@@ -93,8 +93,8 @@ static char* weather_conditions[] = {
   "\U0000f01e", //ragged thunderstorm: 14
   "\U0000f00e", //thunderstorm with light drizzle: 15
   "\U0000f02c", //thunderstorm with light drizzle: 16
-  "\U0000f01d", //thunderstorm with drizzle: 17
-  "\U0000f01d", //thunderstorm with drizzle: 18
+  "\U0000f00e", //thunderstorm with drizzle: 17
+  "\U0000f02c", //thunderstorm with drizzle: 18
   "\U0000f01d", //thunderstorm with heavy drizzle: 19
   "\U0000f01d", //thunderstorm with heavy drizzle: 20
   "\U0000f00b", //light intensity drizzle: 21
@@ -103,9 +103,9 @@ static char* weather_conditions[] = {
   "\U0000f01c", //drizzle: 24
   "\U0000f01a", //heavy intensity drizzle: 25
   "\U0000f01a", //heavy intensity drizzle: 26
-  "\U0000f009", //light intensity drizzle rain: 27
-  "\U0000f029", //light intensity drizzle rain: 28
-  "\U0000f009", //drizzle rain: 29
+  "\U0000f00b", //light intensity drizzle rain: 27
+  "\U0000f02b", //light intensity drizzle rain: 28
+  "\U0000f00b", //drizzle rain: 29
   "\U0000f029", //drizzle rain: 30
   "\U0000f019", //heavy intensity drizzle rain: 31
   "\U0000f019", //heavy intensity drizzle rain: 32
@@ -115,8 +115,8 @@ static char* weather_conditions[] = {
   "\U0000f01a", //heavy shower rain and drizzle: 36
   "\U0000f00b", //shower drizzle: 37
   "\U0000f02b", //shower drizzle: 38
-  "\U0000f01c", //light rain: 39
-  "\U0000f01c", //light rain: 40
+  "\U0000f01a", //light rain: 39
+  "\U0000f01a", //light rain: 40
   "\U0000f019", //moderate rain: 41
   "\U0000f019", //moderate rain: 42
   "\U0000f019", //heavy intensity rain: 43
@@ -125,28 +125,28 @@ static char* weather_conditions[] = {
   "\U0000f019", //very heavy rain: 46
   "\U0000f018", //extreme rain: 47
   "\U0000f018", //extreme rain: 48
-  "\U0000f015", //freezing rain: 49
-  "\U0000f015", //freezing rain: 50
+  "\U0000f017", //freezing rain: 49
+  "\U0000f017", //freezing rain: 50
   "\U0000f01a", //light intensity shower rain: 51
   "\U0000f01a", //light intensity shower rain: 52
-  "\U0000f008", //shower rain: 53
-  "\U0000f028", //shower rain: 54
+  "\U0000f01a", //shower rain: 53
+  "\U0000f01a", //shower rain: 54
   "\U0000f01a", //heavy intensity shower rain: 55
   "\U0000f01a", //heavy intensity shower rain: 56
-  "\U0000f019", //ragged shower rain: 57
-  "\U0000f019", //ragged shower rain: 58
+  "\U0000f018", //ragged shower rain: 57
+  "\U0000f018", //ragged shower rain: 58
   "\U0000f00a", //light snow: 59
   "\U0000f02a", //light snow: 60
   "\U0000f01b", //Snow: 61
   "\U0000f01b", //Snow: 62
-  "\U0000f01b", //Heavy snow: 63
-  "\U0000f01b", //Heavy snow: 64
-  "\U0000f0b5", //Sleet: 65
-  "\U0000f0b5", //Sleet: 66
+  "\U0000f076", //Heavy snow: 63
+  "\U0000f076", //Heavy snow: 64
+  "\U0000f017", //Sleet: 65
+  "\U0000f017", //Sleet: 66
   "\U0000f0b2", //Light shower sleet: 67
   "\U0000f0b4", //Light shower sleet: 68
-  "\U0000f0b2", //Shower sleet: 69
-  "\U0000f0b4", //Shower sleet: 70
+  "\U0000f0b5", //Shower sleet: 69
+  "\U0000f0b5", //Shower sleet: 70
   "\U0000f006", //Light rain and snow: 71
   "\U0000f026", //Light rain and snow: 72
   "\U0000f017", //Rain and snow: 73
@@ -155,22 +155,22 @@ static char* weather_conditions[] = {
   "\U0000f02a", //Light shower snow: 76
   "\U0000f00a", //Shower snow: 77
   "\U0000f02a", //Shower snow: 78
-  "\U0000f01b", //Heavy shower snow: 79
-  "\U0000f01b", //Heavy shower snow: 80
+  "\U0000f076", //Heavy shower snow: 79
+  "\U0000f076", //Heavy shower snow: 80
   "\U0000f003", //mist: 81
   "\U0000f04a", //mist: 82
   "\U0000f062", //Smoke: 83
   "\U0000f062", //Smoke: 84
   "\U0000f0b6", //Haze: 85
   "\U0000f023", //Haze: 86
-  "\U0000f063", //sand/ dust whirls: 87
-  "\U0000f063", //sand/ dust whirls: 88
+  "\U0000f082", //sand/ dust whirls: 87
+  "\U0000f082", //sand/ dust whirls: 88
   "\U0000f014", //fog: 89
   "\U0000f014", //fog: 90
   "\U0000f082", //sand: 91
   "\U0000f082", //sand: 92
-  "\U0000f063", //dust: 93
-  "\U0000f063", //dust: 94
+  "\U0000f082", //dust: 93
+  "\U0000f082", //dust: 94
   "\U0000f0c8", //volcanic ash: 95
   "\U0000f0c8", //volcanic ash: 96
   "\U0000f011", //squalls: 97
