@@ -970,7 +970,7 @@ function suncalcinfo (pos){
           var forecast_low_tempc = Math.round((json.daily.temperature_2m_min[0]));              //+ '\xB0';
           var highds = String(temptousewu(units,forecast_high_tempf,forecast_high_tempc));
           var lowds = String(temptousewu(units,forecast_low_tempf,forecast_low_tempc));
-          var highlowds = highds + '|'+ lowds+'\xB0';
+          var highlowds = highds + '|'+ lowds;//+'\xB0';
           var forecast_ave_wind_mph = Math.round(json.daily.wind_speed_10m_mean[0] *2.2369362920544);
           var forecast_ave_wind_kts = Math.round(json.daily.wind_speed_10m_mean[0] *1.9438444924574);
           var forecast_ave_wind_kph = Math.round(json.daily.wind_speed_10m_mean[0] *3.6);
