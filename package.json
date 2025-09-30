@@ -68,6 +68,8 @@
             "MoonPhase",
             "WEATHER_SUNRISE_KEY",
             "WeatherOn",
+            "ForecastWeatherOn",
+            "SunsetOn",
             "HealthOff",
             "AddZero12h",
             "RemoveZero24h",
@@ -139,5 +141,5 @@
             "watchface": true
         }
     },
-    "version": "3.5.0"
+    "version": "3.6.0"
 }

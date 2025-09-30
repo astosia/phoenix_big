@@ -236,13 +236,25 @@ module.exports = [
       "items": [
             {
               "type": "heading",
-              "defaultValue": "Weather settings"
+              "defaultValue": "Weather settings",
+              "description": "Shake or tap to change view between Sunset/Sunrise, Current Weather and Forecast Weather",
+            },
+            {
+              "type": "toggle",
+              "messageKey": "SunsetOn",
+              "label": "Turn Sunset/Sunrise & Moonphase On",
+              "defaultValue": true,
             },
             {
               "type": "toggle",
               "messageKey": "WeatherOn",
-              "label": "Turn Weather On",
-              "description": "On = shake to see current weather conditions.  Off = weather not shown",
+              "label": "Turn Current Weather On",
+              "defaultValue": false,
+            },
+            {
+              "type": "toggle",
+              "messageKey": "ForecastWeatherOn",
+              "label": "Turn Forecast Weather On",
               "defaultValue": false,
             },
             {
@@ -337,7 +349,7 @@ module.exports = [
     },
     {
     "type": "heading",
-    "defaultValue": "version v3.4",
+    "defaultValue": "version v3.6",
     "size":6
     },
     {

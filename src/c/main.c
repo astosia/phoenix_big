@@ -241,6 +241,8 @@ static void prv_default_settings(){
   settings.AddZero12h = false;
   settings.RemoveZero24h = false;
   settings.WeatherOn = false;
+  settings.ForecastWeatherOn = false;
+  settings.SunsetOn = true;
 }
 int HourSunrise=700;
 int HourSunset=2200;
@@ -280,17 +282,57 @@ void request_watchjs(){
 
 static void accel_tap_handler(AccelAxisType axis, int32_t direction) {
   // A tap event occured
+  int options_count = settings.WeatherOn + settings.ForecastWeatherOn + settings.SunsetOn;
 
-  //showWeather = showweather +1;
-  if (showWeather == 2){
-    //Reset
-    showWeather = 0;
-  } else{
-    showWeather = showWeather + 1;
+  if(options_count < 2 ){
+      return;
   }
 
-  //  showWeather = !showWeather;
-  layer_mark_dirty (s_canvas);
+  else if(settings.WeatherOn && settings.ForecastWeatherOn && settings.SunsetOn){
+      //switch between all three options
+        if (showWeather == 2 || showWeather > 2){
+          //Reset
+          showWeather = 0;
+        } else{
+          showWeather = showWeather + 1;
+        }
+        layer_mark_dirty (s_canvas);
+        }
+
+  else if(settings.WeatherOn && settings.SunsetOn){
+      //switch between sunset (0) and current weather (1)
+        if (showWeather == 1 || showWeather > 1){
+          //Reset
+          showWeather = 0;
+        } else{
+          showWeather = showWeather + 1;
+        }
+        layer_mark_dirty (s_canvas);
+        }
+
+  else if(settings.ForecastWeatherOn && settings.SunsetOn){
+      //switch between sunset (0) and forecast weather (2)
+        if (showWeather == 2 || showWeather > 2){
+          //Reset
+          showWeather = 0;
+        } else{
+          showWeather = showWeather + 2;
+        }
+        layer_mark_dirty (s_canvas);
+        }
+
+  else if(settings.WeatherOn && settings.ForecastWeatherOn){
+      //switch between current weather (1) and forecast weather (2)
+        if (showWeather == 2 || showWeather > 2){
+          //Reset
+          showWeather = 1;
+        } else{
+          showWeather = showWeather + 1;
+        }
+        layer_mark_dirty (s_canvas);
+        }
+        //  showWeather = !showWeather;
+
   APP_LOG(APP_LOG_LEVEL_DEBUG, "showweather is %d", showWeather);
 
 }
@@ -395,14 +437,16 @@ static void health_handler(HealthEventType event, void *context) {
   if(event == HealthEventSignificantUpdate) {
     get_step_goal();
   }
-
-  if(event != HealthEventSleepUpdate) {
-    get_step_count();
-    get_step_average();
-    display_step_count();
-
-  }
+  //
+  // if(event != HealthEventSleepUpdate) {
+  //   get_step_count();
+  //   get_step_average();
+  //   display_step_count();
+  //
+  // }
 }
+
+
 
 void layer_update_proc_background (Layer * back_layer, GContext * ctx){
   // Create Rects
@@ -780,13 +824,15 @@ snprintf(TempToDraw, sizeof(TempToDraw), "%s",settings.tempstring);
 snprintf(ForeToDraw, sizeof(ForeToDraw), "%s",settings.iconforestring);
 snprintf(HiLowToDraw, sizeof(HiLowToDraw), "%s",settings.temphistring);
 
-if (!settings.WeatherOn) {
-  graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
-  graphics_draw_text(ctx2, SunsetIconToDraw, FontWeatherIcons, SunsetIconRect, GTextOverflowModeFill,PBL_IF_ROUND_ELSE(GTextAlignmentLeft,GTextAlignmentCenter), NULL);
-  graphics_context_set_text_color(ctx2,ColorSelect(settings.Text4Color,settings.Text4ColorN));
-  graphics_draw_text(ctx2, MoonToDraw, FontIcon, MoonRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
-  graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
-  graphics_draw_text(ctx2, SunsetToDraw, FontSunset, SunsetRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+if (!settings.WeatherOn && !settings.ForecastWeatherOn && !settings.SunsetOn) {
+  //draw nothing as no options selected
+
+  // graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
+  // graphics_draw_text(ctx2, SunsetIconToDraw, FontWeatherIcons, SunsetIconRect, GTextOverflowModeFill,PBL_IF_ROUND_ELSE(GTextAlignmentLeft,GTextAlignmentCenter), NULL);
+  // graphics_context_set_text_color(ctx2,ColorSelect(settings.Text4Color,settings.Text4ColorN));
+  // graphics_draw_text(ctx2, MoonToDraw, FontIcon, MoonRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
+  // graphics_context_set_text_color(ctx2, ColorSelect(settings.Text2Color, settings.Text2ColorN));
+  // graphics_draw_text(ctx2, SunsetToDraw, FontSunset, SunsetRect, GTextOverflowModeFill, PBL_IF_ROUND_ELSE(GTextAlignmentCenter,GTextAlignmentCenter), NULL);
 } else {
 
 if (showWeather==0) //show moonphase and sunset/sunrise
@@ -901,6 +947,7 @@ static void prv_save_settings(){
 // Handle the response from AppMessage
 static void prv_inbox_received_handler(DictionaryIterator * iter, void * context){
   s_loop = s_loop + 1;
+  bool weather_options_changed = false;
   if (s_loop == 1){
     //Clean vars
   //  strcpy(tempstring, "");
@@ -1208,16 +1255,74 @@ if (frequpdate){
   if (weatheron_t){
     if (weatheron_t -> value -> int32 == 0){
       settings.WeatherOn = false;
-      APP_LOG(APP_LOG_LEVEL_DEBUG, "Weather off");
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Current Weather off");
       //get_step_count();
       //display_step_count();
     } else {
       settings.WeatherOn = true;
-      APP_LOG(APP_LOG_LEVEL_DEBUG, "Weather on");
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Current Weather on");
     //  snprintf(s_current_steps_buffer, sizeof(s_current_steps_buffer),
       // "%s", "");
     }
+    weather_options_changed = true;
   }
+
+  Tuple * forecast_weatheron_t = dict_find(iter, MESSAGE_KEY_ForecastWeatherOn);
+  if (forecast_weatheron_t){
+    if (forecast_weatheron_t -> value -> int32 == 0){
+      settings.ForecastWeatherOn = false;
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Forecast Weather off");
+      //get_step_count();
+      //display_step_count();
+    } else {
+      settings.ForecastWeatherOn = true;
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Forecast Weather on");
+    //  snprintf(s_current_steps_buffer, sizeof(s_current_steps_buffer),
+      // "%s", "");
+    }
+    weather_options_changed = true;
+  }
+
+  Tuple * sunseton_t = dict_find(iter, MESSAGE_KEY_SunsetOn);
+  if (sunseton_t){
+    if (sunseton_t -> value -> int32 == 0){
+      settings.SunsetOn = false;
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Sunset/Sunrise off");
+      //get_step_count();
+      //display_step_count();
+    } else {
+      settings.SunsetOn = true;
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Sunset/Sunrise on");
+    //  snprintf(s_current_steps_buffer, sizeof(s_current_steps_buffer),
+      // "%s", "");
+    }
+    weather_options_changed = true;
+  }
+
+  int options_count = settings.WeatherOn + settings.ForecastWeatherOn + settings.SunsetOn;
+
+  if (options_count == 1) {
+      if (settings.WeatherOn) {
+          showWeather = 1;
+      } else if (settings.ForecastWeatherOn) {
+          showWeather = 2;
+      } else if (settings.SunsetOn) {
+          showWeather = 0;
+      }
+      weather_options_changed = true;
+  }
+
+  if (options_count == 2){
+    //redraw on save to show a weather option instead of sunset
+    if (settings.WeatherOn) {
+        showWeather = 1;
+    } else if (settings.ForecastWeatherOn) {
+        showWeather = 2;
+    }
+    weather_options_changed = true;
+  }
+
+
 
   Tuple * addzero12_t = dict_find(iter, MESSAGE_KEY_AddZero12h);
   if (addzero12_t){
@@ -1270,7 +1375,9 @@ if (frequpdate){
   //Update colors
   //layer_mark_dirty(s_canvas_to_be_rotated);
   layer_mark_dirty(s_canvas);
-  layer_mark_dirty(s_canvas_sunset_icon);
+  if(weather_options_changed){
+      layer_mark_dirty (s_canvas_sunset_icon);
+    }
   layer_mark_dirty(s_canvas_bt_icon);
   layer_mark_dirty(s_canvas_qt_icon);
   //  layer_mark_dirty(s_canvas_step_icon);
@@ -1468,8 +1575,23 @@ static void tick_handler(struct tm * time_now, TimeUnits changed){
   main_window_update(time_now -> tm_hour, time_now -> tm_min, time_now -> tm_wday, time_now -> tm_mday);
   //update_time();
   APP_LOG(APP_LOG_LEVEL_DEBUG, "Tick at %d", time_now -> tm_min);
+
+  if (s_minutes % 10 == 0) {
+    APP_LOG(APP_LOG_LEVEL_DEBUG, "10-minute health update trigger.");
+
+    // 1. Fetch the latest count from the Health Service
+    get_step_count();
+    // 2. Refresh the display layer
+    display_step_count();
+
+    // Optional: Only run this on the hour (s_minutes == 0) for maximum efficiency:
+    if (s_minutes == 0) {
+      get_step_average();
+    }
+  }
+
   s_loop = 0;
-  if (s_countdown == 0 && settings.WeatherOn) {
+  if (s_countdown == 0 && (settings.WeatherOn || settings.ForecastWeatherOn)) {
       s_countdown = settings.UpSlider;
   } else if (s_countdown == 0){
     //Reset

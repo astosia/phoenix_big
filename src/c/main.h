@@ -49,6 +49,8 @@ typedef struct ClaySettings {
   bool AddZero12h;
   bool RemoveZero24h;
   bool WeatherOn;
+  bool ForecastWeatherOn;
+  bool SunsetOn;
   char FontChoice[12];
   char moonstring[12];
   char sunsetstring[10];
