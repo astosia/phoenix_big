@@ -92,31 +92,31 @@
         "resources": {
             "media": [
                 {
-                    "file": "fonts/Dripicons",
+                    "file": "fonts/dripicons-v2.ttf",
                     "name": "FONT_DRIPICONS_18",
                     "targetPlatforms": null,
                     "type": "font"
                 },
                 {
-                    "file": "fonts/Dripicons",
+                    "file": "fonts/dripicons-v2.ttf",
                     "name": "FONT_DRIPICONS_16",
                     "targetPlatforms": null,
                     "type": "font"
                 },
                 {
-                    "file": "fonts/Weathericons",
+                    "file": "fonts/weathericons-regular-webfont.ttf",
                     "name": "FONT_WEATHERICONS_20",
                     "targetPlatforms": null,
                     "type": "font"
                 },
                 {
-                    "file": "fonts/Weathericons",
+                    "file": "fonts/weathericons-regular-webfont.ttf",
                     "name": "FONT_WEATHERICONS_16",
                     "targetPlatforms": null,
                     "type": "font"
                 },
                 {
-                    "file": "fonts/Weathericons",
+                    "file": "fonts/weathericons-regular-webfont.ttf",
                     "name": "FONT_WEATHERICONS_12",
                     "targetPlatforms": null,
                     "type": "font"
@@ -134,12 +134,13 @@
             "aplite",
             "basalt",
             "chalk",
-            "diorite"
+            "diorite",
+            "emery"
         ],
         "uuid": "35f12dab-4433-42ab-89c4-dda6d10ef636",
         "watchapp": {
             "watchface": true
         }
     },
-    "version": "3.6.0"
+    "version": "4.0.0"
 }
