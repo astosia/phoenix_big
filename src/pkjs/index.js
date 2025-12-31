@@ -1,14 +1,11 @@
-// index.js - Phone side JavaScript for Pebble Watchface
-// This code uses only ES5 syntax for compatibility with Pebble's PhoneKit JS.
-
-// Pebble SDK functions are assumed to be available:
-// Pebble.addEventListener, Pebble.sendAppMessage, new XMLHttpRequest(), navigator.geolocation
 var Clay = require('pebble-clay');
-var clayConfig = require('./config');
+var clayConfig = require('./config.js');
 var clay = new Clay(clayConfig);
 
 // --- SunCalc Library Functions (Essential for calculations) ---
-var PI   = Math.PI, sin  = Math.sin, cos  = Math.cos, tan  = Math.tan,
+
+// sun calculations are based on http://aa.quae.nl/en/reken/zonpositie.html formulas
+var PI = Math.PI, sin = Math.sin, cos  = Math.cos, tan  = Math.tan,
     asin = Math.asin, atan = Math.atan2, acos = Math.acos, rad  = PI / 180;
 var dayMs = 1000 * 60 * 60 * 24, J1970 = 2440588, J2000 = 2451545;
 
@@ -17,9 +14,6 @@ function toDays(date) { return toJulian(date) - J2000; }
 var e = rad * 23.4397; // obliquity of the Earth
 function getRightAscension(l, b) { return atan(sin(l) * cos(e) - tan(b) * sin(e), cos(l)); }
 function getDeclination(l, b) { return asin(sin(b) * cos(e) + cos(b) * sin(e) * sin(l)); }
-function getAzimuth(H, phi, dec) { return atan(sin(H), cos(H) * sin(phi) - tan(dec) * cos(phi)); }
-function getAltitude(H, phi, dec) { return asin(sin(phi) * sin(dec) + cos(phi) * cos(dec) * cos(H)); }
-function getSiderealTime(d, lw) { return rad * (280.16 + 360.9856235 * d) - lw; }
 function getSolarMeanAnomaly(d) { return rad * (357.5291 + 0.98560028 * d); }
 function getEquationOfCenter(M) { return rad * (1.9148 * sin(M) + 0.02 * sin(2 * M) + 0.0003 * sin(3 * M)); }
 function getEclipticLongitude(M, C) { var P = rad * 102.9372; return M + C + P + PI; }
@@ -65,34 +59,7 @@ var getTimes = function (date, lat, lng) {
 };
 // --- End SunCalc Library Functions ---
 
-// --- Data Mappings (matching API data to watchface icons/direction) ---
-function owm_WindToId(wind_deg) {
-    // Ensure the input is treated as a number
-    var deg = parseInt(wind_deg, 10);
-
-    // Normalize degrees to be between 0 and 360
-    deg = deg % 360;
-
-    if (deg >= 338 || deg <= 22) {
-        return 0; // N
-    } else if (deg >= 23 && deg <= 67) {
-        return 2; // NE
-    } else if (deg >= 68 && deg <= 112) {
-        return 4; // E
-    } else if (deg >= 113 && deg <= 157) {
-        return 6; // SE
-    } else if (deg >= 158 && deg <= 202) {
-        return 8; // S
-    } else if (deg >= 203 && deg <= 247) {
-        return 10; // SW
-    } else if (deg >= 248 && deg <= 292) {
-        return 12; // W
-    } else if (deg >= 293 && deg <= 337) {
-        return 14; // NW
-    } else {
-        return 0; // Default or fallback to N
-    }
-}
+// --- Data Mappings (matching API data to watchface weather icons) ---
 
 var owm_iconToId = {
   '20011d':1, //thunderstorm with light rain
@@ -215,6 +182,7 @@ var owm_iconToId = {
   '957':118, //strong-wind
 };
 
+///changed from dark sky to open-meteo
 var ds_iconToId = {
   //daytime
     '0,1': 101, //0 = clear sky ok
@@ -275,7 +243,9 @@ var ds_iconToId = {
     '96,0': 20, //96 = Thunderstorm with slight hail
     '99,0': 20, //99 = Thunderstorn with heavy hail
 };
-// --- Helper Functions ---
+
+
+//--- Helper Functions ---
 var xhrRequest = function (url, type, callback) {
   var xhr = new XMLHttpRequest();
   xhr.onload = function () { callback(this.responseText); };
@@ -284,39 +254,15 @@ var xhrRequest = function (url, type, callback) {
 };
 
 function unitsToString(unit) { return unit ? 'F' : 'C'; }
-function windunitsToString(windunit){
-  if (windunit=='kts') return 'kt';
-  if (windunit=='kph') return 'kph';
-  if (windunit=='ms') return 'ms';
-  return 'mph';
-}
-function translate(langloc){
-  if (langloc==='es-ES') return 'es';
-  if (langloc==='fr_FR') return 'fr';
-  if (langloc==='de_DE') return 'de';
-  if (langloc==='it_IT') return 'it';
-  if (langloc==='pt_PT') return 'pt';
-  return 'en';
-}
+
 function temptousewu(unit, tempf, tempc){ return unit=="F" ? tempf : tempc; }
-function windtousewu(windunit, windkph, windmph, windms, windkts){
-  if (windunit=="kph") return windkph;
-  if (windunit=="mph") return windmph;
-  if (windunit=="ms") return windms;
-  return windkts;
-}
-function replaceDiacritics(s){
-    var diacritics = [/[\300-\306]/g, /[\340-\346]/g, /[\310-\313]/g, /[\350-\353]/g, /[\314-\317]/g, /[\354-\357]/g, /[\322-\330]/g, /[\362-\370]/g, /[\331-\334]/g, /[\371-\374]/g, /[\321]/g, /[\361]/g, /[\307]/g, /[\347]/g];
-    var chars = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];
-    for (var i = 0; i < diacritics.length; i++) s = s.replace(diacritics[i], chars[i]);
-    return s;
-}
+
 function apikeytouse(APIUser, APIPMKEY){ return APIUser === "" ? APIPMKEY : APIUser; }
 
-// Helper to format time strings
+// Format time strings
 function formatTime(date) {
-  var hr = ('0' + date.getHours()).substr(-2);
-  var min = ('0' + date.getMinutes()).substr(-2);
+  var hr = ('0' + date.getHours()).slice(-2);
+  var min = ('0' + date.getMinutes()).slice(-2);
   var hr12 = parseInt(date.getHours());
   var hr12str = hr12 > 12 ? String(hr12 - 12) : String(hr12);
   return {
@@ -331,18 +277,28 @@ function formatTime(date) {
 /**
  * Gets location and performs Sun/Moon calculations.
  */
+
 function getAstroData(pos) {
     var settings = JSON.parse(localStorage.getItem('clay-settings')) || {};
     var lat, lon;
+    var loc_source;
     if (settings.Lat && settings.Long) {
         lat = settings.Lat;
         lon = settings.Long;
+        loc_source = "manual";
     } else if (pos) {
         lat = pos.coords.latitude;
         lon = pos.coords.longitude;
+        localStorage.setItem('lat', lat);
+		localStorage.setItem('lon', lon);
+        loc_source = "GPS";
     } else {
-        return; // Cannot proceed without location
+        lat = localStorage.getItem('lat'); 
+        lon = localStorage.getItem('lon');
+        loc_source = "Last known";
     }
+
+    if (!lat || !lon) return null;
 
     var d = new Date();
     var sunTimes = getTimes(d, lat, lon);
@@ -360,9 +316,19 @@ function getAstroData(pos) {
       "WEATHER_SUNRISE_KEY_12H": sunrise.str12h,
       "MoonPhase": moonphase,
     };
-    Pebble.sendAppMessage(dictionary, function(e) {}, function(e) { console.log("Error sending Suncalc stuff to Pebble!"); });
-    
-    // Use ES5 compatible object return
+
+    console.log(loc_source);
+    console.log(d);
+    console.log(lat);
+    console.log(lon);
+    console.log(sunrise.str24h);
+    console.log(sunset.str24h);
+    console.log(sunrise.int);
+    console.log(sunset.int);
+
+    // Pebble.sendAppMessage(dictionary,function(e) {console.log("Suncalc stuff sent to Pebble successfully!"); console.log(loc_source);},
+    //                                  function(e) {console.log("Error sending suncalc stuff to Pebble!");}
+    //                                 );
     return { lat: lat, lon: lon, dictionary: dictionary }; 
 }
 
@@ -370,38 +336,44 @@ function getAstroData(pos) {
  * Fetches and processes weather data for a given provider.
  */
 function fetchWeatherData(pos) {
+    var settings = JSON.parse(localStorage.getItem('clay-settings')) || {};
+    
     var astroData = getAstroData(pos);
     if (!astroData) return;
 
-    // Use ES5 compatible variable assignment
     var lat = astroData.lat;
     var lon = astroData.lon;
-    var settings = JSON.parse(localStorage.getItem('clay-settings')) || {};
+    
     var weatherprov = settings.WeatherProv;
+    var WeatherOn = settings.WeatherOn;
+    var ForecastWeatherOn = settings.ForecastWeatherOn;
+    var SunsetOn = settings.SunsetOn;
 
-    if (!weatherprov || weatherprov === 'none') return;
+    if (!WeatherOn && !ForecastWeatherOn && !SunsetOn) {
+        console.log("Weather and suncalc disabled. Sending no data.");
+        return; // Exit here
+    }
+
+    if (!WeatherOn && !ForecastWeatherOn && SunsetOn) {
+        console.log("Weather disabled. Sending Suncalc data only.");
+        Pebble.sendAppMessage(astroData.dictionary,
+            function() { console.log("Suncalc data sent successfully!"); },
+            function() { console.log("Error sending Suncalc data!"); }
+        );
+        return; // Exit here
+    }
 
     var units = unitsToString(settings.WeatherUnit);
-    var windunits = windunitsToString(settings.WindUnit);
-    var langtouse = translate(navigator.language);
     var url, parseFunc;
 
     if (weatherprov === 'ds') { // Open-Meteo
         url = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon +
-            "&models=best_match&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,wind_direction_10m_dominant,wind_speed_10m_mean,precipitation_sum,precipitation_hours,precipitation_probability_mean&current=temperature_2m,precipitation,weather_code,wind_speed_10m,wind_direction_10m,is_day&forecast_days=1&timeformat=unixtime&wind_speed_unit=ms";
+            "&models=best_match&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,precipitation_sum,precipitation_hours,precipitation_probability_mean&current=temperature_2m,precipitation,weather_code,is_day&forecast_days=1&timeformat=unixtime";
         parseFunc = function(json) {
             var tempf = Math.round((json.current.temperature_2m * 9/5) + 32);
             var tempc = Math.round(json.current.temperature_2m);
             var temp = String(temptousewu(units, tempf, tempc)) + '\xB0';
-            var condds = json.current.weather_code;
             var icon_now = ds_iconToId[String(json.current.weather_code) + ',' + String(json.current.is_day)];
-            var windms = Math.round(json.current.wind_speed_10m);
-            var windkph = Math.round(json.current.wind_speed_10m * 3.6);
-            var windmph = Math.round(json.current.wind_speed_10m * 2.2369362920544);
-            var windkts = Math.round(json.current.wind_speed_10m * 1.9438444924574);
-            var wind = String(windtousewu(windunits, windkph, windmph, windms, windkts)) + windunits;
-            var winddeg = String(json.current.wind_direction_10m);
-            var winddir_num = owm_WindToId(winddeg);
             var forecast_icon = ds_iconToId[String(json.daily.weather_code[0]) + ',1'];
             var forecast_high_tempf = Math.round((json.daily.temperature_2m_max[0] * 9/5) + 32);
             var forecast_low_tempf = Math.round((json.daily.temperature_2m_min[0] * 9/5) + 32);
@@ -410,45 +382,38 @@ function fetchWeatherData(pos) {
             var high = String(temptousewu(units, forecast_high_tempf, forecast_high_tempc));
             var low = String(temptousewu(units, forecast_low_tempf, forecast_low_tempc));
             var highlow = high + '|' + low;
-            var forecast_ave_wind_ms = Math.round(json.daily.wind_speed_10m_mean[0]);
-            var forecast_ave_wind_kph = Math.round(json.daily.wind_speed_10m_mean[0] * 3.6);
-            var forecast_ave_wind_mph = Math.round(json.daily.wind_speed_10m_mean[0] * 2.2369362920544);
-            var forecast_ave_wind_kts = Math.round(json.daily.wind_speed_10m_mean[0] * 1.9438444924574);
-            var forecast_wind = String(windtousewu(windunits, forecast_ave_wind_kph, forecast_ave_wind_mph, forecast_ave_wind_ms, forecast_ave_wind_kts)) + windunits;
-            var forecast_wind_deg = String(json.daily.wind_direction_10m_dominant[0]);
-            var forecast_wind_dir_num = owm_WindToId(forecast_wind_deg);
             var aux_time = new Date(json.current.time * 1000);
             var weather_time = aux_time.getHours() * 100 + aux_time.getMinutes();
 
+            console.log(weatherprov);
+            console.log(weather_time);
+            console.log(temp);
+            console.log(icon_now);
+            console.log(highlow);
+            console.log(forecast_icon);         
+
             return {
-                "WeatherTemp": temp, "WeatherCond": condds, "IconNow": icon_now,
-                "WeatherWind": wind, "WindIconNow": winddir_num, "Weathertime": weather_time,
-                "IconFore": forecast_icon, "TempFore": highlow, "TempForeLow": low,
-                "WindFore": forecast_wind, "WindIconAve": forecast_wind_dir_num
+                "WeatherTemp": temp, 
+                "IconNow": icon_now,
+                "Weathertime": weather_time,
+                "IconFore": forecast_icon, 
+                "TempFore": highlow
             };
         };
+
     } else if (weatherprov === 'owm') { // OpenWeatherMap
         var keyAPIowm = localStorage.getItem('owmKey');
         var endapikey = apikeytouse(settings.APIKEY_User, keyAPIowm);
         url = "http://api.openweathermap.org/data/3.0/onecall?lat=" + lat + "&lon=" + lon +
-            '&appid=' + endapikey + "&exclude=minutely,hourly,alerts" + '&lang=' + langtouse;
+            '&appid=' + endapikey + "&exclude=minutely,hourly,alerts";// + '&lang=' + langtouse;
         parseFunc = function(json) {
             var tempf = Math.round((json.current.temp * 1.8) - 459.67);
             var tempc = Math.round(json.current.temp - 273.15);
             var temp = String(temptousewu(units, tempf, tempc)) + '\xB0';
-            var cond = json.current.weather[0].description;
-            var condclean = replaceDiacritics(cond);
             var id_owm = parseInt(json.current.weather[0].id);
             var icon_code = json.current.weather[0].icon;
             // OWM codes greater than 899 are extreme (9XX). Others use id+icon code.
             var icon_now = id_owm > 899 ? owm_iconToId[String(id_owm)] : owm_iconToId[String(id_owm) + icon_code];
-            var windms = Math.round(json.current.wind_speed);
-            var windkph = Math.round(json.current.wind_speed * 3.6);
-            var windmph = Math.round(json.current.wind_speed * 2.2369362920544);
-            var windkts = Math.round(json.current.wind_speed * 1.9438444924574);
-            var wind = String(windtousewu(windunits, windkph, windmph, windms, windkts)) + windunits;
-            var winddeg = String(json.current.wind_deg);
-            var winddir_num = owm_WindToId(winddeg);
             var forecast_id_owm = parseInt(json.daily[0].weather[0].id);
             var forecast_icon_code = json.daily[0].weather[0].icon;
             var forecast_icon = forecast_id_owm > 899 ? owm_iconToId[String(forecast_id_owm)] : owm_iconToId[String(forecast_id_owm) + forecast_icon_code];
@@ -459,23 +424,27 @@ function fetchWeatherData(pos) {
             var high = String(temptousewu(units, forecast_high_tempf, forecast_high_tempc));
             var low = String(temptousewu(units, forecast_low_tempf, forecast_low_tempc));
             var highlow = high + '|' + low;
-            var forecast_ave_wind_ms = Math.round(json.daily[0].wind_speed);
-            var forecast_ave_wind_kph = Math.round(json.daily[0].wind_speed * 3.6);
-            var forecast_ave_wind_mph = Math.round(json.daily[0].wind_speed * 2.2369362920544);
-            var forecast_ave_wind_kts = Math.round(json.daily[0].wind_speed * 1.9438444924574);
-            var forecast_wind = String(windtousewu(windunits, forecast_ave_wind_kph, forecast_ave_wind_mph, forecast_ave_wind_ms, forecast_ave_wind_kts)) + windunits;
-            var forecast_wind_deg = String(json.daily[0].wind_deg);
-            var forecast_wind_dir_num = owm_WindToId(forecast_wind_deg);
             var aux_time = new Date(json.current.dt * 1000);
             var weather_time = aux_time.getHours() * 100 + aux_time.getMinutes();
 
+            console.log(weatherprov);
+            console.log(weather_time);
+            console.log(temp);
+            console.log(icon_now);
+            console.log(highlow);
+            console.log(forecast_icon);          
+            
+
             return {
-                "WeatherTemp": temp, "WeatherCond": condclean, "IconNow": icon_now,
-                "WeatherWind": wind, "WindIconNow": winddir_num, "Weathertime": weather_time,
-                "IconFore": forecast_icon, "TempFore": highlow, "TempForeLow": low,
-                "WindFore": forecast_wind, "WindIconAve": forecast_wind_dir_num
+                "WeatherTemp": temp, 
+                "IconNow": icon_now,
+                "Weathertime": weather_time,
+                "IconFore": forecast_icon, 
+                "TempFore": highlow
             };
+
         };
+
     } else {
         return;
     }
@@ -484,8 +453,6 @@ function fetchWeatherData(pos) {
         try {
             var json = JSON.parse(responseText);
             var weatherDict = parseFunc(json);
-            
-            // ES5 Compatible dictionary merging (replaces Object.assign)
             var finalDictionary = {};
             var dictsToMerge = [astroData.dictionary, weatherDict];
             var i, key, source;
@@ -500,20 +467,21 @@ function fetchWeatherData(pos) {
             }
             
             Pebble.sendAppMessage(finalDictionary,
-                function(e) { console.log("Weather sent successfully!"); },
-                function(e) { console.log("Error sending weather info!"); }
+                function() { console.log("Weather sent successfully!"); },
+                function() { console.log("Error sending weather info!"); }
             );
         } catch (e) {
             console.log("Error parsing weather response: " + e);
         }
     });
+
 }
 
 function locationError(err) {
   console.log("Error requesting geolocation!");
   Pebble.sendAppMessage({ "NameLocation": "" },
-                        function(e) {},
-                        function(e) { console.log("Null key error sending to Pebble!"); }
+                        function() {},
+                        function() { console.log("Null key error sending to Pebble!"); }
                        );
 }
 
@@ -523,12 +491,12 @@ function getinfo() {
     var manualLong = settings.Long;
 
     if (manualLat && manualLong) {
-      getAstroData(null); // Use manual location for Sun/Moon
+      //getAstroData(null); // Use manual location for Sun/Moon
       fetchWeatherData(null); // Use manual location for weather
     } else {
         navigator.geolocation.getCurrentPosition(
             function(pos) {
-                getAstroData(pos);
+               // getAstroData(pos);
                 fetchWeatherData(pos);
             },
             locationError,
@@ -538,15 +506,17 @@ function getinfo() {
 }
 
 // Listeners
-Pebble.addEventListener('ready', function(e) {
+Pebble.addEventListener('ready', function() {
     console.log("Starting Watchface!");
     getinfo();
 });
-Pebble.addEventListener('appmessage', function(e) {
+
+Pebble.addEventListener('appmessage', function() {
     console.log("Requesting geoposition!");
     getinfo();
 });
-Pebble.addEventListener('webviewclosed', function(e) {
+Pebble.addEventListener('webviewclosed', function() {
     console.log("Updating config!");
     getinfo();
 });
+

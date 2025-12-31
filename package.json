@@ -2,7 +2,7 @@
     "author": "astosia",
     "dependencies": {
         "pebble-clay": "^1.0.4",
-        "pebble-fctx": "^1.5.0",
+        "pebble-fctx": "^1.6.3",
         "pebble-fctx-compiler": "^1.2.2"
     },
     "keywords": [],
@@ -93,32 +93,68 @@
             "media": [
                 {
                     "file": "fonts/dripicons-v2.ttf",
-                    "name": "FONT_DRIPICONS_18",
-                    "targetPlatforms": null,
+                    "name": "FONT_DRIPICONS_16",
+                    "characterRegex": "[z]",
+                    "targetPlatforms": [
+                        "aplite",
+                        "basalt",
+                        "chalk",
+                        "diorite"
+                    ],
                     "type": "font"
                 },
                 {
                     "file": "fonts/dripicons-v2.ttf",
-                    "name": "FONT_DRIPICONS_16",
-                    "targetPlatforms": null,
-                    "type": "font"
-                },
-                {
-                    "file": "fonts/weathericons-regular-webfont.ttf",
-                    "name": "FONT_WEATHERICONS_20",
-                    "targetPlatforms": null,
-                    "type": "font"
-                },
-                {
-                    "file": "fonts/weathericons-regular-webfont.ttf",
-                    "name": "FONT_WEATHERICONS_16",
-                    "targetPlatforms": null,
+                    "name": "FONT_DRIPICONS_18",
+                    "characterRegex": "[z]",
+                    "targetPlatforms": [
+                        "emery"
+                    ],
                     "type": "font"
                 },
                 {
                     "file": "fonts/weathericons-regular-webfont.ttf",
                     "name": "FONT_WEATHERICONS_12",
-                    "targetPlatforms": null,
+                    "targetPlatforms": [
+                        "chalk"
+                    ],
+                    "type": "font"
+                },
+                {
+                    "file": "fonts/weathericons-regular-webfont.ttf",
+                    "name": "FONT_WEATHERICONS_16",
+                    "targetPlatforms": [
+                        "aplite",
+                        "basalt",
+                        "diorite"
+                    ],
+                    "type": "font"
+                },
+                {
+                    "file": "fonts/weathericons-regular-webfont.ttf",
+                    "name": "FONT_WEATHERICONS_20",
+                    "targetPlatforms": [
+                        "aplite",
+                        "basalt",
+                        "chalk",
+                        "diorite"
+                    ],
+                    "type": "font"
+                },
+                {
+                    "file": "fonts/weathericons-regular-webfont.ttf",
+                    "name": "FONT_WEATHERICONS_22",
+                    "targetPlatforms": [
+                        "emery"
+                    ],
+                    "type": "font"
+                },
+                {
+                    "file": "fonts/weathericons-regular-webfont.ttf",
+                    "name": "FONT_WEATHERICONS_28",
+                    "targetPlatforms": [
+                        "emery"
+                    ],
                     "type": "font"
                 },
                 {
@@ -142,5 +178,5 @@
             "watchface": true
         }
     },
-    "version": "4.0.0"
+    "version": "4.2.0"
 }
